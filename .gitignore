@@ -25,3 +25,5 @@ Thumbs.db
 # vim swap files
 #####################
 *.*sw*
+
+.vscode
