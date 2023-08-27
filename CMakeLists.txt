@@ -13,6 +13,8 @@ option(PHYSICSENGINE_COMPILE_TESTS "Build Tests" OFF)
 
 # Header files
 set (PHYSICSENGINE_HEADERS
+    "include/physics/Configuration.h"
+    "include/physics/mathematics/MathCommon.h"
     "include/physics/mathematics/Vector2.h"
     "include/physics/mathematics/Vector3.h"
 )
@@ -25,6 +27,9 @@ set (PHYSICSENGINE_SOURCES
 
 # Create library
 add_library(physicsengine ${PHYSICSENGINE_HEADERS} ${PHYSICSENGINE_SOURCES})
+
+# Create ALIAS
+add_library(PhysicsEngine::physicsengine ALIAS physicsengine)
 
 # C++11 compiler features
 target_compile_features(physicsengine PUBLIC cxx_std_11)

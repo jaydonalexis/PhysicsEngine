@@ -26,4 +26,10 @@ Thumbs.db
 #####################
 *.*sw*
 
+# vscode settings
+#####################
 *.vscode
+
+# build output
+#####################
+build
