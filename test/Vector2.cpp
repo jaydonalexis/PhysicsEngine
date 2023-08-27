@@ -8,3 +8,10 @@
 #include <cstddef>
 
 using namespace physics;
+
+TEST(Vector2, Constructor)
+{
+    Vector2 vector{5, 3};
+    EXPECT_EQ(vector.x, 5.0);
+    EXPECT_EQ(vector.y, 3.0);
+}

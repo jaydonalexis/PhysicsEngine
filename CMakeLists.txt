@@ -8,22 +8,16 @@ project(PhysicsEngine LANGUAGES CXX)
 include(GNUInstallDirs)
 
 # Options
-option(PHYSICSENGINE_COMPILE_TESTS "Build Tests" OFF)
+option(PHYSICSENGINE_COMPILE_TESTS "Build Tests" ON)
 # option(PHYSICSENGINE_COMPILE_DEMO "Build Demos" OFF)
 
-# Header files
-set (PHYSICSENGINE_HEADERS
-    "include/physics/Configuration.h"
-    "include/physics/mathematics/MathCommon.h"
-    "include/physics/mathematics/Vector2.h"
-    "include/physics/mathematics/Vector3.h"
-)
+# Path to include and src directories
+set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
+set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
-# Source files
-set (PHYSICSENGINE_SOURCES
-    "src/mathematics/Vector2.cpp"
-    "src/mathematics/Vector3.cpp"
-)
+# Search for header and source files to be included in library
+file(GLOB_RECURSE PHYSICSENGINE_HEADERS "${INCLUDE_DIR}/*.h")
+file(GLOB_RECURSE PHYSICSENGINE_SOURCES "${SRC_DIR}/*.cpp")
 
 # Create library
 add_library(physicsengine ${PHYSICSENGINE_HEADERS} ${PHYSICSENGINE_SOURCES})
