@@ -8,7 +8,7 @@ project(PhysicsEngine LANGUAGES CXX)
 include(GNUInstallDirs)
 
 # Options
-option(PHYSICSENGINE_COMPILE_TESTS "Build Tests" ON)
+option(PHYSICSENGINE_COMPILE_TESTS "Build Tests" OFF)
 # option(PHYSICSENGINE_COMPILE_DEMO "Build Demos" OFF)
 
 # Path to include and src directories

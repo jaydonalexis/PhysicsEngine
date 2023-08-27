@@ -9,7 +9,8 @@ rem Run tests if built
 if exist test\Debug\tests.exe (
     echo Running tests...
     test\Debug\tests.exe
-) else (
+) 
+else (
     echo tests not built, exiting...
 )
 
