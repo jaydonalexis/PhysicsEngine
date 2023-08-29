@@ -205,7 +205,7 @@ inline const float& Vector2::operator[](int index) const {
 }
 
 /* Overloaded less than operator */
-bool Vector2::operator<(const Vector2& vector) const {
+inline bool Vector2::operator<(const Vector2& vector) const {
     return (x == vector.x ? y < vector.y : x < vector.x);
 }
 

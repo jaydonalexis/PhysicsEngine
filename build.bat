@@ -3,14 +3,13 @@ mkdir build
 cd build
 cmake ..
 cmake --build .
-start PhysicsEngine.sln
+@REM start PhysicsEngine.sln
 
-rem Run tests if built
+@REM Run tests if built
 if exist test\Debug\tests.exe (
     echo Running tests...
     test\Debug\tests.exe
-) 
-else (
+) else (
     echo tests not built, exiting...
 )
 
