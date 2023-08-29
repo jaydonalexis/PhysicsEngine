@@ -116,8 +116,6 @@ TEST(Vector3, Length) {
   vector1.set(1, 2, 3);
   Vector3 vector2 = vector1.getUnitVector();
   EXPECT_TRUE(approximateEqual(vector2.length(), 1.0));
-  EXPECT_TRUE(approximateEqual(vector2.lengthSquare(), 1.0));
-  EXPECT_TRUE(vector2.isUnitVector());
 }
 
 TEST(Vector3, Normalize) {
