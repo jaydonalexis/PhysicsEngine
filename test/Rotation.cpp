@@ -8,7 +8,6 @@
 #include <type_traits>
 #include <algorithm>
 #include <cstddef>
-#include <iostream>
 
 using namespace physics;
 
