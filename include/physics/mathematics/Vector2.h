@@ -96,7 +96,7 @@ struct Vector2 {
 };
 
 /* Constructor */
-inline Vector2::Vector2() : x(0.0), y(0.0) {}
+inline Vector2::Vector2() : x(0.0f), y(0.0f) {}
 
 /* Constructor with parameters */
 inline Vector2::Vector2(float newX, float newY) : x(newX), y(newY) {}
@@ -109,8 +109,8 @@ inline void Vector2::set(float newX, float newY) {
 
 /* Set the vector as the zero vector */
 inline void Vector2::setZero() {
-  x = 0.0;
-  y = 0.0;
+  x = 0.0f;
+  y = 0.0f;
 }
 
  /* Get the length of the vector */
@@ -125,7 +125,7 @@ inline float Vector2::lengthSquare() const {
 
 /* Query whether the current vector is a unit vector */
 inline bool Vector2::isUnitVector() const {
-  return approximateEqual(lengthSquare(), float(1.0));
+  return approximateEqual(lengthSquare(), 1.0f);
 }
 
 /* Query whether the component values are either NaN or Inf */
@@ -135,7 +135,7 @@ inline bool Vector2::isFiniteVector() const {
 
 /* Query whether the current vector is the zero vector */
 inline bool Vector2::isZeroVector() const {
-  return approximateEqual(lengthSquare(), float(0.0));
+  return approximateEqual(lengthSquare(), 0.0f);
 }
 
 /* Compute the dot product of the current vector with another given vector */
@@ -157,7 +157,7 @@ inline void Vector2::normalize() {
 
 /* Overloaded equality operator */
 inline bool Vector2::operator==(const Vector2& vector) const {
-  return (x == vector.x && y == vector.y);
+  return (approximateEqual(x, vector.x) && approximateEqual(y, vector.y));
 }
 
 /* Overloaded inequality operator */

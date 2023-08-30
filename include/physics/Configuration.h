@@ -42,6 +42,10 @@ namespace physics {
 
   /* PI constant */
   constexpr float PI = float(3.141592653589);
+
+  constexpr float PI_MUL_2 = float(6.283185307180);
+
+  constexpr float PI_DIV_2 = float(1.570796326795);
 }
 
 #endif

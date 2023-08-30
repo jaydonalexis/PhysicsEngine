@@ -9,99 +9,99 @@
 
 namespace physics {
 
-  struct Vector3 {
+struct Vector3 {
 
-    public:
-      /* -- Attributes -- */
+  public:
+    /* -- Attributes -- */
 
-      /* x component */
-      float x;
+    /* x component */
+    float x;
 
-      /* y component */
-      float y;
+    /* y component */
+    float y;
 
-      /* z component */
-      float z;
+    /* z component */
+    float z;
 
-      /* -- Methods -- */
+    /* -- Methods -- */
 
-      /* Constructor */
-      Vector3();
+    /* Constructor */
+    Vector3();
 
-      /* Constructor with parameters */
-      Vector3(float newX, float newY, float newZ);
+    /* Constructor with parameters */
+    Vector3(float newX, float newY, float newZ);
 
-      /* Set the x, y and z components of the vector */
-      void set(float newX, float newY, float newZ);
+    /* Set the x, y and z components of the vector */
+    void set(float newX, float newY, float newZ);
 
-      /* Set the vector as the zero vector */
-      void setZero();
+    /* Set the vector as the zero vector */
+    void setZero();
 
-      /* Get the length of the vector */
-      float length() const;
+    /* Get the length of the vector */
+    float length() const;
 
-      /* Get the square of the length of the vector */
-      float lengthSquare() const;
+    /* Get the square of the length of the vector */
+    float lengthSquare() const;
 
-      /* Get the associated unit vector of the current vector */
-      Vector3 getUnitVector() const;
+    /* Get the associated unit vector of the current vector */
+    Vector3 getUnitVector() const;
 
-      /* Query whether the current vector is a unit vector */
-      bool isUnitVector() const;
+    /* Query whether the current vector is a unit vector */
+    bool isUnitVector() const;
 
-      /* Query whether the component values are either NaN or Inf */
-      bool isFiniteVector() const;
+    /* Query whether the component values are either NaN or Inf */
+    bool isFiniteVector() const;
 
-      /* Query whether the current vector is the zero vector */
-      bool isZeroVector() const;
+    /* Query whether the current vector is the zero vector */
+    bool isZeroVector() const;
 
-      /* Compute the dot product of the current vector with another given vector */
-      float dot(const Vector3& vector) const;
+    /* Compute the dot product of the current vector with another given vector */
+    float dot(const Vector3& vector) const;
 
-      /* Normalize the vector */
-      void normalize();
+    /* Normalize the vector */
+    void normalize();
 
-      /* Overloaded equality operator */
-      bool operator==(const Vector3& vector) const;
+    /* Overloaded equality operator */
+    bool operator==(const Vector3& vector) const;
 
-      /* Overloaded inequality operator */
-      bool operator!=(const Vector3& vector) const;
+    /* Overloaded inequality operator */
+    bool operator!=(const Vector3& vector) const;
 
-      /* Overloaded addition operator */
-      Vector3& operator+=(const Vector3& vector);
+    /* Overloaded addition operator */
+    Vector3& operator+=(const Vector3& vector);
 
-      /* Overloaded subtraction operator */
-      Vector3& operator-=(const Vector3& vector);
+    /* Overloaded subtraction operator */
+    Vector3& operator-=(const Vector3& vector);
 
-      /* Overloaded multiplication operator */
-      Vector3& operator*=(float number);
+    /* Overloaded multiplication operator */
+    Vector3& operator*=(float number);
 
-      /* Overloaded division operator */
-      Vector3& operator/=(float number);
+    /* Overloaded division operator */
+    Vector3& operator/=(float number);
 
-      /* Overloaded value access operator */
-      float& operator[](int index);
+    /* Overloaded value access operator */
+    float& operator[](int index);
 
-      /* Overloaded value access operator */
-      const float& operator[](int index) const;
+    /* Overloaded value access operator */
+    const float& operator[](int index) const;
 
-      /* Overloaded less than operator */
-      bool operator<(const Vector3& vector) const;
+    /* Overloaded less than operator */
+    bool operator<(const Vector3& vector) const;
 
-      /* -- Friends -- */
+    /* -- Friends -- */
 
-      friend Vector3 operator+(const Vector3& vector1, const Vector3& vector2);
-      friend Vector3 operator-(const Vector3& vector1, const Vector3& vector2);
-      friend Vector3 operator-(const Vector3& vector);
-      friend Vector3 operator*(const Vector3& vector, float number);
-      friend Vector3 operator*(float number, const Vector3& vector);
-      friend Vector3 operator*(const Vector3& vector1, const Vector3& vector2);
-      friend Vector3 operator/(const Vector3& vector, float number);
-      friend Vector3 operator/(const Vector3& vector1, const Vector3& vector3);
-  };
+    friend Vector3 operator+(const Vector3& vector1, const Vector3& vector2);
+    friend Vector3 operator-(const Vector3& vector1, const Vector3& vector2);
+    friend Vector3 operator-(const Vector3& vector);
+    friend Vector3 operator*(const Vector3& vector, float number);
+    friend Vector3 operator*(float number, const Vector3& vector);
+    friend Vector3 operator*(const Vector3& vector1, const Vector3& vector2);
+    friend Vector3 operator/(const Vector3& vector, float number);
+    friend Vector3 operator/(const Vector3& vector1, const Vector3& vector3);
+};
 
 /* Constructor */
-inline Vector3::Vector3() : x(0.0), y(0.0), z(0.0) {}
+inline Vector3::Vector3() : x(0.0f), y(0.0f), z(0.0f) {}
 
 /* Constructor with parameters */
 inline Vector3::Vector3(float newX, float newY, float newZ) : x(newX), y(newY), z(newZ) {}
@@ -115,9 +115,9 @@ inline void Vector3::set(float newX, float newY, float newZ) {
 
 /* Set the vector as the zero vector */
 inline void Vector3::setZero() {
-  x = 0.0;
-  y = 0.0;
-  z = 0.0;
+  x = 0.0f;
+  y = 0.0f;
+  z = 0.0f;
 }
 
  /* Get the length of the vector */
@@ -132,7 +132,7 @@ inline float Vector3::lengthSquare() const {
 
 /* Query whether the current vector is a unit vector */
 inline bool Vector3::isUnitVector() const {
-  return approximateEqual(lengthSquare(), float(1.0));
+  return approximateEqual(lengthSquare(), 1.0f);
 }
 
 /* Query whether the component values are either NaN or Inf */
@@ -142,7 +142,7 @@ inline bool Vector3::isFiniteVector() const {
 
 /* Query whether the current vector is the zero vector */
 inline bool Vector3::isZeroVector() const {
-  return approximateEqual(lengthSquare(), float(0.0));
+  return approximateEqual(lengthSquare(), 0.0f);
 }
 
 /* Compute the dot product of the current vector with another given vector */
