@@ -46,6 +46,8 @@ namespace physics {
   constexpr float PI_MUL_2 = float(6.283185307180);
 
   constexpr float PI_DIV_2 = float(1.570796326795);
+
+  constexpr float PI_DIV_4 = float(0.785398163397);
 }
 
 #endif

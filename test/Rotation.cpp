@@ -50,10 +50,15 @@ TEST(Rotation, GetAngle) {
 }
 
 TEST(Rotation, GetAxes) {
-  Rotation rotation{PI_DIV_2};
-  Vector2 vector1 = rotation.getX();
-  Vector2 vector2 = rotation.getY();
+  Rotation rotation1{PI_DIV_2};
+  Rotation rotation2{PI_DIV_4};
+  Vector2 vector1 = rotation1.getX();
+  Vector2 vector2 = rotation1.getY();
   EXPECT_TRUE(vector1 == Vector2(0.0f, 1.0f));
   EXPECT_TRUE(vector2 == Vector2(-1.0f, 0.0f));
+  vector1 = rotation2.getX();
+  vector2 = rotation2.getY();
+  EXPECT_TRUE(vector1 == Vector2(0.7071068f, 0.7071068f));
+  EXPECT_TRUE(vector2 == Vector2(-0.7071068f, 0.7071068f));
 }
 
