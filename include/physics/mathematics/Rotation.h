@@ -44,7 +44,7 @@ struct Rotation {
 };
 
 /* Constructor */
-inline Rotation::Rotation() : s(sinf(0.0f)), c(cosf(0.0f)) {}
+inline Rotation::Rotation() : s(0.0f), c(1.0f) {}
 
 /* Constructor with parameters */
 inline Rotation::Rotation(float angle) : s(sinf(angle)), c(cosf(angle)) {}
