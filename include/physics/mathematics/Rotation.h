@@ -1,7 +1,7 @@
 #ifndef PHSYICS_ROTATION_H
 #define PHYSICS_ROTATION_H
 
-#include <cmath>
+#include <physics/mathematics/MathCommon.h>
 
 namespace physics {
 

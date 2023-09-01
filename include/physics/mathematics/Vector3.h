@@ -67,16 +67,16 @@ struct Vector3 {
     /* Overloaded inequality operator */
     bool operator!=(const Vector3& vector) const;
 
-    /* Overloaded addition operator */
+    /* Overloaded addition operator with assignment */
     Vector3& operator+=(const Vector3& vector);
 
-    /* Overloaded subtraction operator */
+    /* Overloaded subtraction operator with assignment */
     Vector3& operator-=(const Vector3& vector);
 
-    /* Overloaded multiplication operator */
+    /* Overloaded multiplication operator with assignment */
     Vector3& operator*=(float number);
 
-    /* Overloaded division operator */
+    /* Overloaded division operator with assignment */
     Vector3& operator/=(float number);
 
     /* Overloaded value access operator */

@@ -11,5 +11,6 @@ Vector3 Vector3::getUnitVector() const {
   }
 
   float lenInverse = float(1.0) / len;
+  
   return Vector3(x * lenInverse, y * lenInverse, z * lenInverse);
 }

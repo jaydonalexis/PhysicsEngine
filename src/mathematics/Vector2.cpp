@@ -11,5 +11,6 @@ Vector2 Vector2::getUnitVector() const {
   }
 
   float lenInverse = float(1.0) / len;
+  
   return Vector2(x * lenInverse, y * lenInverse);
 }
