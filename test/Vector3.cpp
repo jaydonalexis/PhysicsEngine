@@ -164,10 +164,19 @@ TEST(Vector3, Normalize) {
 }
 
 TEST(Vector3, DotProduct) {
-  EXPECT_TRUE(Vector3(1, 0, 0).dot(Vector3(0, 1, 0)) == 0);
-  EXPECT_TRUE(Vector3(1, 1, 0).dot(Vector3(0, 0, 1)) == 0);
-  EXPECT_TRUE(Vector3(1, 2, 3).dot(Vector3(2, 1, 3)) == 13);
-  EXPECT_TRUE(Vector3(1, 2, 3).dot(Vector3(-2, -1, -3)) == -13);
-  EXPECT_TRUE(Vector3(1, 2, 3).dot(Vector3(-2, 1, 3)) == 9);
-  EXPECT_TRUE(Vector3(1, 2, 3).dot(Vector3(3, 4, 5)) == 26);
+  EXPECT_TRUE(approximateEqual(Vector3(1, 0, 0).dot(Vector3(0, 1, 0)), 0.0f));
+  EXPECT_TRUE(approximateEqual(Vector3(1, 1, 0).dot(Vector3(0, 0, 1)), 0.0f));
+  EXPECT_TRUE(approximateEqual(Vector3(1, 2, 3).dot(Vector3(2, 1, 3)), 13.0f));
+  EXPECT_TRUE(approximateEqual(Vector3(1, 2, 3).dot(Vector3(-2, -1, -3)), -13.0f));
+  EXPECT_TRUE(approximateEqual(Vector3(1, 2, 3).dot(Vector3(-2, 1, 3)), 9.0f));
+  EXPECT_TRUE(approximateEqual(Vector3(1, 2, 3).dot(Vector3(3, 4, 5)), 26.0f));
+}
+
+TEST(Vector3, CrossProduct) {
+  EXPECT_TRUE(Vector3(1, 0, 0).cross(Vector3(0, 1, 0)) == Vector3(0, 0, 1));
+  EXPECT_TRUE(Vector3(1, 1, 0).cross(Vector3(0, 0, 1)) == Vector3(1, -1, 0));
+  EXPECT_TRUE(Vector3(1, 2, 3).cross(Vector3(2, 1, 3)) == Vector3(3, 3, -3));
+  EXPECT_TRUE(Vector3(1, 2, 3).cross(Vector3(-2, -1, -3)) == Vector3(-3, -3, 3));
+  EXPECT_TRUE(Vector3(1, 2, 3).cross(Vector3(-2, 1, 3)) == Vector3(3, -9, 5));
+  EXPECT_TRUE(Vector3(1, 2, 3).cross(Vector3(3, 4, 5)) == Vector3(-2, 4, -2));
 }

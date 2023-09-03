@@ -53,8 +53,20 @@ struct Vector2 {
     /* Compute the dot product of the current vector with another given vector */
     float dot(const Vector2& vector) const;
 
+    /* Compute the cross product of the current vector with another given vector */
+    float cross(const Vector2& vector) const;
+
+    /* Compute the cross product of the current vector with a given scalar */
+    Vector2 cross(float number) const;
+
     /* Normalize the vector */
     void normalize();
+
+    /* Compute the distance between the current vector and another given vector */
+    float distance(const Vector2& vector) const;
+
+    /* Compute the square of the distance between the current vector and another given vector */
+    float distanceSquare(const Vector2& vector) const;
     
     /* Overloaded equality operator */
     bool operator==(const Vector2& vector) const;
@@ -140,7 +152,17 @@ inline bool Vector2::isZeroVector() const {
 
 /* Compute the dot product of the current vector with another given vector */
 inline float Vector2::dot(const Vector2& vector) const {
-  return (x * vector.x + y * vector.y);
+  return x * vector.x + y * vector.y;
+}
+
+/* Compute the cross product of the current vector with another given vector */
+inline float Vector2::cross(const Vector2& vector) const {
+  return x * vector.y - y * vector.x;
+}
+
+/* Compute the cross product of the current vector with a given scalar */
+inline Vector2 Vector2::cross(float number) const {
+  return Vector2(number * y, -number * x);
 }
 
 /* Normalize the vector */
@@ -153,6 +175,18 @@ inline void Vector2::normalize() {
 
   x /= len;
   y /= len;
+}
+
+/* Compute the distance between the current vector and another given vector */
+inline float Vector2::distance(const Vector2& vector) const {
+  Vector2 resultant = *this - vector;
+  return resultant.length();
+}
+
+/* Compute the square of the distance between the current vector and another given vector */
+inline float Vector2::distanceSquare(const Vector2& vector) const {
+  Vector2 resultant = *this - vector;
+  return resultant.dot(resultant);
 }
 
 /* Overloaded equality operator */
@@ -206,7 +240,7 @@ inline const float& Vector2::operator[](int index) const {
 
 /* Overloaded less than operator */
 inline bool Vector2::operator<(const Vector2& vector) const {
-    return (approximateEqual(x, vector.x) ? y < vector.y : x < vector.x);
+    return approximateEqual(x, vector.x) ? y < vector.y : x < vector.x;
 }
 
 /* Overloaded operator for addition between two given vectors */

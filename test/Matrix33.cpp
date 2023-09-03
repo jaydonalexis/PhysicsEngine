@@ -136,16 +136,16 @@ TEST(Matrix33, Operators) {
   EXPECT_TRUE(matrix2 == Matrix33(10, 10, 10, 10, 10, 10, 10, 10, 10));
   EXPECT_TRUE(matrix3 == Matrix33(-8, -6, -4, -2, 0, 2, 4, 6, 8));
 
-  EXPECT_TRUE(Matrix33(1, 2, 3, 4, 5, 6, 7, 8, 9) * 2 == Matrix33(2, 4, 6, 8, 10, 12, 14, 16, 18));
-  EXPECT_TRUE(2 * Matrix33(1, 2, 3, 4, 5, 6, 7, 8, 9) == Matrix33(2, 4, 6, 8, 10, 12, 14, 16, 18));
+  EXPECT_TRUE(Matrix33(1, 2, 3, 4, 5, 6, 7, 8, 9) * 2.0f== Matrix33(2, 4, 6, 8, 10, 12, 14, 16, 18));
+  EXPECT_TRUE(2.0f * Matrix33(1, 2, 3, 4, 5, 6, 7, 8, 9) == Matrix33(2, 4, 6, 8, 10, 12, 14, 16, 18));
 
   matrix2.set(1, 2, 3, 4, 5, 6, 7, 8, 9);
-  matrix2 *= 2;
+  matrix2 *= 2.0f;
   EXPECT_TRUE(matrix2 == Matrix33(2, 4, 6, 8, 10, 12, 14, 16, 18));
 
   Vector3 vector1{1, 2, 3};
   matrix3.set(1, 2, 3, 4, 5, 6, 7, 8, 9);
-  Vector3 vector2 = matrix1 * vector1;
+  Vector3 vector2 = matrix3 * vector1;
   EXPECT_TRUE(vector2 == Vector3(14, 32, 50));
 
   Matrix33 matrix4(-1, -2, -3, -4, -5, -6, -7, -8, -9);

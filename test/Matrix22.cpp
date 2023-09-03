@@ -89,21 +89,25 @@ TEST(Matrix22, Operators) {
   EXPECT_TRUE(matrix2 == Matrix22(6, 8, 10, 12));
   EXPECT_TRUE(matrix3 == Matrix22(-4, -4, -4, -4));
 
-  EXPECT_TRUE(Matrix22(1, 2, 3, 4) * 2 == Matrix22(2, 4, 6, 8));
-  EXPECT_TRUE(2 * Matrix22(1, 2, 3, 4) == Matrix22(2, 4, 6, 8));
+  EXPECT_TRUE(Matrix22(1, 2, 3, 4) * 2.0f == Matrix22(2, 4, 6, 8));
+  EXPECT_TRUE(2.0f * Matrix22(1, 2, 3, 4) == Matrix22(2, 4, 6, 8));
+  EXPECT_TRUE(Matrix22(1, 2, 3, 4) * Matrix22(5, 6, 7, 8) == Matrix22(19, 22, 43, 50));
 
   matrix2.set(1, 2, 3, 4);
-  matrix2 *= 2;
+  matrix2 *= 2.0f;
   EXPECT_TRUE(matrix2 == Matrix22(2, 4, 6, 8));
 
   Vector2 vector1{1, 2};
-  matrix3.set(1, 2, 3, 4);
-  Vector2 vector2 = matrix1 * vector1;
+  matrix2.set(1, 2, 3, 4);
+  matrix3.set(5, 6, 7, 8);
+  Vector2 vector2 = matrix2 * vector1;
+  Matrix22 matrix4 = matrix2 * matrix3;
   EXPECT_TRUE(vector2 == Vector2(5, 11));
+  EXPECT_TRUE(matrix4 == Matrix22(19, 22, 43, 50));
 
-  Matrix22 matrix4(-1, -2, -3, -4);
-  Matrix22 matrix5 = -matrix4;
-  EXPECT_TRUE(matrix5 == Matrix22(1, 2, 3, 4));
+  Matrix22 matrix5(-1, -2, -3, -4);
+  Matrix22 matrix6 = -matrix5;
+  EXPECT_TRUE(matrix6 == Matrix22(1, 2, 3, 4));
 }
 
 TEST(Matrix22, GetColumn) {

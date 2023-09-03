@@ -65,8 +65,8 @@ TEST(Vector2, Operators) {
 
   vector2.set(1, 2);
   vector3.set(3, 6);
-  vector2 *= 2;
-  vector3 /= 3;
+  vector2 *= 2.0f;
+  vector3 /= 3.0f;
   EXPECT_TRUE(vector2 == Vector2(2, 4));
   EXPECT_TRUE(vector3 == Vector2(1, 2));
 
@@ -131,10 +131,31 @@ TEST(Vector2, Normalize) {
 }
 
 TEST(Vector2, DotProduct) {
-  EXPECT_TRUE(Vector2(1, 0).dot(Vector2(0, 1)) == 0);
-  EXPECT_TRUE(Vector2(1, 1).dot(Vector2(0, 0)) == 0);
-  EXPECT_TRUE(Vector2(1, 2).dot(Vector2(2, 1)) == 4);
-  EXPECT_TRUE(Vector2(1, 2).dot(Vector2(-2, -1)) == -4);
-  EXPECT_TRUE(Vector2(1, 2).dot(Vector2(-2, 1)) == 0);
-  EXPECT_TRUE(Vector2(1, 2).dot(Vector2(3, 4)) == 11);
+  EXPECT_TRUE(approximateEqual(Vector2(1, 0).dot(Vector2(0, 1)), 0.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 1).dot(Vector2(0, 0)), 0.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).dot(Vector2(2, 1)), 4.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).dot(Vector2(-2, -1)), -4.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).dot(Vector2(-2, 1)), 0.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).dot(Vector2(3, 4)), 11.0f));
+}
+
+TEST(Vector2, CrossProduct) {
+  EXPECT_TRUE(approximateEqual(Vector2(1, 0).cross(Vector2(0, 1)), 1.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 1).cross(Vector2(0, 0)), 0.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).cross(Vector2(2, 1)), -3.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).cross(Vector2(-2, -1)), 3.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).cross(Vector2(-2, 1)), 5.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).cross(Vector2(3, 4)), -2.0f));
+  EXPECT_TRUE(Vector2(1, 2).cross(0.0f) == Vector2(0, 0));
+  EXPECT_TRUE(Vector2(1, 2).cross(2.0f) == Vector2(4, -2));
+  EXPECT_TRUE(Vector2(1, 2).cross(-2.0f) == Vector2(-4, 2));
+}
+
+TEST(Vector2, Distance) {
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).distance(Vector2(3, 4)), 2.8284271f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).distance(Vector2(-3, -4)), 7.2111025f));
+  EXPECT_TRUE(approximateEqual(Vector2(-1, -2).distance(Vector2(-3, -4)), 2.8284271f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).distanceSquare(Vector2(3, 4)), 8.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(1, 2).distanceSquare(Vector2(-3, -4)), 52.0f));
+  EXPECT_TRUE(approximateEqual(Vector2(-1, -2).distanceSquare(Vector2(-3, -4)), 8.0f));
 }

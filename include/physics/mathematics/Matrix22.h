@@ -74,6 +74,9 @@ class Matrix22 {
     Matrix22& operator-=(const Matrix22& matrix);
 
     /* Overloaded multiplication operator with assignment */
+    Matrix22& operator*=(const Matrix22& matrix);
+
+    /* Overloaded multiplication operator with assignment */
     Matrix22& operator*=(float number);
 
     /* Overloaded value access operator */
@@ -89,6 +92,7 @@ class Matrix22 {
     friend Matrix22 operator-(const Matrix22& matrix);
     friend Matrix22 operator*(float number, const Matrix22& matrix);
     friend Matrix22 operator*(const Matrix22& matrix, float number);
+    friend Matrix22 operator*(const Matrix22& matrix1, const Matrix22& matrix2);
     friend Vector2 operator*(const Matrix22& matrix, const Vector2& vector);
 };
 
@@ -168,8 +172,8 @@ inline Matrix22 Matrix22::getZero() {
 
 /* Overloaded equality operator */
 inline bool Matrix22::operator==(const Matrix22& matrix) const {
-  return (mRows[0] == Vector2(matrix.mRows[0][0], matrix.mRows[0][1]),
-          mRows[1] == Vector2(matrix.mRows[1][0], matrix.mRows[1][1]));
+  return mRows[0] == Vector2(matrix.mRows[0][0], matrix.mRows[0][1]),
+         mRows[1] == Vector2(matrix.mRows[1][0], matrix.mRows[1][1]);
 }
 
 /* Overloaded inequality operator */
@@ -188,6 +192,13 @@ inline Matrix22& Matrix22::operator+=(const Matrix22& matrix) {
 inline Matrix22& Matrix22::operator-=(const Matrix22& matrix) {
   mRows[0][0] -= matrix.mRows[0][0]; mRows[0][1] -= matrix.mRows[0][1];
   mRows[1][0] -= matrix.mRows[1][0]; mRows[1][1] -= matrix.mRows[1][1];
+  return *this;
+}
+
+/* Overloaded multiplication operator with assignment */
+inline Matrix22& Matrix22::operator*=(const Matrix22& matrix) {
+  mRows[0][0] = mRows[0][0] * matrix.mRows[0][0] + mRows[0][1] * matrix.mRows[1][0]; mRows[0][1] = mRows[0][0] * matrix.mRows[0][1] + mRows[0][1] * matrix.mRows[1][1];
+  mRows[1][0] = mRows[1][0] * matrix.mRows[0][0] + mRows[1][1] * matrix.mRows[1][0]; mRows[1][1] = mRows[1][0] * matrix.mRows[0][1] + mRows[1][1] * matrix.mRows[1][1];
   return *this;
 }
 
@@ -235,6 +246,13 @@ inline Matrix22 operator*(float number, const Matrix22& matrix) {
 /* Overloaded operator for multiplication of a given number with a given matrix */
 inline Matrix22 operator*(const Matrix22& matrix, float number) {
   return number * matrix;
+}
+
+/* Overloaded operator for multiplication between two given matrices */
+inline Matrix22 operator*(const Matrix22& matrix1, const Matrix22& matrix2) {
+  return Matrix22(matrix1[0][0] * matrix2[0][0] + matrix1[0][1] * matrix2[1][0], matrix1[0][0] * matrix2[0][1] + matrix1[0][1] * matrix2[1][1],
+                  matrix1[1][0] * matrix2[0][0] + matrix1[1][1] * matrix2[1][0], matrix1[1][0] * matrix2[0][1] + matrix1[1][1] * matrix2[1][1]
+  );
 }
 
 /* Overloaded operator for multiplication of a given matrix with a given vector */

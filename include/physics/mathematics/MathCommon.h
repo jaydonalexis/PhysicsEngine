@@ -7,7 +7,7 @@
 
 namespace physics {
   inline bool approximateEqual(float a, float b, float epsilon = MACHINE_EPSILON) {
-    return (std::abs(a - b) < epsilon);
+    return std::abs(a - b) < epsilon;
   }
 }
 

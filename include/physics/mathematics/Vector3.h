@@ -58,6 +58,9 @@ struct Vector3 {
     /* Compute the dot product of the current vector with another given vector */
     float dot(const Vector3& vector) const;
 
+    /* Compute the cross product of the current vector with another given vector */
+    Vector3 cross(const Vector3& vector) const;
+
     /* Normalize the vector */
     void normalize();
 
@@ -147,7 +150,14 @@ inline bool Vector3::isZeroVector() const {
 
 /* Compute the dot product of the current vector with another given vector */
 inline float Vector3::dot(const Vector3& vector) const {
-  return (x * vector.x + y * vector.y + z * vector.z);
+  return x * vector.x + y * vector.y + z * vector.z;
+}
+
+/* Compute the cross product of the current vector with another given vector */
+inline Vector3 Vector3::cross(const Vector3& vector) const {
+  return Vector3(y * vector.z - z * vector.y,
+                 z * vector.x - x * vector.z,
+                 x * vector.y - y * vector.x);
 }
 
 /* Normalize the vector */
@@ -218,7 +228,7 @@ inline const float& Vector3::operator[](int index) const {
 
 /* Overloaded less than operator */
 inline bool Vector3::operator<(const Vector3& vector) const {
-    return (approximateEqual(x, vector.x) ? (approximateEqual(y, vector.y) ? z < vector.z : y < vector.y) : x < vector.x);
+    return approximateEqual(x, vector.x) ? approximateEqual(y, vector.y) ? z < vector.z : y < vector.y : x < vector.x;
 }
 
 /* Overloaded operator for addition between two given vectors */
