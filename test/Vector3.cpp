@@ -14,6 +14,7 @@ TEST(Vector3, Constructor) {
   EXPECT_TRUE(approximateEqual(vector1.x, 0.0f));
   EXPECT_TRUE(approximateEqual(vector1.y, 0.0f));
   EXPECT_TRUE(approximateEqual(vector1.z, 0.0f));
+  
   Vector3 vector2{1, 2, 3};
   EXPECT_TRUE(approximateEqual(vector2.x, 1.0f));
   EXPECT_TRUE(approximateEqual(vector2.y, 2.0f));
@@ -23,7 +24,6 @@ TEST(Vector3, Constructor) {
 TEST(Vector3, CopyConstructor) {
   Vector3 vector1{1, 2, 3};
   Vector3 vector2(vector1);
-  
   EXPECT_TRUE(approximateEqual(vector2.x, 1.0f));
   EXPECT_TRUE(approximateEqual(vector2.y, 2.0f));
   EXPECT_TRUE(approximateEqual(vector2.z, 3.0f));
@@ -35,6 +35,7 @@ TEST(Vector3, SetValues) {
   EXPECT_TRUE(approximateEqual(vector.x, 1.0f));
   EXPECT_TRUE(approximateEqual(vector.y, 2.0f));
   EXPECT_TRUE(approximateEqual(vector.z, 3.0f));
+
   vector.setZero();
   EXPECT_TRUE(approximateEqual(vector.x, 0.0f));
   EXPECT_TRUE(approximateEqual(vector.y, 0.0f));
@@ -64,12 +65,12 @@ TEST(Vector3, Operators) {
   EXPECT_TRUE(vector2 == Vector3(5, 7, 9));
   EXPECT_TRUE(vector3 == Vector3(3, 3, 3));
 
-  vector2.set(1, 2, 3);
-  vector3.set(3, 6, 9);
   EXPECT_TRUE(Vector3(1, 2, 3) * 2 == Vector3(2, 4, 6));
   EXPECT_TRUE(2 * Vector3(1, 2, 3) == Vector3(2, 4, 6));
   EXPECT_TRUE(Vector3(2, 4, 6) / 2 == Vector3(1, 2, 3));
 
+  vector2.set(1, 2, 3);
+  vector3.set(3, 6, 9);
   vector2 *= 2;
   vector3 /= 3;
   EXPECT_TRUE(vector2 == Vector3(2, 4, 6));

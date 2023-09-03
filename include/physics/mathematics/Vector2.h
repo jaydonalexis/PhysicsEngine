@@ -157,7 +157,7 @@ inline void Vector2::normalize() {
 
 /* Overloaded equality operator */
 inline bool Vector2::operator==(const Vector2& vector) const {
-  return (approximateEqual(x, vector.x) && approximateEqual(y, vector.y));
+  return approximateEqual(x, vector.x) && approximateEqual(y, vector.y);
 }
 
 /* Overloaded inequality operator */
@@ -206,7 +206,7 @@ inline const float& Vector2::operator[](int index) const {
 
 /* Overloaded less than operator */
 inline bool Vector2::operator<(const Vector2& vector) const {
-    return (x == vector.x ? y < vector.y : x < vector.x);
+    return (approximateEqual(x, vector.x) ? y < vector.y : x < vector.x);
 }
 
 /* Overloaded operator for addition between two given vectors */
@@ -250,11 +250,6 @@ inline Vector2 operator/(const Vector2& vector1, const Vector2& vector2) {
 inline Vector2 operator/(const Vector2& vector, float number) {
     assert(number > MACHINE_EPSILON);
     return Vector2(vector.x / number, vector.y / number);
-}
-
-/* Query whether two functions are approximately equal */
-inline bool approximateEqual(const Vector2& vector1, const Vector2& vector2, float epsilon = MACHINE_EPSILON) {
-  return approximateEqual(vector1.x, vector2.x, epsilon) && approximateEqual(vector1.y, vector2.y, epsilon);
 }
 
 }

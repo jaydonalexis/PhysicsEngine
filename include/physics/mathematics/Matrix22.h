@@ -24,13 +24,15 @@ class Matrix22 {
     Matrix22(float value);
 
     /* Constructor with multiple parameters */
-    Matrix22(float a, float b, float c, float d);
+    Matrix22(float a, float b,
+             float c, float d);
 
     /* Set components of the matrix with single parameter */
     void set(float value);
 
     /* Set components of the matrix with multiple parameters */
-    void set(float a, float b, float c, float d);
+    void set(float a, float b,
+             float c, float d);
 
     /* Set components of the matrix to zero */
     void setZero();
@@ -65,13 +67,13 @@ class Matrix22 {
     /* Overloaded inequality operator */
     bool operator!=(const Matrix22& matrix) const;
 
-    /* Overloaded addition operator */
+    /* Overloaded addition operator with assignment */
     Matrix22& operator+=(const Matrix22& matrix);
 
-    /* Overloaded subtraction operator */
+    /* Overloaded subtraction operator with assignment */
     Matrix22& operator-=(const Matrix22& matrix);
 
-    /* Overloaded multiplication operator */
+    /* Overloaded multiplication operator with assignment */
     Matrix22& operator*=(float number);
 
     /* Overloaded value access operator */
@@ -101,7 +103,8 @@ inline Matrix22::Matrix22(float value) {
 }
 
 /* Constructor with multiple parameters */
-inline Matrix22::Matrix22(float a, float b, float c, float d) {
+inline Matrix22::Matrix22(float a, float b, 
+                          float c, float d) {
   set(a, b, c, d);
 }
 
@@ -112,9 +115,10 @@ inline void Matrix22::set(float value) {
 }
 
 /* Set components of the matrix with multiple parameters */
-inline void Matrix22::set(float a, float b, float c, float d) {
+inline void Matrix22::set(float a, float b,
+                          float c, float d) {
   mRows[0][0] = a; mRows[0][1] = b;
-  mRows[1][0] = b; mRows[1][1] = d;
+  mRows[1][0] = c; mRows[1][1] = d;
 }
 
  /* Set components of the matrix to zero */
@@ -144,7 +148,7 @@ inline Vector2 Matrix22::getRow(int i) const {
 /* Get transpose of the matrix */
 inline Matrix22 Matrix22::getTranspose() const {
   return Matrix22(mRows[0][0], mRows[1][0],
-                  mRows[0][1], mRows[1][0]);
+                  mRows[0][1], mRows[1][1]);
 }
 
 /* Get determinant of the matrix */
@@ -164,8 +168,8 @@ inline Matrix22 Matrix22::getZero() {
 
 /* Overloaded equality operator */
 inline bool Matrix22::operator==(const Matrix22& matrix) const {
-  return (mRows[0][0] == matrix.mRows[0][0] && mRows[0][1] == matrix.mRows[0][1] &&
-          mRows[1][0] == matrix.mRows[1][0] && mRows[1][1] == matrix.mRows[1][1]);
+  return (mRows[0] == Vector2(matrix.mRows[0][0], matrix.mRows[0][1]),
+          mRows[1] == Vector2(matrix.mRows[1][0], matrix.mRows[1][1]));
 }
 
 /* Overloaded inequality operator */
@@ -173,21 +177,21 @@ inline bool Matrix22::operator!=(const Matrix22& matrix) const {
     return !(*this == matrix);
 }
 
-/* Overloaded addition operator */
+/* Overloaded addition operator with assignment */
 inline Matrix22& Matrix22::operator+=(const Matrix22& matrix) {
   mRows[0][0] += matrix.mRows[0][0]; mRows[0][1] += matrix.mRows[0][1];
   mRows[1][0] += matrix.mRows[1][0]; mRows[1][1] += matrix.mRows[1][1];
   return *this;
 }
 
-/* Overlaoded subtraction operator */
+/* Overlaoded subtraction operator with assignment */
 inline Matrix22& Matrix22::operator-=(const Matrix22& matrix) {
   mRows[0][0] -= matrix.mRows[0][0]; mRows[0][1] -= matrix.mRows[0][1];
   mRows[1][0] -= matrix.mRows[1][0]; mRows[1][1] -= matrix.mRows[1][1];
   return *this;
 }
 
-/* Overloaded multiplication operator */
+/* Overloaded multiplication operator with assignment */
 inline Matrix22& Matrix22::operator*=(float number) {
   mRows[0][0] *= number; mRows[0][1] *= number;
   mRows[1][0] *= number; mRows[1][1] *= number;
@@ -206,18 +210,14 @@ inline const Vector2& Matrix22::operator[](int row) const {
 
 /* Overloaded operator for addition between two given matrices */
 inline Matrix22 operator+(const Matrix22& matrix1, const Matrix22& matrix2) {
-  return Matrix22(matrix1.mRows[0][0] + matrix2.mRows[0][0],
-                  matrix1.mRows[0][1] + matrix2.mRows[0][1],
-                  matrix1.mRows[1][0] + matrix2.mRows[1][0],
-                  matrix1.mRows[1][1] + matrix2.mRows[1][1]);
+  return Matrix22(matrix1.mRows[0][0] + matrix2.mRows[0][0], matrix1.mRows[0][1] + matrix2.mRows[0][1],
+                  matrix1.mRows[1][0] + matrix2.mRows[1][0], matrix1.mRows[1][1] + matrix2.mRows[1][1]);
 }
 
 /* Overloaded operator for subtraction between two given matrices */
 inline Matrix22 operator-(const Matrix22& matrix1, const Matrix22& matrix2) {
-  return Matrix22(matrix1.mRows[0][0] - matrix2.mRows[0][0],
-                  matrix1.mRows[0][1] - matrix2.mRows[0][1],
-                  matrix1.mRows[1][0] - matrix2.mRows[1][0],
-                  matrix1.mRows[1][1] - matrix2.mRows[1][1]);
+  return Matrix22(matrix1.mRows[0][0] - matrix2.mRows[0][0], matrix1.mRows[0][1] - matrix2.mRows[0][1],
+                  matrix1.mRows[1][0] - matrix2.mRows[1][0], matrix1.mRows[1][1] - matrix2.mRows[1][1]);
 }
 
 /* Overloaded operator for the negation of a given matrix */
@@ -237,10 +237,10 @@ inline Matrix22 operator*(const Matrix22& matrix, float number) {
   return number * matrix;
 }
 
-/* Overloaded operator for multiplication of given matrix with a given vector */
+/* Overloaded operator for multiplication of a given matrix with a given vector */
 inline Vector2 operator*(const Matrix22& matrix, const Vector2& vector) {
-  return Vector2(matrix.mRows[0][0]*vector.x + matrix.mRows[0][1]*vector.y,
-                 matrix.mRows[1][0]*vector.x + matrix.mRows[1][1]*vector.y);
+  return Vector2(matrix.mRows[0][0] * vector.x + matrix.mRows[0][1] * vector.y,
+                 matrix.mRows[1][0] * vector.x + matrix.mRows[1][1] * vector.y);
 }
 
 }

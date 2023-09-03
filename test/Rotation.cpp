@@ -15,6 +15,7 @@ TEST(Rotation, Constructor) {
   Rotation rotation1;
   EXPECT_TRUE(rotation1.s == 0.0f);
   EXPECT_TRUE(rotation1.c == 1.0f);
+
   Rotation rotation2{0.5f};
   EXPECT_TRUE(rotation2.s == sinf(0.5f));
   EXPECT_TRUE(rotation2.c == cosf(0.5f));
@@ -55,8 +56,10 @@ TEST(Rotation, GetAxes) {
   Vector2 vector2 = rotation1.getY();
   EXPECT_TRUE(vector1 == Vector2(0.0f, 1.0f));
   EXPECT_TRUE(vector2 == Vector2(-1.0f, 0.0f));
+  
   vector1 = rotation2.getX();
   vector2 = rotation2.getY();
+  
   EXPECT_TRUE(vector1 == Vector2(0.7071068f, 0.7071068f));
   EXPECT_TRUE(vector2 == Vector2(-0.7071068f, 0.7071068f));
 }

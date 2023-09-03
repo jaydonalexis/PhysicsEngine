@@ -9,7 +9,8 @@ Matrix22 Matrix22::getInverse() const {
 
   float determinantInverse = float(1.0) / determinant;
 
-  Matrix22 temp(mRows[1][1], -mRows[0][1], -mRows[1][0], mRows[0][0]);
+  Matrix22 temp(mRows[1][1], -mRows[0][1], 
+                -mRows[1][0], mRows[0][0]);
 
-  return(determinantInverse * temp);
+  return determinantInverse * temp;
 }

@@ -13,6 +13,7 @@ TEST(Vector2, Constructor) {
   Vector2 vector1;
   EXPECT_TRUE(approximateEqual(vector1.x, 0.0f));
   EXPECT_TRUE(approximateEqual(vector1.y, 0.0f));
+
   Vector2 vector2{1, 2};
   EXPECT_TRUE(approximateEqual(vector2.x, 1.0f));
   EXPECT_TRUE(approximateEqual(vector2.y, 2.0f));
@@ -30,6 +31,7 @@ TEST(Vector2, SetValues) {
   vector.set(1, 2);
   EXPECT_TRUE(approximateEqual(vector.x, 1.0f));
   EXPECT_TRUE(approximateEqual(vector.y, 2.0f));
+
   vector.setZero();
   EXPECT_TRUE(approximateEqual(vector.x, 0.0f));
   EXPECT_TRUE(approximateEqual(vector.y, 0.0f));
@@ -57,12 +59,12 @@ TEST(Vector2, Operators) {
   EXPECT_TRUE(vector2 == Vector2(4, 6));
   EXPECT_TRUE(vector3 == Vector2(-2, -2));
 
-  vector2.set(1, 2);
-  vector3.set(3, 6);
   EXPECT_TRUE(Vector2(1, 2) * 2 == Vector2(2, 4));
   EXPECT_TRUE(2 * Vector2(1, 2) == Vector2(2, 4));
   EXPECT_TRUE(Vector2(2, 4) / 2 == Vector2(1, 2));
 
+  vector2.set(1, 2);
+  vector3.set(3, 6);
   vector2 *= 2;
   vector3 /= 3;
   EXPECT_TRUE(vector2 == Vector2(2, 4));
@@ -75,7 +77,6 @@ TEST(Vector2, Operators) {
   EXPECT_TRUE(approximateEqual(vector5.x, 2.0f));
   EXPECT_TRUE(approximateEqual(vector5.y, 2.0f));
 
-  // Negative operator
   Vector2 vector6(-1, 2);
   Vector2 vector7 = -vector6;
   EXPECT_TRUE(vector7 == Vector2(1, -2));
