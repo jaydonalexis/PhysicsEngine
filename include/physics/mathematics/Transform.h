@@ -60,11 +60,10 @@ class Transform {
     friend Vector2 operator*(const Transform& transform, const Vector2& vector);
     friend Transform transposeMultiply(const Transform& transform1, const Transform& transform2);
     friend Vector2 transposeMultiply(const Transform& transform, const Vector2& vector);
-
 };
 
 /* Constructor */
-inline Transform::Transform() : mPosition(Vector2(0.0f, 0.0f)), mOrientation(Rotation::getZero()) {}
+inline Transform::Transform() : mPosition(Vector2(0, 0)), mOrientation(Rotation::getZero()) {}
 
 /* Constructor with parameters */
 inline Transform::Transform(const Vector2& position, const Rotation& orientation) : mPosition(position), mOrientation(orientation) {}

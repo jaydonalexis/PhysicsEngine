@@ -104,7 +104,7 @@ struct Vector3 {
 };
 
 /* Constructor */
-inline Vector3::Vector3() : x(0.0f), y(0.0f), z(0.0f) {}
+inline Vector3::Vector3() : x(0), y(0), z(0) {}
 
 /* Constructor with parameters */
 inline Vector3::Vector3(float newX, float newY, float newZ) : x(newX), y(newY), z(newZ) {}
@@ -118,9 +118,9 @@ inline void Vector3::set(float newX, float newY, float newZ) {
 
 /* Set the vector as the zero vector */
 inline void Vector3::setZero() {
-  x = 0.0f;
-  y = 0.0f;
-  z = 0.0f;
+  x = 0;
+  y = 0;
+  z = 0;
 }
 
  /* Get the length of the vector */
@@ -135,7 +135,7 @@ inline float Vector3::lengthSquare() const {
 
 /* Query whether the current vector is a unit vector */
 inline bool Vector3::isUnitVector() const {
-  return approximateEqual(lengthSquare(), 1.0f);
+  return approximateEqual(lengthSquare(), 1);
 }
 
 /* Query whether the component values are either NaN or Inf */
@@ -145,7 +145,7 @@ inline bool Vector3::isFiniteVector() const {
 
 /* Query whether the current vector is the zero vector */
 inline bool Vector3::isZeroVector() const {
-  return approximateEqual(lengthSquare(), 0.0f);
+  return approximateEqual(lengthSquare(), 0);
 }
 
 /* Compute the dot product of the current vector with another given vector */

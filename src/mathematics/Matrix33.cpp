@@ -5,7 +5,7 @@ using namespace physics;
 Matrix33 Matrix33::getInverse() const {
   float determinant = getDeterminant();
 
-  assert(abs(determinant) > MACHINE_EPSILON);
+  assert(std::abs(determinant) > MACHINE_EPSILON);
 
   float determinantInverse = float(1.0) / determinant;
 

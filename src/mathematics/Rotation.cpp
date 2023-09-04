@@ -18,3 +18,9 @@ inline Vector2 operator*(const Rotation& orientation, const Vector2& vector) {
   return Vector2(orientation.c * vector.x - orientation.s * vector.y,
                  orientation.s * vector.x + orientation.c * vector.y);
 }
+
+/* Transpose multiplication between a given orientation and a given vector */
+inline Vector2 transposeMultiply(const Rotation& orientation, const Vector2& vector) {
+  return Vector2(orientation.c * vector.x + orientation.s * vector.y,
+                 -orientation.s * vector.x + orientation.c * vector.y);
+}

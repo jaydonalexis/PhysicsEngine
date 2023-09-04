@@ -66,7 +66,7 @@ struct Rotation {
 };
 
 /* Constructor */
-inline Rotation::Rotation() : s(0.0f), c(1.0f) {}
+inline Rotation::Rotation() : s(0), c(1) {}
 
 /* Constructor with parameters */
 inline Rotation::Rotation(float angle) : s(sinf(angle)), c(cosf(angle)) {}
@@ -82,8 +82,8 @@ inline void Rotation::set(float angle) {
 
 /* Set to identity rotation */
 inline void Rotation::setZero() {
-  s = 0.0f;
-  c = 1.0f;
+  s = 0;
+  c = 1;
 }
 
 /* Get the angle of rotation in radians */
@@ -93,7 +93,7 @@ inline float Rotation::get() const {
 
 /* Get identity rotation */
 inline Rotation Rotation::getZero() {
-  return Rotation(0.0f, 1.0f);
+  return Rotation(0, 1);
 }
 
 /* Overloaded equality operator */
@@ -121,12 +121,6 @@ inline Rotation operator*(const Rotation& orientation1, const Rotation& orientat
 inline Rotation transposeMultiply(const Rotation& orientation1, const Rotation& orientation2) {
   return Rotation(orientation1.c * orientation2.s - orientation1.s * orientation2.c,
                   orientation1.c * orientation2.c + orientation1.s * orientation2.s);
-}
-
-/* Transpose multiplication between a given orientation and a given vector */
-inline Vector2 transposeMultiply(const Rotation& orientation, const Vector2& vector) {
-  return Vector2(orientation.c * vector.x + orientation.s * vector.y,
-                 -orientation.s * vector.x + orientation.c * vector.y);
 }
 
 }

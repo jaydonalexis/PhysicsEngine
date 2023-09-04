@@ -105,10 +105,14 @@ struct Vector2 {
     friend Vector2 operator*(const Vector2& vector1, const Vector2& vector2);
     friend Vector2 operator/(const Vector2& vector, float number);
     friend Vector2 operator/(const Vector2& vector1, const Vector2& vector2);
+    friend Vector2 abs(const Vector2& vector);
+    friend Vector2 min(const Vector2& vector1, const Vector2& vector2);
+    friend Vector2 max(const Vector2& vector1, const Vector2& vector2);
+    friend Vector2 clamp(const Vector2& vector, const Vector2& low, const Vector2& high);
 };
 
 /* Constructor */
-inline Vector2::Vector2() : x(0.0f), y(0.0f) {}
+inline Vector2::Vector2() : x(0), y(0) {}
 
 /* Constructor with parameters */
 inline Vector2::Vector2(float newX, float newY) : x(newX), y(newY) {}
@@ -121,8 +125,8 @@ inline void Vector2::set(float newX, float newY) {
 
 /* Set the vector as the zero vector */
 inline void Vector2::setZero() {
-  x = 0.0f;
-  y = 0.0f;
+  x = 0;
+  y = 0;
 }
 
  /* Get the length of the vector */
@@ -137,7 +141,7 @@ inline float Vector2::lengthSquare() const {
 
 /* Query whether the current vector is a unit vector */
 inline bool Vector2::isUnitVector() const {
-  return approximateEqual(lengthSquare(), 1.0f);
+  return approximateEqual(lengthSquare(), 1);
 }
 
 /* Query whether the component values are either NaN or Inf */
@@ -147,7 +151,7 @@ inline bool Vector2::isFiniteVector() const {
 
 /* Query whether the current vector is the zero vector */
 inline bool Vector2::isZeroVector() const {
-  return approximateEqual(lengthSquare(), 0.0f);
+  return approximateEqual(lengthSquare(), 0);
 }
 
 /* Compute the dot product of the current vector with another given vector */
@@ -284,6 +288,26 @@ inline Vector2 operator/(const Vector2& vector1, const Vector2& vector2) {
 inline Vector2 operator/(const Vector2& vector, float number) {
     assert(number > MACHINE_EPSILON);
     return Vector2(vector.x / number, vector.y / number);
+}
+
+/* abs function for Vector2 */
+inline Vector2 abs(const Vector2& vector) {
+  return Vector2(std::abs(vector.x), std::abs(vector.y));
+}
+
+/* min function for Vector2 */
+inline Vector2 min(const Vector2& vector1, const Vector2& vector2) {
+  return Vector2(std::min(vector1.x, vector2.x), std::min(vector1.y, vector2.y));
+}
+
+/* max function for Vector2 */
+inline Vector2 max(const Vector2& vector1, const Vector2& vector2) {
+  return Vector2(std::max(vector1.x, vector2.x), std::max(vector1.y, vector2.y));
+}
+
+/* clamp function for Vector2 */
+inline Vector2 clamp(const Vector2& vector, const Vector2& low, const Vector2& high) {
+  return max(low, min(vector, high));
 }
 
 }

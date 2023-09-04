@@ -96,7 +96,7 @@ class Matrix33 {
 
 /* Constructor */
 inline Matrix33::Matrix33() {
-  set(0.0f);
+  set(0);
 }
 
 /* Constructor with single parameter */
@@ -136,9 +136,9 @@ inline void Matrix33::setZero() {
 
 /* Set matrix to identity matrix */
 inline void Matrix33::setIdentity() {
-  mRows[0][0] = 1.0f; mRows[0][1] = 0.0f; mRows[0][2] = 0.0f;
-  mRows[1][0] = 0.0f; mRows[1][1] = 1.0f; mRows[1][2] = 0.0f;
-  mRows[2][0] = 0.0f; mRows[2][1] = 0.0f; mRows[2][2] = 1.0f;
+  mRows[0][0] = 1; mRows[0][1] = 0; mRows[0][2] = 0;
+  mRows[1][0] = 0; mRows[1][1] = 1; mRows[1][2] = 0;
+  mRows[2][0] = 0; mRows[2][1] = 0; mRows[2][2] = 1;
 }
 
 /* Get a column of the matrix */
@@ -169,12 +169,12 @@ inline float Matrix33::getDeterminant() const {
 
 /* Get identity matrix */
 inline Matrix33 Matrix33::getIdentity() {
-  return Matrix33(1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f);
+  return Matrix33(1, 0, 0, 0, 1, 0, 0, 0, 1);
 }
 
 /* Get zero matrix */
 inline Matrix33 Matrix33::getZero() {
-  return Matrix33(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+  return Matrix33(0, 0, 0, 0, 0, 0, 0, 0, 0);
 }
 
 /* Overloaded equality operator */

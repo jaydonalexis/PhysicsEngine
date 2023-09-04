@@ -94,11 +94,12 @@ class Matrix22 {
     friend Matrix22 operator*(const Matrix22& matrix, float number);
     friend Matrix22 operator*(const Matrix22& matrix1, const Matrix22& matrix2);
     friend Vector2 operator*(const Matrix22& matrix, const Vector2& vector);
+    friend Matrix22 abs(const Matrix22& matrix);
 };
 
 /* Constructor */
 inline Matrix22::Matrix22() {
-  set(0.0f);
+  set(0);
 }
 
 /* Constructor with single parameter */
@@ -133,8 +134,8 @@ inline void Matrix22::setZero() {
 
 /* Set matrix to identity matrix */
 inline void Matrix22::setIdentity() {
-  mRows[0][0] = 1.0f; mRows[0][1] = 0.0f;
-  mRows[1][0] = 0.0f; mRows[1][1] = 1.0f;
+  mRows[0][0] = 1; mRows[0][1] = 0;
+  mRows[1][0] = 0; mRows[1][1] = 1;
 }
 
 /* Get a column of the matrix */
@@ -162,12 +163,12 @@ inline float Matrix22::getDeterminant() const {
 
 /* Get identity matrix */
 inline Matrix22 Matrix22::getIdentity() {
-  return Matrix22(1.0f, 0.0f, 0.0f, 1.0f);
+  return Matrix22(1, 0, 0, 1);
 }
 
 /* Get zero matrix */
 inline Matrix22 Matrix22::getZero() {
-  return Matrix22(0.0f, 0.0f, 0.0f, 0.0f);
+  return Matrix22(0, 0, 0, 0);
 }
 
 /* Overloaded equality operator */
@@ -259,6 +260,12 @@ inline Matrix22 operator*(const Matrix22& matrix1, const Matrix22& matrix2) {
 inline Vector2 operator*(const Matrix22& matrix, const Vector2& vector) {
   return Vector2(matrix.mRows[0][0] * vector.x + matrix.mRows[0][1] * vector.y,
                  matrix.mRows[1][0] * vector.x + matrix.mRows[1][1] * vector.y);
+}
+
+/* abs function for Matrix22 */
+inline Matrix22 abs(const Matrix22& matrix) {
+  return Matrix22(std::abs(matrix[0][0]), std::abs(matrix[0][1]),
+                  std::abs(matrix[1][0]), std::abs(matrix[1][1]));
 }
 
 }
