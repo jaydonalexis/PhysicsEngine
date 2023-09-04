@@ -27,10 +27,13 @@ struct Rotation {
     /* Constructor with parameters */
     Rotation(float angle);
 
+    /* Constructor with parameters */
+    Rotation(float newS, float newC);
+
     /* Set angle of rotation in radians */
     void set(float angle);
 
-    /* Set to zero rotation */
+    /* Set to identity rotation */
     void setZero();
 
     /* Get the angle of rotation in radians */
@@ -41,6 +44,26 @@ struct Rotation {
 
     /* Get the y axis */
     Vector2 getY() const;
+
+    /* Get transpose of the rotation */
+    Rotation getTranspose() const;
+
+    /* Get identity rotation */
+    static Rotation getZero();
+
+    /* Overloaded equality operator */
+    bool operator==(const Rotation& orientation) const;
+
+    /* Overloaded inequality operator */
+    bool operator!=(const Rotation& orientation) const;
+
+    /* Overloaded operator for multiplication with assignment */
+    Rotation& operator*=(const Rotation& orientation);
+
+    /* -- Friends -- */
+
+    friend Rotation operator*(const Rotation& orientation1, const Rotation& orientation2);
+    friend Vector2 operator*(const Rotation& orientation, const Vector2& vector);
 };
 
 /* Constructor */
@@ -48,6 +71,9 @@ inline Rotation::Rotation() : s(0.0f), c(1.0f) {}
 
 /* Constructor with parameters */
 inline Rotation::Rotation(float angle) : s(sinf(angle)), c(cosf(angle)) {}
+
+/* Constructor with parameters */
+inline Rotation::Rotation(float newS, float newC) : s(newS), c(newC) {}
 
 /* Set angle of rotation in radians */
 inline void Rotation::set(float angle) {
@@ -64,6 +90,32 @@ inline void Rotation::setZero() {
 /* Get the angle of rotation in radians */
 inline float Rotation::get() const {
   return atan2f(s, c);
+}
+
+/* Get identity rotation */
+inline Rotation Rotation::getZero() {
+  return Rotation(0.0f, 1.0f);
+}
+
+/* Overloaded equality operator */
+inline bool Rotation::operator==(const Rotation& orientation) const {
+  return approximateEqual(s, orientation.s) && approximateEqual(c, orientation.c);
+}
+
+/* Overloaded inequality operator */
+inline bool Rotation::operator!=(const Rotation& orientation) const {
+  return !(*this == orientation);
+}
+
+/* Overloaded operator for multiplication with assignment */
+inline Rotation& Rotation::operator*=(const Rotation& orientation) {
+  return Rotation(c * orientation.s - s * orientation.c, c * orientation.c + s * orientation.s);
+}
+
+/* Overloaded operator for multiplication between two given orientations */
+inline Rotation operator*(const Rotation& orientation1, const Rotation& orientation2) {
+  return Rotation(orientation1.c * orientation2.s - orientation1.s * orientation2.c,
+                  orientation1.c * orientation2.s + orientation1.s * orientation2.c);
 }
 
 }

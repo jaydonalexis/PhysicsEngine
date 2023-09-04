@@ -162,9 +162,9 @@ inline Matrix33 Matrix33::getTranspose() const {
 
 /* Get determinant of matrix */
 inline float Matrix33::getDeterminant() const {
-  return (mRows[0][0]*(mRows[1][1]*mRows[2][2]-mRows[2][1]*mRows[1][2]) -
-          mRows[0][1]*(mRows[1][0]*mRows[2][2]-mRows[2][0]*mRows[1][2]) +
-          mRows[0][2]*(mRows[1][0]*mRows[2][1]-mRows[2][0]*mRows[1][1]));
+  return mRows[0][0]*(mRows[1][1]*mRows[2][2]-mRows[2][1]*mRows[1][2]) -
+         mRows[0][1]*(mRows[1][0]*mRows[2][2]-mRows[2][0]*mRows[1][2]) +
+         mRows[0][2]*(mRows[1][0]*mRows[2][1]-mRows[2][0]*mRows[1][1]);
 }
 
 /* Get identity matrix */
@@ -179,9 +179,9 @@ inline Matrix33 Matrix33::getZero() {
 
 /* Overloaded equality operator */
 inline bool Matrix33::operator==(const Matrix33& matrix) const {
-  return (mRows[0] == Vector3(matrix.mRows[0][0], matrix.mRows[0][1], matrix.mRows[0][2]),
-          mRows[1] == Vector3(matrix.mRows[1][0], matrix.mRows[1][1], matrix.mRows[1][2]),
-          mRows[2] == Vector3(matrix.mRows[2][0], matrix.mRows[2][1], matrix.mRows[2][2]));
+  return mRows[0] == Vector3(matrix.mRows[0][0], matrix.mRows[0][1], matrix.mRows[0][2]),
+         mRows[1] == Vector3(matrix.mRows[1][0], matrix.mRows[1][1], matrix.mRows[1][2]),
+         mRows[2] == Vector3(matrix.mRows[2][0], matrix.mRows[2][1], matrix.mRows[2][2]);
 }
 
 /* Overloaded inequality operator */

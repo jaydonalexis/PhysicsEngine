@@ -44,7 +44,38 @@ class Transform {
 
     /* Get identity transform */
     static Transform getIdentity();
+
+    /* Overloaded equality operator */
+    bool operator==(const Transform& orientation) const;
+
+    /* Overloaded inequality operator */
+    bool operator!=(const Transform& orientation) const;
+
+    /* Overloaded multiplication operator with assignment */
+    Transform& operator*=(const Transform& orientation);
+
+    /* -- Friends -- */
+    
+    friend Transform operator*(const Transform& transform1, const Transform& transform2);
+    friend Vector2 operator*(const Transform& transform, const Vector2& vector);
+
 };
+
+/* Constructor */
+inline Transform::Transform() : mPosition(Vector2(0.0, 0.0)), mOrientation(Rotation::getZero()) {}
+
+/* Constructor with parameters */
+inline Transform::Transform(const Vector2& position, const Rotation& orientation) : mPosition(position), mOrientation(orientation) {}
+
+/* Set position of the transform */
+inline void Transform::setPosition(const Vector2& position) {
+  mPosition = position;
+}
+
+/* Set orientation of the transform */
+inline void Transform::setOrientation(const Rotation& orientation) {
+  mOrientation = orientation;
+}
 
 }
 
