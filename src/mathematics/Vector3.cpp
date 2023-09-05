@@ -6,11 +6,11 @@ using namespace physics;
 Vector3 Vector3::getUnitVector() const {
   float len = length();
 
-  if(len < MACHINE_EPSILON) {
+  if(len < FLOAT_EPSILON) {
     return *this;
   }
 
-  float lenInverse = float(1.0) / len;
+  float lenInverse = 1.0f / len;
   
   return Vector3(x * lenInverse, y * lenInverse, z * lenInverse);
 }

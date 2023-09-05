@@ -158,3 +158,9 @@ TEST(Matrix22, GetZero) {
   EXPECT_TRUE(matrix2.getRow(0) == Vector2(0, 0));
   EXPECT_TRUE(matrix2.getRow(1) == Vector2(0, 0));
 }
+
+TEST(Matrix22, Abs) {
+  Matrix22 matrix1{-1, -2, 3, 4};
+  Matrix22 matrix2 = abs(matrix1);
+  EXPECT_TRUE(matrix1 == Matrix22(1, 2, 3, 4));
+}

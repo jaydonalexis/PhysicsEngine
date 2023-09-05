@@ -2,6 +2,7 @@
 #define PHYSICS_ROTATION_H
 
 #include <physics/mathematics/MathCommon.h>
+#include <physics/mathematics/Vector2.h>
 
 namespace physics {
 
@@ -91,6 +92,16 @@ inline float Rotation::get() const {
   return atan2f(s, c);
 }
 
+/* Get the x axis */
+inline Vector2 Rotation::getX() const {
+  return Vector2(c, s);
+}
+
+/* Get the y axis */
+inline Vector2 Rotation::getY() const {
+  return Vector2(-s, c);
+}
+
 /* Get identity rotation */
 inline Rotation Rotation::getZero() {
   return Rotation(0, 1);
@@ -108,19 +119,33 @@ inline bool Rotation::operator!=(const Rotation& orientation) const {
 
 /* Overloaded operator for multiplication with assignment */
 inline Rotation& Rotation::operator*=(const Rotation& orientation) {
-  return Rotation(c * orientation.s - s * orientation.c, c * orientation.c + s * orientation.s);
+  c = c * orientation.s - s * orientation.c;
+  s = c * orientation.c + s * orientation.s;
+  return *this;
 }
 
 /* Overloaded operator for multiplication between two given orientations */
 inline Rotation operator*(const Rotation& orientation1, const Rotation& orientation2) {
-  return Rotation(orientation1.c * orientation2.s - orientation1.s * orientation2.c,
-                  orientation1.c * orientation2.s + orientation1.s * orientation2.c);
+  return Rotation(orientation1.s * orientation2.c + orientation1.c * orientation2.s,
+                  orientation1.c * orientation2.c - orientation1.s * orientation2.s);
+}
+
+/* Overloaded operator for multiplication of a given orientation with a given vector */
+inline Vector2 operator*(const Rotation& orientation, const Vector2& vector) {
+  return Vector2(orientation.c * vector.x - orientation.s * vector.y,
+                 orientation.s * vector.x + orientation.c * vector.y);
 }
 
 /* Transpose multiplication between two given orientations */
 inline Rotation transposeMultiply(const Rotation& orientation1, const Rotation& orientation2) {
   return Rotation(orientation1.c * orientation2.s - orientation1.s * orientation2.c,
                   orientation1.c * orientation2.c + orientation1.s * orientation2.s);
+}
+
+/* Transpose multiplication between a given orientation and a given vector */
+inline Vector2 transposeMultiply(const Rotation& orientation, const Vector2& vector) {
+  return Vector2(orientation.c * vector.x + orientation.s * vector.y,
+                 -orientation.s * vector.x + orientation.c * vector.y);
 }
 
 }

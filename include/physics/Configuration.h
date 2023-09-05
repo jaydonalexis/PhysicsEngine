@@ -38,16 +38,14 @@ namespace physics {
   const float FLOAT_LARGEST = std::numeric_limits<float>::max();
 
   /* Machine epsilon */
-  const float MACHINE_EPSILON = std::numeric_limits<float>::epsilon();
+  const float FLOAT_EPSILON = std::numeric_limits<float>::epsilon() * 1e+1f;
 
-  /* PI constant */
-  constexpr float PI = float(3.141592653589);
-
-  constexpr float PI_MUL_2 = float(6.283185307180);
-
-  constexpr float PI_DIV_2 = float(1.570796326795);
-
-  constexpr float PI_DIV_4 = float(0.785398163397);
+  /* PI constants */
+  constexpr float PI = 3.141592653589f;
+  constexpr float PI_MUL_2 = 6.283185307180f;
+  constexpr float PI_DIV_2 = 1.570796326795f;
+  constexpr float PI_DIV_4 = 0.785398163397f;
+  constexpr float PI_DIV_8 = 0.392699081699f;
 }
 
 #endif

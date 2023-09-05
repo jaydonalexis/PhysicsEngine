@@ -164,7 +164,7 @@ inline Vector3 Vector3::cross(const Vector3& vector) const {
 inline void Vector3::normalize() {
   float len = length();
 
-  if(len < MACHINE_EPSILON) {
+  if(len < FLOAT_EPSILON) {
     return;
   }
 
@@ -263,14 +263,14 @@ inline Vector3 operator*(const Vector3& vector1, const Vector3& vector2) {
 
 /* Overloaded operator for division between two given vectors */
 inline Vector3 operator/(const Vector3& vector1, const Vector3& vector2) {
-    assert(vector2.x > MACHINE_EPSILON);
-    assert(vector2.y > MACHINE_EPSILON);
+    assert(vector2.x > FLOAT_EPSILON);
+    assert(vector2.y > FLOAT_EPSILON);
     return Vector3(vector1.x / vector2.x, vector1.y / vector2.y, vector1.z / vector2.z);
 }
 
 /* Overloaded operator for division of a given vector by a given number */
 inline Vector3 operator/(const Vector3& vector, float number) {
-    assert(number > MACHINE_EPSILON);
+    assert(number > FLOAT_EPSILON);
     return Vector3(vector.x / number, vector.y / number, vector.z / number);
 }
 

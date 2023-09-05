@@ -25,10 +25,10 @@ namespace physics {
     return value > 0 && (value & (value - 1)) == 0;
   }
 
-  inline bool approximateEqual(float a, float b, float epsilon = MACHINE_EPSILON) {
+  inline bool approximateEqual(float a, float b, float epsilon = FLOAT_EPSILON) {
     return std::abs(a - b) < epsilon;
   }
-  
+
 }
 
 #endif
