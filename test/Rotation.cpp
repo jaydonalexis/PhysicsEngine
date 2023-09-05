@@ -115,6 +115,5 @@ TEST(Rotation, TransposeMultiply) {
   Vector2 vector1{1, 2};
   Vector2 vector2;
   vector2 = transposeMultiply(rotation4, vector1);
-  EXPECT_TRUE(vector2 == Vector2(1.68924640f, 1.46507563f));
-  std::cout << vector2.x << " " << vector2.y << std::endl;
+  EXPECT_TRUE(vector2 == Vector2(1.6892464f, 1.4650756f));
 }

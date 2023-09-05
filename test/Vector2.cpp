@@ -159,3 +159,59 @@ TEST(Vector2, Distance) {
   EXPECT_TRUE(approximateEqual(Vector2(1, 2).distanceSquare(Vector2(-3, -4)), 52.0f));
   EXPECT_TRUE(approximateEqual(Vector2(-1, -2).distanceSquare(Vector2(-3, -4)), 8.0f));
 }
+
+TEST(Vector2, Abs) {
+  Vector2 vector1{1, -2};
+  Vector2 vector2{-1, 2};
+  Vector2 vector3{-1, -2};
+  vector1 = abs(vector1);
+  vector2 = abs(vector2);
+  vector3 = abs(vector3);
+  EXPECT_TRUE(vector1 == Vector2(1, 2));
+  EXPECT_TRUE(vector2 == Vector2(1, 2));
+  EXPECT_TRUE(vector3 == Vector2(1, 2));
+}
+
+TEST(Vector2, Min) {
+  Vector2 vector1{1, 2};
+  Vector2 vector2{2, 1};
+  Vector2 vector3{-1, -1};
+  Vector2 vector4 = min(vector1, vector2);
+  Vector2 vector5 = min(vector1, vector3);
+  EXPECT_TRUE(vector4 == Vector2(1, 1));
+  EXPECT_TRUE(vector5 == Vector2(-1, -1));
+}
+
+TEST(Vector2, Max) {
+  Vector2 vector1{1, 2};
+  Vector2 vector2{2, 1};
+  Vector2 vector3{-1, -1};
+  Vector2 vector4 = max(vector1, vector2);
+  Vector2 vector5 = max(vector1, vector3);
+  EXPECT_TRUE(vector4 == Vector2(2, 2));
+  EXPECT_TRUE(vector5 == Vector2(1, 2));
+}
+
+TEST(Vector2, Clamp) {
+  Vector2 vector1{1, 1};
+  Vector2 vector2{1, 10};
+  Vector2 vector3{10, 1};
+  Vector2 vector4{10, 10};
+  Vector2 vector5{-10, -10};
+  Vector2 vector6{-10, 10};
+  Vector2 vector7{10, -10};
+  vector1 = clamp(vector1, Vector2(-5, -5), Vector2(5, 5));
+  vector2 = clamp(vector2, Vector2(-5, -5), Vector2(5, 5));
+  vector3 = clamp(vector3, Vector2(-5, -5), Vector2(5, 5));
+  vector4 = clamp(vector4, Vector2(-5, -5), Vector2(5, 5));
+  vector5 = clamp(vector5, Vector2(-5, -5), Vector2(5, 5));
+  vector6 = clamp(vector6, Vector2(-5, -5), Vector2(5, 5));
+  vector7 = clamp(vector7, Vector2(-5, -5), Vector2(5, 5));
+  EXPECT_TRUE(vector1 == Vector2(1, 1));
+  EXPECT_TRUE(vector2 == Vector2(1, 5));
+  EXPECT_TRUE(vector3 == Vector2(5, 1));
+  EXPECT_TRUE(vector4 == Vector2(5, 5));
+  EXPECT_TRUE(vector5 == Vector2(-5, -5));
+  EXPECT_TRUE(vector6 == Vector2(-5, 5));
+  EXPECT_TRUE(vector7 == Vector2(5, -5));
+}
