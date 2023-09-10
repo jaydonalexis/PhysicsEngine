@@ -48,6 +48,7 @@ class ObjectPoolMemoryHandler : public MemoryHandler {
     /* Associate allocation sizes with pool groups */
     static uint mChunkSizeToPool[MAX_CHUNK_SIZE + 1];
 
+    /* Pools initialized */
     static bool init;
 
     /* Prevent simultaneous allocations */
