@@ -44,6 +44,7 @@ ObjectPoolMemoryHandler::ObjectPoolMemoryHandler(MemoryHandler& primaryMemoryHan
 }
 
 ObjectPoolMemoryHandler::~ObjectPoolMemoryHandler() {
+  /* Free the memory for all chunks in each of the pools */
   for(uint i = 0; i < mNumUsedPools; i++) {
     mPrimaryMemoryHandler.free(mPools[i].chunks, POOL_SIZE);
   }

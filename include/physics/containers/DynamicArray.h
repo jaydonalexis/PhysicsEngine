@@ -2,6 +2,7 @@
 #define PHYSICS_DYNAMIC_ARRAY_H
 
 #include <physics/Configuration.h>
+#include <physics/memory/MemoryHandler.h>
 #include <cassert>
 #include <cstring>
 #include <iterator>
@@ -25,7 +26,7 @@ class DynamicArray {
     uint64 mCapacity;
 
     /* Memory Allocator */
-    MemoryAllocator& mAllocator;
+    MemoryHandler& mAllocator;
 };
 
 }
