@@ -34,10 +34,10 @@ class ObjectPoolMemoryHandler : public MemoryHandler {
     /* -- Attributes -- */
 
     /* Maximum chunk size */
-    static const uint MAX_CHUNK_SIZE = 1024;
+    static const size_t MAX_CHUNK_SIZE = 1024;
 
     /* Pool size */
-    static const uint POOL_SIZE = 16 * MAX_CHUNK_SIZE;
+    static const size_t POOL_SIZE = 16 * MAX_CHUNK_SIZE;
 
     /* Number of pool size groups */
     static const uint NUM_POOL_GROUPS = 128;
@@ -51,7 +51,7 @@ class ObjectPoolMemoryHandler : public MemoryHandler {
     /* Pools initialized */
     static bool init;
 
-    /* Prevent simultaneous allocations */
+    /* Mutex to prevent simultaneous allocations */
     std::mutex mMutex;
 
     /* Primary memory handler */
@@ -76,13 +76,13 @@ class ObjectPoolMemoryHandler : public MemoryHandler {
     ObjectPoolMemoryHandler(MemoryHandler& primaryMemoryHandler);
 
     /* Destructor */
-    virtual ~ObjectPoolMemoryHandler() override;
+    ~ObjectPoolMemoryHandler() override;
 
     /* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
-    virtual void* allocate(size_t size) override;
+    void* allocate(size_t size) override;
 
     /* Free dynamically allocated memory */
-    virtual void free(void* ptr, size_t size) override;
+    void free(void* ptr, size_t size) override;
 };
 
 }

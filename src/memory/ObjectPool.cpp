@@ -132,7 +132,6 @@ void* ObjectPoolMemoryHandler::allocate(size_t size) {
 
 void ObjectPoolMemoryHandler::free(void* ptr, size_t size) {
   std::lock_guard<std::mutex> lock(mMutex);
-
   assert(size > 0);
 
   /* Not possible to free zero memory */

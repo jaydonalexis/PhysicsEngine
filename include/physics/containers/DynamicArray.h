@@ -25,8 +25,8 @@ class DynamicArray {
     /* Number of allocated elements in the array */
     uint64 mCapacity;
 
-    /* Memory Allocator */
-    MemoryHandler& mAllocator;
+    /* Memory Handler */
+    MemoryHandler& mHandler;
 };
 
 }
