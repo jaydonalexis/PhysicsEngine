@@ -54,3 +54,8 @@ void LinearMemoryHandler::free(void* ptr, size_t size) {
       mPrimaryMemoryHandler.free(char_ptr, size);
   }
 }
+
+void LinearMemoryHandler::reset() {
+  /* Reset the offset so that it points to the beginning of the memory space */
+  mOffset = 0;
+}

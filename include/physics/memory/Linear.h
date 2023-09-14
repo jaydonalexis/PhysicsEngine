@@ -13,7 +13,7 @@ class LinearMemoryHandler : public MemoryHandler {
     /* -- Attributes -- */
 
     /* Initial size */
-    size_t INIT_SIZE = 1048576;
+    size_t INIT_SIZE = 5242880;
 
     /* Size of memory space */
     size_t mSize;
@@ -31,7 +31,7 @@ class LinearMemoryHandler : public MemoryHandler {
     size_t mOffset;
 
   public:
-    /* Methods */
+    /* -- Methods -- */
 
     /* Constructor */
     LinearMemoryHandler(MemoryHandler& primaryMemoryHandler);
