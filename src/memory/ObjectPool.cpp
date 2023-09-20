@@ -5,10 +5,12 @@
 
 using namespace physics;
 
+/* Static variables */
 bool ObjectPoolMemoryHandler::init = false;
 uint ObjectPoolMemoryHandler::mChunkSizes[NUM_POOL_GROUPS];
 uint ObjectPoolMemoryHandler::mChunkSizeToPool[MAX_CHUNK_SIZE + 1];
 
+/* Constructor */
 ObjectPoolMemoryHandler::ObjectPoolMemoryHandler(MemoryHandler& primaryMemoryHandler) : mPrimaryMemoryHandler(primaryMemoryHandler) {
   mNumAllocatedPools = 64;
   mNumUsedPools = 0;
@@ -43,6 +45,7 @@ ObjectPoolMemoryHandler::ObjectPoolMemoryHandler(MemoryHandler& primaryMemoryHan
   }
 }
 
+/* Destructor */
 ObjectPoolMemoryHandler::~ObjectPoolMemoryHandler() {
   /* Free the memory for all chunks in each of the pools */
   for(uint i = 0; i < mNumUsedPools; i++) {
@@ -52,6 +55,7 @@ ObjectPoolMemoryHandler::~ObjectPoolMemoryHandler() {
   mPrimaryMemoryHandler.free(mPools, mNumAllocatedPools * sizeof(Pool));
 }
 
+/* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
 void* ObjectPoolMemoryHandler::allocate(size_t size) {
   std::lock_guard<std::mutex> lock(mMutex);
   assert(size > 0);
@@ -130,6 +134,7 @@ void* ObjectPoolMemoryHandler::allocate(size_t size) {
   }
 }
 
+/* Free dynamically allocated memory */
 void ObjectPoolMemoryHandler::free(void* ptr, size_t size) {
   std::lock_guard<std::mutex> lock(mMutex);
   assert(size > 0);

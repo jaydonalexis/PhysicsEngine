@@ -5,17 +5,20 @@
 
 using namespace physics;
 
+/* Constructor */
 LinearMemoryHandler::LinearMemoryHandler(MemoryHandler& primaryMemoryHandler) : mPrimaryMemoryHandler(primaryMemoryHandler), mOffset(0), mSize(INIT_SIZE) {
   /* Allocate INIT_SIZE memory */
   mStart = static_cast<char*>(mPrimaryMemoryHandler.allocate(mSize));
   assert(mStart != nullptr);
 }
 
+/* Destructor */
 LinearMemoryHandler::~LinearMemoryHandler() {
   /* Free mSize memory beginning at mStart */
   mPrimaryMemoryHandler.free(mStart, mSize);
 }
 
+/* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
 void* LinearMemoryHandler::allocate(size_t size) {
   std::lock_guard<std::mutex> lock(mMutex);
   assert(size > 0);
@@ -37,6 +40,7 @@ void* LinearMemoryHandler::allocate(size_t size) {
   return mStart + mOffset - size;
 }
 
+/* Free dynamically allocated memory */
 void LinearMemoryHandler::free(void* ptr, size_t size) {
   std::lock_guard<std::mutex> lock(mMutex);
   assert(size > 0);
@@ -55,6 +59,7 @@ void LinearMemoryHandler::free(void* ptr, size_t size) {
   }
 }
 
+/* Reset pointer to mStart */
 void LinearMemoryHandler::reset() {
   /* Reset the offset so that it points to the beginning of the memory space */
   mOffset = 0;
