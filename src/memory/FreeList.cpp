@@ -84,5 +84,16 @@ void* FreeListMemoryHandler::allocate(size_t size) {
 
 /* Apportion additional memory */
 void FreeListMemoryHandler::apportion(size_t size) {
+  void* raw = mPrimaryMemoryHandler.allocate(size + sizeof(AllocationHeader));
+  assert(raw);
 
+  AllocationHeader* block = new (raw) AllocationHeader(size, nullptr, mHead, false);
+
+  if(mHead) {
+    mHead->prev = block;
+  }
+
+  mHead = block;
+  mFree = mHead;
+  mAllocated += size;
 }
