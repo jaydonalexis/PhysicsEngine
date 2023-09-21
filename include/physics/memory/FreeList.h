@@ -69,8 +69,8 @@ class FreeListMemoryHandler : public MemoryHandler {
     /* Coalesce two blocks */
     void coalesce(AllocationHeader* block1, AllocationHeader* block2);
 
-    /* Reserve extra memory */
-    void reserve(size_t size);
+    /* Apportion additional memory */
+    void apportion(size_t size);
 
   public:
     /* -- Methods -- */
