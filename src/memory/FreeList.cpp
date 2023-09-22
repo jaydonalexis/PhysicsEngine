@@ -82,6 +82,31 @@ void* FreeListMemoryHandler::allocate(size_t size) {
 
 /* Free dynamically allocated memory */
 
+/* Split memory block into two portions */
+void FreeListMemoryHandler::split(AllocationHeader* block, size_t size) {
+  assert(size < block->size);
+  assert(!block->isAllocated);
+
+  if(size + sizeof(AllocationHeader) < block->size - sizeof(AllocationHeader)) {
+    unsigned char* nextBlockAddress = reinterpret_cast<unsigned char*>(block) + sizeof(AllocationHeader) + size;
+    AllocationHeader* newBlock = new (static_cast<void*>(nextBlockAddress)) AllocationHeader(block->size - (2 * sizeof(AllocationHeader)) - size, block, block->next, block->isNextCoalescent);
+    assert(newBlock->next != newBlock);
+    block->next = newBlock;
+
+    if(newBlock->next) {
+      newBlock->next->prev = newBlock;
+    }
+
+    assert(block->next != block);
+    block->isNextCoalescent = true;
+    block->size = size;
+    assert(!block->prev || block->prev->next == block);
+    assert(!block->next || block->next->prev == block);
+    assert(!newBlock->prev || newBlock->prev->next == newBlock);
+    assert(!newBlock->next || newBlock->next->prev == newBlock);
+  }
+}
+
 /* Apportion additional memory */
 void FreeListMemoryHandler::apportion(size_t size) {
   void* raw = mPrimaryMemoryHandler.allocate(size + sizeof(AllocationHeader));
