@@ -36,7 +36,7 @@ class MemoryFactory {
     /* -- Nested Classes -- */
 
     /* Handler types */
-    enum class HandlerType {Vanilla, Linear, ObjectPool, FreeList};
+    enum class HandlerType {Linear, ObjectPool, FreeList, Vanilla, Primary};
 
     /* -- Methods -- */
 
@@ -52,9 +52,6 @@ class MemoryFactory {
     /* Free dynamically allocated memory */
     void free(HandlerType handlerType, void* ptr, size_t size);
 
-    /* Get Vanilla handler */
-    VanillaMemoryHandler& getVanillaMemoryHandler();
-
     /* Get Linear handler */
     LinearMemoryHandler& getLinearMemoryHandler();
 
@@ -64,9 +61,67 @@ class MemoryFactory {
     /* Get Free List handler */
     FreeListMemoryHandler& getFreeListMemoryHandler();
 
+    /* Get Vanilla handler */
+    VanillaMemoryHandler& getVanillaMemoryHandler();
+
     /* Reset memory handler if applicable */
-    void reset();
+    void reset(HandlerType handlerType);
 };
+
+/* Dynamically allocate memory using a specific memory handler */
+inline void* MemoryFactory::allocate(HandlerType handlerType, size_t size) {
+  switch(handlerType) {
+    case HandlerType::Linear: return mLinearyMemoryHandler.allocate(size);
+    case HandlerType::ObjectPool: return mObjectPoolMemoryHandler.allocate(size);
+    case HandlerType::FreeList: return mFreeListMemoryHandler.allocate(size);
+    case HandlerType::Vanilla: return mVanillaMemoryHandler.allocate(size);
+    case HandlerType::Primary: return mPrimaryMemoryHandler->allocate(size);
+    default: return nullptr;
+  }
+}
+
+/* Free dynamically allocated memory */
+inline void MemoryFactory::free(HandlerType handlerType, void* ptr, size_t size) {
+  switch(handlerType) {
+    case HandlerType::Linear: mLinearyMemoryHandler.free(ptr, size); break;
+    case HandlerType::ObjectPool: mObjectPoolMemoryHandler.free(ptr, size); break;
+    case HandlerType::FreeList: mFreeListMemoryHandler.free(ptr, size); break;
+    case HandlerType::Vanilla: mVanillaMemoryHandler.free(ptr, size); break;
+    case HandlerType::Primary: mPrimaryMemoryHandler->free(ptr, size); break;
+    default: return;
+  }
+}
+
+/* Get Linear handler */
+inline LinearMemoryHandler& MemoryFactory::getLinearMemoryHandler() {
+  return mLinearyMemoryHandler;
+}
+
+/* Get Object Pool handler */
+inline ObjectPoolMemoryHandler& MemoryFactory::getObjectPoolMemoryHandler() {
+  return mObjectPoolMemoryHandler;
+}
+
+/* Get Free List handler */
+inline FreeListMemoryHandler& MemoryFactory::getFreeListMemoryHandler() {
+  return mFreeListMemoryHandler;
+}
+
+/* Get Vanilla memory handler */
+inline VanillaMemoryHandler& MemoryFactory::getVanillaMemoryHandler() {
+  return mVanillaMemoryHandler;
+}
+
+/* Reset memory handler if applicable */
+inline void MemoryFactory::reset(HandlerType handlerType) {
+  switch(handlerType) {
+    case HandlerType::Linear: mLinearyMemoryHandler.reset(); break;
+    case HandlerType::ObjectPool: break;
+    case HandlerType::FreeList: break;
+    case HandlerType::Vanilla: break;
+    case HandlerType::Primary: break;
+  }
+}
 
 }
 
