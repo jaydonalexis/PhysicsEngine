@@ -26,7 +26,7 @@ class DynamicArray {
     uint64 mCapacity;
 
     /* Memory Handler */
-    MemoryHandler& mHandler;
+    MemoryHandler& mMemoryHandler;
 };
 
 }
