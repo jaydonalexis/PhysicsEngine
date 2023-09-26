@@ -1,5 +1,5 @@
-#ifndef PHYSICS_MEMORY_FACTORY_H
-#define PHYSICS_MEMORY_FACTORY_H
+#ifndef PHYSICS_MEMORY_STRATEGY_H
+#define PHYSICS_MEMORY_STRATEGY_H
 
 #include <physics/memory/Vanilla.h>
 #include <physics/memory/Linear.h>
@@ -11,7 +11,7 @@ namespace physics {
 /* Forward Declaration */
 class MemoryHandler;
 
-class MemoryFactory {
+class MemoryStrategy {
 
   private:
     /* -- Attributes -- */
@@ -41,10 +41,10 @@ class MemoryFactory {
     /* -- Methods -- */
 
     /* Constructor */
-    MemoryFactory(MemoryHandler* primaryMemoryHandler, size_t initSize = 0);
+    MemoryStrategy(MemoryHandler* primaryMemoryHandler, size_t initSize = 0);
 
     /* Destructor */
-    ~MemoryFactory() = default;
+    ~MemoryStrategy() = default;
 
     /* Dynamically allocate memory using a specific memory handler */
     void* allocate(HandlerType handlerType, size_t size);
@@ -69,7 +69,7 @@ class MemoryFactory {
 };
 
 /* Dynamically allocate memory using a specific memory handler */
-inline void* MemoryFactory::allocate(HandlerType handlerType, size_t size) {
+inline void* MemoryStrategy::allocate(HandlerType handlerType, size_t size) {
   switch(handlerType) {
     case HandlerType::Linear: return mLinearyMemoryHandler.allocate(size);
     case HandlerType::ObjectPool: return mObjectPoolMemoryHandler.allocate(size);
@@ -81,7 +81,7 @@ inline void* MemoryFactory::allocate(HandlerType handlerType, size_t size) {
 }
 
 /* Free dynamically allocated memory */
-inline void MemoryFactory::free(HandlerType handlerType, void* ptr, size_t size) {
+inline void MemoryStrategy::free(HandlerType handlerType, void* ptr, size_t size) {
   switch(handlerType) {
     case HandlerType::Linear: mLinearyMemoryHandler.free(ptr, size); break;
     case HandlerType::ObjectPool: mObjectPoolMemoryHandler.free(ptr, size); break;
@@ -93,27 +93,27 @@ inline void MemoryFactory::free(HandlerType handlerType, void* ptr, size_t size)
 }
 
 /* Get Linear handler */
-inline LinearMemoryHandler& MemoryFactory::getLinearMemoryHandler() {
+inline LinearMemoryHandler& MemoryStrategy::getLinearMemoryHandler() {
   return mLinearyMemoryHandler;
 }
 
 /* Get Object Pool handler */
-inline ObjectPoolMemoryHandler& MemoryFactory::getObjectPoolMemoryHandler() {
+inline ObjectPoolMemoryHandler& MemoryStrategy::getObjectPoolMemoryHandler() {
   return mObjectPoolMemoryHandler;
 }
 
 /* Get Free List handler */
-inline FreeListMemoryHandler& MemoryFactory::getFreeListMemoryHandler() {
+inline FreeListMemoryHandler& MemoryStrategy::getFreeListMemoryHandler() {
   return mFreeListMemoryHandler;
 }
 
 /* Get Vanilla memory handler */
-inline VanillaMemoryHandler& MemoryFactory::getVanillaMemoryHandler() {
+inline VanillaMemoryHandler& MemoryStrategy::getVanillaMemoryHandler() {
   return mVanillaMemoryHandler;
 }
 
 /* Reset memory handler if applicable */
-inline void MemoryFactory::reset(HandlerType handlerType) {
+inline void MemoryStrategy::reset(HandlerType handlerType) {
   switch(handlerType) {
     case HandlerType::Linear: mLinearyMemoryHandler.reset(); break;
     case HandlerType::ObjectPool: break;
