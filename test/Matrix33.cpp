@@ -58,7 +58,7 @@ TEST(Matrix33, CopyConstructor) {
   EXPECT_TRUE(approximateEqual(matrix2[2][2], 9.0f));
 }
 
-TEST(Matrix33, SetValus) {
+TEST(Matrix33, SetValues) {
   Matrix33 matrix;
   matrix.set(1);
   EXPECT_TRUE(approximateEqual(matrix[0][0], 1.0f));
