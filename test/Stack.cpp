@@ -1,6 +1,6 @@
 #include "UnitTests.h"
 
-#include <physics/collections/DynamicArray.h>
+#include <physics/collections/Stack.h>
 
 #include <sstream>
 #include <type_traits>

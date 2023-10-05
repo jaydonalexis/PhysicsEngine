@@ -1,6 +1,6 @@
 #include "UnitTests.h"
 
-#include <physics/collectors/Pair.h>
+#include <physics/collections/Pair.h>
 
 #include <sstream>
 #include <type_traits>
