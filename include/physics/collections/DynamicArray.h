@@ -421,7 +421,7 @@ inline void DynamicArray<T>::add(const DynamicArray<T>& array, uint64 start) {
 /* Remove a specific element from the array */
 template<typename T>
 inline typename DynamicArray<T>::Iterator DynamicArray<T>::remove(const T& element) {
-  remove(find(element));
+  return remove(find(element));
 }
 
 /* Debug */
