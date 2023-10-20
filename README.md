@@ -1,1 +1,1 @@
-# This project in an implementation of a simple 2D physics engine
+Simple 2D Rigid Body Physics Engine
