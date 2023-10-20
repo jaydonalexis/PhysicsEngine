@@ -337,7 +337,7 @@ TEST(DynamicArray, Iterator) {
 
   DynamicArray<int> array2(memoryHandler);
 
-  for (it = array1.begin(); it != array1.end(); ++it) {
+  for (auto it = array1.begin(); it != array1.end(); ++it) {
       array2.add(*it);
   }
 
