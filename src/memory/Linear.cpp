@@ -6,7 +6,7 @@
 using namespace physics;
 
 /* Constructor */
-LinearMemoryHandler::LinearMemoryHandler(MemoryHandler& primaryMemoryHandler) : mPrimaryMemoryHandler(primaryMemoryHandler), mOffset(0), mSize(INIT_SIZE) {
+LinearMemoryHandler::LinearMemoryHandler(MemoryHandler& primaryMemoryHandler) : mPrimaryMemoryHandler(primaryMemoryHandler), mOffset(0), mSize(INIT_SIZE), mNumValidShrinkFrames(0), mGrow(false) {
   /* Allocate INIT_SIZE memory */
   mStart = static_cast<char*>(mPrimaryMemoryHandler.allocate(mSize));
   assert(mStart);
@@ -30,6 +30,7 @@ void* LinearMemoryHandler::allocate(size_t size) {
 
   if(mOffset + size > mSize) {
     /* Vanilla allocation */
+    mGrow = true;
     return mPrimaryMemoryHandler.allocate(size);
   }
 
@@ -62,6 +63,36 @@ void LinearMemoryHandler::free(void* ptr, size_t size) {
 /* Reset pointer to mStart */
 void LinearMemoryHandler::reset() {
   std::lock_guard<std::mutex> lock(mMutex);
+
+  mNumValidShrinkFrames++;
+
+  if(mNumValidShrinkFrames > NUM_FRAMES_BEFORE_SHRINK) {
+    /* Free the current memory space, divide the total size by 2 and reallocate */
+    mPrimaryMemoryHandler.free(mStart, mSize);
+    mSize /= 2;
+
+    if(mSize == 0) {
+      mSize = 1;
+    }
+
+    mStart = static_cast<char*>(mPrimaryMemoryHandler.allocate(mSize));
+    assert(mStart);
+    mNumValidShrinkFrames = 0;
+  }
+  else {
+    mNumValidShrinkFrames = 0;
+  }
+
+  if(mGrow) {
+    /* Free the current memory space, multiply the total size by 2 and reallocate */
+    mPrimaryMemoryHandler.free(mStart, mSize);
+    mSize *= 2;
+    mStart = static_cast<char*>(mPrimaryMemoryHandler.allocate(mSize));
+    assert(mStart);
+    mGrow = false;
+    mNumValidShrinkFrames = 0;
+  }
+
   /* Reset the offset so that it points to the beginning of the memory space */
   mOffset = 0;
 }
