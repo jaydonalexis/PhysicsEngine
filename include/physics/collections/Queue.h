@@ -88,7 +88,7 @@ inline bool Queue<T>::empty() const {
 /* Remove all elements in the queue */
 template<typename T>
 inline void Queue<T>::clear() {
-  mList.clear()
+  mList.clear();
 }
 
 }
