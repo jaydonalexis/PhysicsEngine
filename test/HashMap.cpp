@@ -40,16 +40,16 @@ TEST(HashMap, Constructors) {
   EXPECT_TRUE(map3.size() == map1.size());
 
   HashMap<int, int> map4(memoryHandler);
-  map4.insert(Pair<int, int>(1, 10));
-  map4.insert(Pair<int, int>(2, 20));
-  map4.insert(Pair<int, int>(3, 30));
+  map4.insert(Pair<int, int>(10, 10));
+  map4.insert(Pair<int, int>(20, 20));
+  map4.insert(Pair<int, int>(30, 30));
   EXPECT_TRUE(map4.size() == 3);
 
   HashMap<int, int> map5(map4);
   EXPECT_TRUE(map5.size() == map4.size());
-  EXPECT_TRUE(map5[1] == 10);
-  EXPECT_TRUE(map5[2] == 20);
-  EXPECT_TRUE(map5[3] == 30);
+  EXPECT_TRUE(map5[10] == 10);
+  EXPECT_TRUE(map5[20] == 20);
+  EXPECT_TRUE(map5[30] == 30);
 }
 
 TEST(HashMap, Modifiers) {
@@ -215,25 +215,25 @@ TEST(HashMap, Modifiers) {
 TEST(HashMap, ContainsKey) {
   VanillaMemoryHandler memoryHandler;
   HashMap<int, int> map1(memoryHandler);
-  EXPECT_TRUE(!map1.contains(2));
-  EXPECT_TRUE(!map1.contains(4));
-  EXPECT_TRUE(!map1.contains(6));
+  EXPECT_TRUE(!map1.contains(2) == true);
+  EXPECT_TRUE(!map1.contains(4) == true);
+  EXPECT_TRUE(!map1.contains(6) == true);
 
   map1.insert(Pair<int, int>(2, 20));
   map1.insert(Pair<int, int>(4, 40));
   map1.insert(Pair<int, int>(6, 60));
-  EXPECT_TRUE(map1.contains(2));
-  EXPECT_TRUE(map1.contains(4));
-  EXPECT_TRUE(map1.contains(6));
+  EXPECT_TRUE(map1.contains(2) == true);
+  EXPECT_TRUE(map1.contains(4) == true);
+  EXPECT_TRUE(map1.contains(6) == true);
 
   map1.remove(4);
-  EXPECT_TRUE(!map1.contains(4));
-  EXPECT_TRUE(map1.contains(2));
-  EXPECT_TRUE(map1.contains(6));
+  EXPECT_TRUE(map1.contains(4) == false);
+  EXPECT_TRUE(map1.contains(2) == true);
+  EXPECT_TRUE(map1.contains(6) == true);
 
   map1.clear();
-  EXPECT_TRUE(!map1.contains(2));
-  EXPECT_TRUE(!map1.contains(6));
+  EXPECT_TRUE(map1.contains(2) == false);
+  EXPECT_TRUE(map1.contains(6) == false);
 }
 
 TEST(HashMap, Indexing) {
@@ -351,7 +351,7 @@ TEST(HashMap, Iterator) {
   size_t size = 0;
 
   for (it = map1.begin(); it != map1.end(); ++it) {
-      EXPECT_TRUE(map1.contains(it->first));
+      EXPECT_TRUE(map1.contains(it->first) == true);
       size++;
   }
 
