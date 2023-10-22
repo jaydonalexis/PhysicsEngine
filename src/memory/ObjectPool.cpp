@@ -67,7 +67,7 @@ void* ObjectPoolMemoryHandler::allocate(size_t size) {
 
   /* Special case where the size to be allocated is more than the maximum size of a chunk */
   if(size > MAX_CHUNK_SIZE) {
-    /* Vanilla allocation */
+    /* Base allocation */
     return mPrimaryMemoryHandler.allocate(size);
   }
 
@@ -96,11 +96,11 @@ void* ObjectPoolMemoryHandler::allocate(size_t size) {
     /* Allocate a new pool */
     Pool* pool = mPools + mNumUsedPools;
     pool->chunks = static_cast<Chunk*>(mPrimaryMemoryHandler.allocate(POOL_SIZE));
-    assert(pool->chunks != nullptr);
+    assert(pool->chunks);
     uint chunkSize = mChunkSizes[poolGroupIndex];
     assert(chunkSize <= MAX_CHUNK_SIZE);
     uint numChunks = (POOL_SIZE) / chunkSize;
-    void* rawChunkHead = static_cast<void*>(mPools->chunks);
+    void* rawChunkHead = static_cast<void*>(pool->chunks);
     char* charChunkHead = static_cast<char*>(rawChunkHead);
 
     /* Divide the pool into individual chunks and link them */
@@ -157,7 +157,6 @@ void ObjectPoolMemoryHandler::free(void* ptr, size_t size) {
 
   /* Clear and move the freed chunk to the first free chunk position in the pool group */
   Chunk* chunk = static_cast<Chunk*>(ptr);
-  memset(chunk, 0, sizeof(chunk));
   chunk->nextChunk = mHeads[poolGroupIndex];
   mHeads[poolGroupIndex] = chunk;
 }

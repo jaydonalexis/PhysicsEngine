@@ -118,13 +118,13 @@ void FreeListMemoryHandler::free(void* ptr, size_t size) {
 
 /* Split memory block into two portions */
 void FreeListMemoryHandler::split(AllocationHeader* block, size_t size) {
-  assert(size < block->size);
+  assert(size <= block->size);
   assert(!block->isAllocated);
 
-  if(size + sizeof(AllocationHeader) < block->size - sizeof(AllocationHeader)) {
+  if(size + sizeof(AllocationHeader) < block->size) {
     /* New memory block for the leftover space */
-    unsigned char* nextBlockAddress = reinterpret_cast<unsigned char*>(block) + sizeof(AllocationHeader) + size;
-    AllocationHeader* newBlock = new (static_cast<void*>(nextBlockAddress)) AllocationHeader(block->size - (2 * sizeof(AllocationHeader)) - size, block, block->next, block->isNextCoalescent);
+    unsigned char* nextBlockAddress = (reinterpret_cast<unsigned char*>(block)) + sizeof(AllocationHeader) + size;
+    AllocationHeader* newBlock = new (static_cast<void*>(nextBlockAddress)) AllocationHeader(block->size - sizeof(AllocationHeader) - size, block, block->next, block->isNextCoalescent);
     assert(newBlock->next != newBlock);
     block->next = newBlock;
 

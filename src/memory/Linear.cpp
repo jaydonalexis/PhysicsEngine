@@ -9,7 +9,7 @@ using namespace physics;
 LinearMemoryHandler::LinearMemoryHandler(MemoryHandler& primaryMemoryHandler) : mPrimaryMemoryHandler(primaryMemoryHandler), mOffset(0), mSize(INIT_SIZE) {
   /* Allocate INIT_SIZE memory */
   mStart = static_cast<char*>(mPrimaryMemoryHandler.allocate(mSize));
-  assert(mStart != nullptr);
+  assert(mStart);
 }
 
 /* Destructor */
@@ -61,6 +61,7 @@ void LinearMemoryHandler::free(void* ptr, size_t size) {
 
 /* Reset pointer to mStart */
 void LinearMemoryHandler::reset() {
+  std::lock_guard<std::mutex> lock(mMutex);
   /* Reset the offset so that it points to the beginning of the memory space */
   mOffset = 0;
 }
