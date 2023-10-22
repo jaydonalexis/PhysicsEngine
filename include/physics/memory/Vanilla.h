@@ -20,7 +20,7 @@ class VanillaMemoryHandler : public MemoryHandler {
     }
 
     /* Free dynamically allocated memory */
-    void free(void* ptr, size_t _) override {
+    void free(void* ptr, size_t) override {
       std::free(ptr);
     }
 };

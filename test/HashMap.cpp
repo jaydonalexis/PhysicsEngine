@@ -350,7 +350,7 @@ TEST(HashMap, Iterator) {
 
   size_t size = 0;
 
-  for (auto it = map1.begin(); it != map1.end(); ++it) {
+  for (it = map1.begin(); it != map1.end(); ++it) {
       EXPECT_TRUE(map1.contains(it->first));
       size++;
   }
