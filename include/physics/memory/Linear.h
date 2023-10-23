@@ -11,6 +11,7 @@ class LinearMemoryHandler : public MemoryHandler {
 
   private:
     /* -- Attributes -- */
+    static const int NUM_FRAMES_BEFORE_SHRINK = 60;
 
     /* Initial size */
     size_t INIT_SIZE = 5242880;
@@ -29,6 +30,12 @@ class LinearMemoryHandler : public MemoryHandler {
 
     /* Offset in bytes from the starting address */
     size_t mOffset;
+
+    /* Number of frames before shrinking the memory space when performing a reset */
+    size_t mNumValidShrinkFrames;
+
+    /* Grow the memory space when performing a reset */
+    bool mGrow;
 
   public:
     /* -- Methods -- */
