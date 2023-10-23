@@ -15,7 +15,7 @@ class HashSet {
     /* -- Nested Classes -- */
 
     /* Color for red-black tree nodes */
-    enum class Color {Red, Black, DoubleBlack};
+    enum class Color {Red, Black};
 
     /* Node for the red-black tree*/
     struct TreeNode {
@@ -45,7 +45,7 @@ class HashSet {
         Color color;
 
         /* -- Methods -- */
-        TreeNode(const V& value) : value(value), parent(nullptr), left(nullptr), right(nullptr), color(Color::Red) {}
+        TreeNode(const V& value) : value(value), parent(nullptr), left(nullptr), right(nullptr), next(nullptr), prev(nullptr), color(Color::Red) {}
 
         /* Return the minimum node relative to the current node */
         TreeNode* min() const {
@@ -131,7 +131,7 @@ class HashSet {
         Color getColor(TreeNode* node) const {
           if(!node) {
             /* null nodes are black by default */
-            return TreeNode::Color::Black;
+            return Color::Black;
           }
 
           return node->color;
