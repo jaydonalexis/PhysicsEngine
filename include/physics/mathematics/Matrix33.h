@@ -167,6 +167,21 @@ inline float Matrix33::getDeterminant() const {
          mRows[0][2]*(mRows[1][0]*mRows[2][1]-mRows[2][0]*mRows[1][1]);
 }
 
+/* Get inverse of the matrix */
+inline Matrix33 Matrix33::getInverse() const {
+  float determinant = getDeterminant();
+
+  assert(std::abs(determinant) > FLOAT_EPSILON);
+
+  float determinantInverse = 1.0f / determinant;
+
+  Matrix33 temp((mRows[1][1] * mRows[2][2] - mRows[2][1] * mRows[1][2]), -(mRows[0][1] * mRows[2][2] - mRows[2][1] * mRows[0][2]), (mRows[0][1] * mRows[1][2] - mRows[0][2] * mRows[1][1]),
+               -(mRows[1][0] * mRows[2][2] - mRows[2][0] * mRows[1][2]), (mRows[0][0] * mRows[2][2] - mRows[2][0] * mRows[0][2]), -(mRows[0][0] * mRows[1][2] - mRows[1][0] * mRows[0][2]),
+                (mRows[1][0] * mRows[2][1] - mRows[2][0] * mRows[1][1]), -(mRows[0][0] * mRows[2][1] - mRows[2][0] * mRows[0][1]), (mRows[0][0] * mRows[1][1] - mRows[0][1] * mRows[1][0]));
+
+  return determinantInverse * temp;
+}
+
 /* Get identity matrix */
 inline Matrix33 Matrix33::getIdentity() {
   return Matrix33(1, 0, 0, 0, 1, 0, 0, 0, 1);

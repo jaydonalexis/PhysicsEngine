@@ -161,6 +161,21 @@ inline float Matrix22::getDeterminant() const {
   return mRows[0][0] * mRows[1][1] - mRows[1][0] * mRows[0][1];
 }
 
+
+/* Get inverse of the matrix */
+inline Matrix22 Matrix22::getInverse() const {
+  float determinant = getDeterminant();
+
+  assert(std::abs(determinant) > FLOAT_EPSILON);
+
+  float determinantInverse = 1.0f / determinant;
+
+  Matrix22 temp(mRows[1][1], -mRows[0][1], 
+                -mRows[1][0], mRows[0][0]);
+
+  return determinantInverse * temp;
+}
+
 /* Get identity matrix */
 inline Matrix22 Matrix22::getIdentity() {
   return Matrix22(1, 0, 0, 1);
