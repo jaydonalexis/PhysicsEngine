@@ -1,4 +1,4 @@
-#ifndef PHSYICS_ROTATION_H
+#ifndef PHYSICS_ROTATION_H
 #define PHYSICS_ROTATION_H
 
 #include <physics/mathematics/MathCommon.h>
