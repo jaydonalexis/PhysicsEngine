@@ -88,6 +88,7 @@ inline Vector2 AABB::getHalfExtents() const {
   return 0.5f * (mUpperBound - mLowerBound);
 }
 
+/* Debug */
 /* Get the extents of the AABB */
 inline Vector2 AABB::getExtents() const {
   return mUpperBound - mLowerBound;
