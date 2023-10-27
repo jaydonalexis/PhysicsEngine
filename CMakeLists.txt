@@ -28,6 +28,7 @@ add_library(PhysicsEngine::physicsengine ALIAS physicsengine)
 # C++11 compiler features
 target_compile_features(physicsengine PUBLIC cxx_std_11)
 set_target_properties(physicsengine PROPERTIES CXX_EXTENSIONS OFF)
+add_compile_options(/W4)
 
 # Library headers
 target_include_directories(physicsengine PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:include>)
