@@ -43,6 +43,9 @@ class Queue {
 
     /* Remove all elements in the queue */
     void clear();
+
+    /* Overloaded assignment operator */
+    Queue& operator=(const Queue& queue);
 };
 
 /* Constructor */
@@ -89,6 +92,17 @@ inline bool Queue<T>::empty() const {
 template<typename T>
 inline void Queue<T>::clear() {
   mList.clear();
+}
+
+/* Overloaded assignment operator */
+template<typename T>
+inline Queue<T>& Queue<T>::operator=(const Queue& queue) {
+  if(this != &queue) {
+    /* Underlying list handles memory deallocation */
+    mList = queue.mList;
+  }
+
+  return *this;
 }
 
 }

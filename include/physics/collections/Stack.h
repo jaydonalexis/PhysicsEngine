@@ -43,6 +43,9 @@ class Stack {
 
     /* Remove all elements in the stack */
     void clear();
+
+    /* Overloaded assignment operator */
+    Stack& operator=(const Stack& stack);
 };
 
 /* Constructor */
@@ -89,6 +92,17 @@ inline bool Stack<T>::empty() const {
 template<typename T>
 inline void Stack<T>::clear() {
   mList.clear();
+}
+
+/* Overloaded assignment operator */
+template<typename T>
+inline Stack<T>& Stack<T>::operator=(const Stack& stack) {
+  if(this != &stack) {
+    /* Underlying list handles memory deallocation */
+    mList = stack.mList;
+  }
+
+  return *this;
 }
 
 }
