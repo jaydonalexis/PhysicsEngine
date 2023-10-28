@@ -50,22 +50,22 @@ TEST(Rotation, Operators) {
   Rotation rotation1;
   Rotation rotation2;
   Rotation rotation3;
-  rotation1.set(PI_DIV_4);
-  rotation2.set(PI_DIV_4);
-  rotation3.set(PI_DIV_2);
+  rotation1.set(PI / 4.0f);
+  rotation2.set(PI / 4.0f);
+  rotation3.set(PI / 2.0f);
   EXPECT_TRUE(rotation1 == rotation2);
   EXPECT_TRUE(rotation1 != rotation3);
 
   rotation3 = rotation1 * rotation2;
-  EXPECT_TRUE(approximateEqual(rotation3.get(), PI_DIV_2));
+  EXPECT_TRUE(approximateEqual(rotation3.get(), PI / 2.0f));
 
   rotation1 *= rotation2;
-  EXPECT_TRUE(approximateEqual(rotation1.get(), PI_DIV_2));
+  EXPECT_TRUE(approximateEqual(rotation1.get(), PI / 2.0f));
 
   Rotation rotation4;
   Vector2 vector1{1, 2};
   Vector2 vector2;
-  rotation4.set(PI_DIV_4);
+  rotation4.set(PI / 4.0f);
   vector2 = rotation4 * vector1;
   EXPECT_TRUE(vector2 == Vector2(-0.7071068f, 2.1213203f));
 }
@@ -78,13 +78,13 @@ TEST(Rotation, GetAngle) {
   float angle2 = rotation2.get();
   float angle3 = rotation3.get();
   EXPECT_TRUE(approximateEqual(angle1, 0.5f));
-  EXPECT_TRUE(approximateEqual(angle2, PI_DIV_4));
-  EXPECT_TRUE(approximateEqual(angle3, PI_DIV_2));
+  EXPECT_TRUE(approximateEqual(angle2, PI / 4.0f));
+  EXPECT_TRUE(approximateEqual(angle3, PI / 2.0f));
 }
 
 TEST(Rotation, GetAxes) {
-  Rotation rotation1{PI_DIV_2};
-  Rotation rotation2{PI_DIV_4};
+  Rotation rotation1{PI / 2.0f};
+  Rotation rotation2{PI / 4.0f};
   Vector2 vector1 = rotation1.getX();
   Vector2 vector2 = rotation1.getY();
   EXPECT_TRUE(vector1 == Vector2(0, 1));
@@ -98,20 +98,20 @@ TEST(Rotation, GetAxes) {
 }
 
 TEST(Rotation, GetZero) {
-  Rotation rotation1{PI_DIV_4};
-  Rotation rotation2{PI_DIV_4};
+  Rotation rotation1{PI / 4.0f};
+  Rotation rotation2{PI / 4.0f};
   rotation2 = rotation1.getZero();
   EXPECT_TRUE(rotation2 == Rotation(0, 1));
 }
 
 TEST(Rotation, TransposeMultiply) {
-  Rotation rotation1{PI_DIV_8};
-  Rotation rotation2{PI_DIV_4};
+  Rotation rotation1{PI / 8.0f};
+  Rotation rotation2{PI / 4.0f};
   Rotation rotation3;
   rotation3 = transposeMultiply(rotation1, rotation2);
   EXPECT_TRUE(approximateEqual(rotation3.get(), 0.3926990f));
 
-  Rotation rotation4{PI_DIV_8};
+  Rotation rotation4{PI / 8.0f};
   Vector2 vector1{1, 2};
   Vector2 vector2;
   vector2 = transposeMultiply(rotation4, vector1);

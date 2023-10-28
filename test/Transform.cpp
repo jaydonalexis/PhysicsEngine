@@ -64,7 +64,7 @@ TEST(Transform, Operators) {
   EXPECT_TRUE(transform1.getPosition() == (transform4.getOrientation() * transform2.getPosition()) + transform4.getPosition());
   EXPECT_TRUE(transform1.getOrientation() == transform4.getOrientation() * transform2.getOrientation());
 
-  Transform transform5(Vector2(1, 2), Rotation(PI_DIV_8));
+  Transform transform5(Vector2(1, 2), Rotation(PI / 8.0f));
   Vector2 vector1{4, 3};
   Vector2 vector2;
   vector2 = transform5 * vector1;
@@ -86,13 +86,13 @@ TEST(Transform, GetIdentity) {
 }
 
 TEST(Transform, TransposeMultiply) {
-  Transform transform1(Vector2(1, 2), Rotation(PI_DIV_8));
-  Transform transform2(Vector2(3, 4), Rotation{PI_DIV_4});
+  Transform transform1(Vector2(1, 2), Rotation(PI / 8.0f));
+  Transform transform2(Vector2(3, 4), Rotation{PI / 4.0f});
   Transform transform3 = transposeMultiply(transform1,  transform2);
   EXPECT_TRUE(transform3.getPosition() == transform1.getOrientation() * (transform2.getPosition() - transform1.getPosition()));
   EXPECT_TRUE(transform3.getOrientation() == transform1.getOrientation() * transform2.getOrientation());
 
-  Transform transform4(Vector2(1, 2), Rotation(PI_DIV_8));
+  Transform transform4(Vector2(1, 2), Rotation(PI / 8.0f));
   Vector2 vector1{4, 3};
   Vector2 vector2;
   vector2 = transposeMultiply(transform4, vector1);
