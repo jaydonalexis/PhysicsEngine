@@ -8,6 +8,7 @@
 
 namespace physics {
 
+/* Hash set with a modified red-black tree as its underlying data structure */
 template<typename V, class Hash = std::hash<V>, class KeyEqual = std::equal_to<V>>
 class HashSet {
 

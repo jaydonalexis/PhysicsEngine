@@ -11,6 +11,7 @@
 
 namespace physics {
 
+/* Hash map with a modified red-black tree as its underlying data structure */
 template<typename K, typename V, class Hash = std::hash<K>, class KeyEqual = std::equal_to<K>>
 class HashMap {
 
