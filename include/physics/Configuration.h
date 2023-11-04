@@ -7,10 +7,12 @@
 #include <utility>
 #include <sstream>
 #include <string>
-// #include <physics/containers/Pair.h>
+#include <physics/collections/Pair.h>
+
+#define NOT_USED(x) ((void)(x)) 
 
 namespace physics {
-  /* Type Definitions */
+  /* -- Type Definitions -- */
 
   using uint = unsigned int;
   using uchar = unsigned char;
@@ -27,9 +29,9 @@ namespace physics {
   using uint64 = std::uint64_t;
 
   struct Entity;
-  // using bodyPair = Pair<Entity, Entity>;
+  using bodyPair = Pair<Entity, Entity>;
 
-  /* Constants */
+  /* -- Constants -- */
 
   /* Smallest float value */
   const float FLOAT_SMALLEST = - std::numeric_limits<float>::max();
@@ -42,10 +44,35 @@ namespace physics {
 
   /* PI constants */
   constexpr float PI = 3.141592653589f;
-  constexpr float PI_MUL_2 = 6.283185307180f;
-  constexpr float PI_DIV_2 = 1.570796326795f;
-  constexpr float PI_DIV_4 = 0.785398163397f;
-  constexpr float PI_DIV_8 = 0.392699081699f;
+
+  /* Minimum polygon vertices */
+  constexpr uint8 MIN_POLYGON_VERTICES = 2;
+
+  /* Maximum polygon vertices */
+  constexpr uint8 MAX_POLYGON_VERTICES = 8;
+
+  /* Debug world scale */
+  /* Dynamic tree fat AABB inflation */
+  constexpr float DYNAMIC_TREE_FAT_AABB_EXTENSION = 0.1f;
+
+  /* Dynamic tree fat AABB inflation */
+  constexpr float DYNAMIC_TREE_FAT_AABB_MULTIPLIER = 4.0f;
+
+  /* Debug world scale */
+  /* A small length used as a collision and constraint tolerance */
+  constexpr float LINEAR_SLOP = 0.005f;
+
+  /* A small angle used as a collision and constraint tolerance */
+  constexpr float ANGULAR_SLOP = 2.0f / 180.0f * PI;
+
+  /* Polygon radius */
+  constexpr float POLYGON_RADIUS = 2.0f * LINEAR_SLOP;
+
+  /* Quick hull algorithm weld tolerance */
+  constexpr float QUICK_HULL_WELD_TOLERANCE = 16.0f * LINEAR_SLOP * LINEAR_SLOP;
+
+  /* Maximum number of contact points between two convex shapes */
+  constexpr uint8 MAX_MANIFOLD_POINTS = 2;
 }
 
 #endif
