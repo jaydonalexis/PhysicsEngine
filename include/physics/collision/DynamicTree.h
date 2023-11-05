@@ -10,6 +10,7 @@
 #define NULL_NODE -1
 #define FREE_NODE_HEIGHT -1
 #define LEAF_HEIGHT 0
+#define MINIMUM_BALANCE_DEPTH 2
 
 namespace physics {
 

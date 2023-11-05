@@ -21,6 +21,7 @@ void DynamicTree::initialize() {
 
   /* Allocate, construct and initialize nodes */
   mNodes = static_cast<Node*>(mMemoryHandler.allocate(static_cast<size_t>(mNumAllocatedNodes) * sizeof(Node)));
+  assert(mNodes);
 
   for(int32 i = 0; i < mNumAllocatedNodes; i++) {
     new (mNodes + i) Node();
@@ -28,6 +29,7 @@ void DynamicTree::initialize() {
     if(i == mNumAllocatedNodes - 1) {
       mNodes[i].next = NULL_NODE;
       mNodes[i].height = FREE_NODE_HEIGHT;
+      continue;
     }
 
     mNodes[i].next = i + 1;
@@ -201,7 +203,6 @@ void DynamicTree::insertLeaf(int32 node) {
   mNodes[parent].rightChild = node;
   mNodes[sibling].parent = parent;
   mNodes[node].parent = parent;
-
   walk = mNodes[node].parent;
 
   /* Now that the node is inserted, we need to propogate corrective measures up the tree */
@@ -242,7 +243,6 @@ void DynamicTree::removeLeaf(int32 node) {
 
     mNodes[sibling].parent = grandparent;
     extractNode(parent);
-    
     int32 walk = grandparent;
 
     /* Now that the node is deleted, we need to propogate corrective measures up the tree */
@@ -267,7 +267,7 @@ void DynamicTree::removeLeaf(int32 node) {
 int32 DynamicTree::balance(int32 node) {
   Node* A = mNodes + node;
   
-  if(A->isLeaf() || A->height < 2) {
+  if(A->isLeaf() || A->height < MINIMUM_BALANCE_DEPTH) {
     return node;
   }
 
@@ -314,7 +314,7 @@ int32 DynamicTree::balance(int32 node) {
     else {
       C->rightChild = iG;
       A->rightChild = iF;
-      G->parent = node;
+      F->parent = node;
       A->aabb.combine(B->aabb, F->aabb);
       C->aabb.combine(A->aabb, G->aabb);
       A->height = 1 + std::max(B->height, F->height);
@@ -381,7 +381,7 @@ int32 DynamicTree::insertObject(const AABB& aabb) {
 
   /* Fat AABB */
   /* Debug */
-  const Vector2 padding(aabb.getHalfExtents() * 0.5f);
+  const Vector2 padding(aabb.getHalfExtents() * mFatAABBInflation);
   mNodes[node].aabb.setLowerBound(aabb.getlowerBound() - padding);
   mNodes[node].aabb.setUpperBound(aabb.getUpperBound() + padding);
   mNodes[node].height = LEAF_HEIGHT;
