@@ -16,7 +16,7 @@ class Material {
     float mDensity;
 
     /* Spring constant */
-    float mBounce;
+    float mSpring;
 
     /* Debug */
     /* Friction constant */
@@ -40,7 +40,7 @@ class Material {
     float getSpringConstant() const;
 
     /* Set the spring constant of the material */
-    void setSpringConstant(float bounce);
+    void setSpringConstant(float spring);
 
     /* Get the friction constant of the material */
     float getFrictionConstant() const;
@@ -63,12 +63,12 @@ inline void Material::setDensity(float density) {
 }
 
 inline float Material::getSpringConstant() const {
-  return mBounce;
+  return mSpring;
 }
 
-inline void Material::setSpringConstant(float bounce) {
-  assert(bounce >= 0.0f && bounce <= 1.0f);
-  mBounce = bounce;
+inline void Material::setSpringConstant(float spring) {
+  assert(spring >= 0.0f && spring <= 1.0f);
+  mSpring = spring;
 }
 
 inline float Material::getFrictionConstant() const {
