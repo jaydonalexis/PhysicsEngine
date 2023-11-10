@@ -2,7 +2,6 @@
 #define PHYSICS_CIRCLE_SHAPE_H
 
 #include <physics/collision/Shape.h>
-#include <physics/mathematics/Math.h>
 
 namespace physics {
 
@@ -38,13 +37,13 @@ class CircleShape : public Shape {
     /* Set radius of the sphere */
     void setRadius(float radius);
 
-    /* Get the rotational inertia of the shape about the local origin in the x-y coordinate plane */
+    /* Get the rotational inertia of the shape about the local origin */
     virtual float getLocalInertia(float mass) const override;
 
-    /* Get area of the shape */
+    /* Get the area of the shape */
     virtual float getArea() const override;
 
-    /* Get centroid of the shape */
+    /* Get the centroid of the shape */
     virtual Vector2 getCentroid() const override;
 
     /* Compute the world space AABB of the shape */
