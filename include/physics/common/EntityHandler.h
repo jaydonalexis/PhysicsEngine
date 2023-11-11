@@ -60,7 +60,7 @@ inline Entity EntityHandler::createEntity() {
 }
 
 /* Delete entity */
-void EntityHandler::deleteEntity(Entity entity) {
+inline void EntityHandler::deleteEntity(Entity entity) {
   const uint32 index = entity.getIndex();
 
   /* Generation is increased for when this index is reused by another created entity */
