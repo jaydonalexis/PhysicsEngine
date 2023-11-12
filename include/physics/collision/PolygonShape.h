@@ -54,7 +54,7 @@ class PolygonShape : public Shape {
     virtual size_t byteSize() const override;
 
     /* Query whether a point is inside the shape */
-    virtual bool testPoint(const Vector2& localPoint) const override;
+    virtual bool testPoint(const Vector2& pointLocal) const override;
 
     /* Compute geometric properties of the shape */
     void computeGeometricProperties();

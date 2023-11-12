@@ -20,7 +20,7 @@ class CircleShape : public Shape {
     virtual size_t byteSize() const override;
 
     /* Query whether a point is inside the shape */
-    virtual bool testPoint(const Vector2& localPoint) const override;
+    virtual bool testPoint(const Vector2& pointLocal) const override;
 
   public:
     /* -- Methods -- */
@@ -47,7 +47,7 @@ class CircleShape : public Shape {
     virtual Vector2 getCentroid() const override;
 
     /* Compute the world space AABB of the shape */
-    virtual void computeAABB(AABB& aabb, const Transform& worldTransform) const override;
+    virtual void computeAABB(AABB& aabb, const Transform& transformWorld) const override;
 
     /* -- Friends -- */
 
