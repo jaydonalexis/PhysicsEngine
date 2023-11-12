@@ -22,6 +22,9 @@ class Pair {
     /* -- Methods -- */
 
     /* Constructor */
+    Pair() = default;
+
+    /* Constructor */
     Pair(const T1& first, const T2& second);
 
     /* Overloaded equality operator */
