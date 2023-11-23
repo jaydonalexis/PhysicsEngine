@@ -4,16 +4,19 @@
 
 using namespace physics;
 
-Hull computeHull(const Vector2* points, uint32 numPoints) {
-  Hull hull;
-  hull.numPoints = 0;
+/* Constructor */
+Hull::Hull(const Vector2* points, uint32 numPoints) {
+  init(points, numPoints);
+}
 
+/* Initialize the convex hull */
+void Hull::init(const Vector2* points, uint32 numPoints) {
   if(numPoints < MIN_POLYGON_VERTICES || numPoints > MAX_POLYGON_VERTICES) {
-    return hull;
+    return;
   }
 
   numPoints = std::min(numPoints, (uint32)MAX_POLYGON_VERTICES);
-  AABB aabb(Vector2(FLT_MAX, FLT_MAX), Vector2(-FLT_MAX, -FLT_MAX));
+  AABB aabb{Vector2(FLT_MAX, FLT_MAX), Vector2(-FLT_MAX, -FLT_MAX)};
   Vector2 candidates[MAX_POLYGON_VERTICES];
   uint32 numValid = 0;
 
@@ -38,7 +41,7 @@ Hull computeHull(const Vector2* points, uint32 numPoints) {
   }
 
   if(numValid < MIN_POLYGON_VERTICES) {
-    return hull;
+    return;
   }
 
   /* First extreme point for quick hull algorithm */
@@ -84,69 +87,69 @@ Hull computeHull(const Vector2* points, uint32 numPoints) {
   for(uint32 i = 0; i < numValid; i++) {
     float distance = (candidates[i] - point1).cross(divider);
 
-    if(distance >= LINEAR_SLOP) {
+    if(distance >= 2.0f * LINEAR_SLOP) {
       right[numRight++] = candidates[i];
     }
-    else if(distance <= -LINEAR_SLOP) {
+    else if(distance <= -2.0f * LINEAR_SLOP) {
       left[numLeft++] = candidates[i];
     }
   }
 
-  Hull rightHull = recurseHull(point1, point2, right, numRight);
-  Hull leftHull = recurseHull(point2, point1, left, numLeft);
+  Hull rightHull = recurse(point1, point2, right, numRight);
+  Hull leftHull = recurse(point2, point1, left, numLeft);
+  assert(leftHull.mNumPoints > 0 || rightHull.mNumPoints > 0);
 
   /* Collinear */
-  if(leftHull.numPoints == 0 && rightHull.numPoints == 0) {
-    return hull;
+  if(leftHull.mNumPoints == 0 && rightHull.mNumPoints == 0) {
+    return;
   }
 
-  hull.points[hull.numPoints++] = point1;
+  mPoints[mNumPoints++] = point1;
 
-  for(uint32 i = 0; i < rightHull.numPoints; i++) {
-    hull.points[hull.numPoints++] = rightHull.points[i];
+  for(uint32 i = 0; i < rightHull.mNumPoints; i++) {
+    mPoints[mNumPoints++] = rightHull.mPoints[i];
   }
 
-  hull.points[hull.numPoints++] = point2;
+  mPoints[mNumPoints++] = point2;
 
-  for(uint32 i = 0; i < leftHull.numPoints; i++) {
-    hull.points[hull.numPoints++] = leftHull.points[i];
+  for(uint32 i = 0; i < leftHull.mNumPoints; i++) {
+    mPoints[mNumPoints++] = leftHull.mPoints[i];
   }
 
-  assert(hull.numPoints <= MAX_POLYGON_VERTICES);
+  assert(mNumPoints <= MAX_POLYGON_VERTICES);
 
   /* Merge collinear points */
   bool valid = true;
 
-  while(valid && hull.numPoints >= MIN_POLYGON_VERTICES) {
+  while(valid && mNumPoints >= MIN_POLYGON_VERTICES) {
     valid = false;
 
-    for(uint32 i = 0; i < hull.numPoints; i++) {
-      Vector2 point1 = hull.points[i];
-      Vector2 point2 = hull.points[(i + 1) % hull.numPoints];
-      Vector2 point3 = hull.points[(i + 2) % hull.numPoints];
+    for(uint32 i = 0; i < mNumPoints; i++) {
+      Vector2 point1 = mPoints[i];
+      Vector2 point2 = mPoints[(i + 1) % mNumPoints];
+      Vector2 point3 = mPoints[(i + 2) % mNumPoints];
       Vector2 refLine = point3 - point1;
       refLine.normalize();
       float distance = (point2 - point1).cross(refLine);
 
-      if(distance <= LINEAR_SLOP) {
+      if(distance <= 2.0f * LINEAR_SLOP) {
         /* Remove midpoint of reference line */
-        for(uint32 j = (i + 1) % hull.numPoints; j < hull.numPoints - 1; j++) {
-          hull.points[j] = hull.points[j + 1];
+        for(uint32 j = (i + 1) % mNumPoints; j < mNumPoints - 1; j++) {
+          mPoints[j] = mPoints[j + 1];
         }
 
-        hull.numPoints--;
+        mNumPoints--;
         valid = true;
         break;
       }
     }
   }
-
-  return hull;
 }
 
-Hull recurseHull(const Vector2& minPoint, const Vector2& maxPoint, Vector2* points, uint32 numPoints) {
+/* Recursive divide and conquer quick hull algorithm implementation */
+Hull Hull::recurse(const Vector2& minPoint, const Vector2& maxPoint, const Vector2* points, uint32 numPoints) {
   Hull hull;
-  hull.numPoints = 0;
+  assert(hull.mNumPoints == 0);
 
   if(numPoints == 0) {
     return hull;
@@ -176,26 +179,26 @@ Hull recurseHull(const Vector2& minPoint, const Vector2& maxPoint, Vector2* poin
     }
   }
 
-  if(furthest < LINEAR_SLOP) {
+  if(furthest < 2.0f * LINEAR_SLOP) {
     return hull;
   }
 
   Vector2 furthestPoint = points[furthestIndex];
 
-  Hull leftHull = recurseHull(minPoint, furthestPoint, right, numRight);
-  Hull rightHull = recurseHull(furthestPoint, maxPoint, right, numRight);
+  Hull rightHull = recurse(minPoint, furthestPoint, right, numRight);
+  Hull leftHull = recurse(furthestPoint, maxPoint, right, numRight);
 
   /* Stitch hulls together */
-  for(uint32 i = 0; i < leftHull.numPoints; i++) {
-    hull.points[hull.numPoints++] = leftHull.points[i];
+  for(uint32 i = 0; i < rightHull.mNumPoints; i++) {
+    hull.mPoints[hull.mNumPoints++] = rightHull.mPoints[i];
   }
 
-  hull.points[hull.numPoints++] = furthestPoint;
+  hull.mPoints[hull.mNumPoints++] = furthestPoint;
 
-  for(uint32 i = 0; i < rightHull.numPoints; i++) {
-    hull.points[hull.numPoints++] = rightHull.points[i];
+  for(uint32 i = 0; i < leftHull.mNumPoints; i++) {
+    hull.mPoints[hull.mNumPoints++] = leftHull.mPoints[i];
   }
 
-  assert(hull.numPoints < MAX_POLYGON_VERTICES);
+  assert(hull.mNumPoints < MAX_POLYGON_VERTICES);
   return hull;
 }

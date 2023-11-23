@@ -6,23 +6,36 @@
 
 namespace physics {
 
-struct Hull {
+class Hull {
 
-  public:
+  private:
     /* -- Attributes -- */
 
     /* Hull points */
-    Vector2 points[MAX_POLYGON_VERTICES];
+    Vector2 mPoints[MAX_POLYGON_VERTICES];
 
     /* Number of hull points */
-    uint32 numPoints;
+    uint32 mNumPoints;
+
+  public:
+    /* -- Methods -- */
+
+    /* Constructor */
+    Hull() = default;
+
+    /* Constructor */
+    Hull(const Vector2* points, uint32 numPoints);
+
+    /* Initialize the convex hull */
+    void init(const Vector2* points, uint32 numpoints);
+
+    /* Recursive divide and conquer quick hull algorithm implementation */
+    Hull recurse(const Vector2& minPoint, const Vector2& maxPoint, const Vector2* points, uint32 numPoints);
+
+    /* -- Friends -- */
+    friend class PolygonShape;
 };
 
-/* Debug */
-Hull computeHull(const Vector2* points, uint32 numPoints);
-
-/* Recursive divide and conquer method for quick hull algorithm */
-Hull recurseHull(const Vector2& minPoint, const Vector2& maxPoint, const Vector2* points, uint32 numPoints);
 }
 
 #endif
