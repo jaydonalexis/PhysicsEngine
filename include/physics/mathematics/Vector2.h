@@ -41,6 +41,9 @@ struct Vector2 {
     /* Get the associated unit vector of the current vector */
     Vector2 getUnitVector() const;
 
+    /* Get an orthogonal unit vector of the current vector */
+    Vector2 getOrthogonalUnitVector(bool clockwise) const;
+
     /* Query whether the current vector is a unit vector */
     bool isUnitVector() const;
 
@@ -55,9 +58,6 @@ struct Vector2 {
 
     /* Compute the cross product of the current vector with another given vector */
     float cross(const Vector2& vector) const;
-
-    /* Compute the cross product of the current vector with a given scalar */
-    Vector2 cross(float number) const;
 
     /* Normalize the vector */
     void normalize();
@@ -105,6 +105,10 @@ struct Vector2 {
     friend Vector2 operator*(const Vector2& vector1, const Vector2& vector2);
     friend Vector2 operator/(const Vector2& vector, float number);
     friend Vector2 operator/(const Vector2& vector1, const Vector2& vector2);
+    friend float cross(const Vector2& vector1, const Vector2& vector2);
+    friend float dot(const Vector2& vector1, const Vector2& vector2);
+    friend Vector2 cross(float number, const Vector2& vector);
+    friend Vector2 cross(const Vector2& vector, float number);
     friend Vector2 abs(const Vector2& vector);
     friend Vector2 min(const Vector2& vector1, const Vector2& vector2);
     friend Vector2 max(const Vector2& vector1, const Vector2& vector2);
@@ -152,6 +156,13 @@ inline Vector2 Vector2::getUnitVector() const {
   return Vector2(x * lenInverse, y * lenInverse);
 }
 
+/* Get an orthogonal vector of the current vector */
+inline Vector2 Vector2::getOrthogonalUnitVector(bool clockwise) const {
+  float len = length();
+  assert(len > FLOAT_EPSILON);
+  return clockwise ? Vector2(y / len, x / len) : Vector2(-y / len, x / len);
+}
+
 /* Query whether the current vector is a unit vector */
 inline bool Vector2::isUnitVector() const {
   return approximateEqual(lengthSquare(), 1);
@@ -175,11 +186,6 @@ inline float Vector2::dot(const Vector2& vector) const {
 /* Compute the cross product of the current vector with another given vector */
 inline float Vector2::cross(const Vector2& vector) const {
   return x * vector.y - y * vector.x;
-}
-
-/* Compute the cross product of the current vector with a given scalar */
-inline Vector2 Vector2::cross(float number) const {
-  return Vector2(number * y, -number * x);
 }
 
 /* Normalize the vector */
@@ -301,6 +307,26 @@ inline Vector2 operator/(const Vector2& vector1, const Vector2& vector2) {
 inline Vector2 operator/(const Vector2& vector, float number) {
     assert(number > FLOAT_EPSILON);
     return Vector2(vector.x / number, vector.y / number);
+}
+
+/* Cross product between two given vectors */
+inline float cross(const Vector2& vector1, const Vector2& vector2) {
+  return vector1.x * vector2.y - vector1.y * vector2.x;
+}
+
+/* Dot product between two given vectors */
+inline float dot(const Vector2& vector1, const Vector2& vector2) {
+   return vector1.x * vector2.x + vector1.y * vector2.y;
+}
+
+/* Cross product between a given number and vector */
+inline Vector2 cross(float number, const Vector2& vector) {
+  return Vector2(-number * vector.y, number * vector.x);
+}
+
+/* Cross product between a given vector and number */
+inline Vector2 cross(const Vector2& vector, float number) {
+  return Vector2(number * vector.y, -number * vector.x);
 }
 
 /* abs function for Vector2 */

@@ -12,7 +12,7 @@ namespace physics {
     return std::max(low, std::min(value, high));
   }
 
-  inline uint32 nextPowerOfTwo(uint32 value) {
+  inline uint64 nextPowerOfTwo(uint64 value) {
     value |= (value >> 1);
     value |= (value >> 2);
     value |= (value >> 4);
@@ -21,12 +21,20 @@ namespace physics {
     return value + 1;
   }
 
-  inline bool isPowerOfTwo(uint32 value) {
+  inline bool isPowerOfTwo(uint64 value) {
     return value > 0 && (value & (value - 1)) == 0;
   }
 
   inline bool approximateEqual(float a, float b, float epsilon = FLOAT_EPSILON) {
     return std::abs(a - b) < epsilon;
+  }
+
+  inline uint64 getElegantPair(uint32 firstNumber, uint32 secondNumber) {
+    if(firstNumber != std::max(firstNumber, secondNumber)) {
+      return getElegantPair(secondNumber, firstNumber);
+    }
+
+    return static_cast<uint64>(firstNumber * firstNumber + firstNumber + secondNumber);
   }
 
 }

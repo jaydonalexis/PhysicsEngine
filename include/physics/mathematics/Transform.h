@@ -58,8 +58,8 @@ class Transform {
     
     friend Transform operator*(const Transform& transform1, const Transform& transform2);
     friend Vector2 operator*(const Transform& transform, const Vector2& vector);
-    friend Transform transposeMultiply(const Transform& transform1, const Transform& transform2);
-    friend Vector2 transposeMultiply(const Transform& transform, const Vector2& vector);
+    friend Transform operator^(const Transform& transform1, const Transform& transform2);
+    friend Vector2 operator^(const Transform& transform, const Vector2& vector);
 };
 
 /* Constructor */
@@ -128,12 +128,12 @@ inline Vector2 operator*(const Transform& transform, const Vector2& vector) {
 }
 
 /* Transpose multiplication between two given transforms */
-inline Transform transposeMultiply(const Transform& transform1, const Transform& transform2) {
+inline Transform operator^(const Transform& transform1, const Transform& transform2) {
   return Transform(transform1.mOrientation * (transform2.mPosition - transform1.mPosition), transform1.mOrientation * transform2.mOrientation);
 }
 
 /* Transpose multiplication between a given transform and a given vector */
-inline Vector2 transposeMultiply(const Transform& transform, const Vector2& vector) {
+inline Vector2 operator^(const Transform& transform, const Vector2& vector) {
   float px = vector.x - transform.mPosition.x;
   float py = vector.y - transform.mPosition.y;
   return Vector2(transform.mOrientation.c * px + transform.mOrientation.s * py,

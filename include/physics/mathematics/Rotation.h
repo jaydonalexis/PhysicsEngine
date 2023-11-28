@@ -62,8 +62,8 @@ struct Rotation {
 
     friend Rotation operator*(const Rotation& orientation1, const Rotation& orientation2);
     friend Vector2 operator*(const Rotation& orientation, const Vector2& vector);
-    friend Rotation transposeMultiply(const Rotation& orientation1, const Rotation& orientation2);
-    friend Vector2 transposeMultiply(const Rotation& orientation, const Vector2& vector);
+    friend Rotation operator^(const Rotation& orientation1, const Rotation& orientation2);
+    friend Vector2 operator^(const Rotation& orientation, const Vector2& vector);
 };
 
 /* Constructor */
@@ -137,13 +137,13 @@ inline Vector2 operator*(const Rotation& orientation, const Vector2& vector) {
 }
 
 /* Transpose multiplication between two given orientations */
-inline Rotation transposeMultiply(const Rotation& orientation1, const Rotation& orientation2) {
+inline Rotation operator^(const Rotation& orientation1, const Rotation& orientation2) {
   return Rotation(orientation1.c * orientation2.s - orientation1.s * orientation2.c,
                   orientation1.c * orientation2.c + orientation1.s * orientation2.s);
 }
 
 /* Transpose multiplication between a given orientation and a given vector */
-inline Vector2 transposeMultiply(const Rotation& orientation, const Vector2& vector) {
+inline Vector2 operator^(const Rotation& orientation, const Vector2& vector) {
   return Vector2(orientation.c * vector.x + orientation.s * vector.y,
                  -orientation.s * vector.x + orientation.c * vector.y);
 }
