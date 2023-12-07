@@ -14,7 +14,8 @@ class MemoryHandler {
     /* Destructor */
     virtual ~MemoryHandler() = default;
 
-    /* May want to overload assignment operator */
+    /* Overloaded assignment operator */
+    MemoryHandler& operator=(MemoryHandler& memoryHandler) = delete;
     
     /* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
     virtual void* allocate(size_t size) = 0;

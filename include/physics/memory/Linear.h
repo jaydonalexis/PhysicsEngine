@@ -46,6 +46,9 @@ class LinearMemoryHandler : public MemoryHandler {
     /* Destructor */
     ~LinearMemoryHandler() override;
 
+    /* Overloaded assignment operator */
+    LinearMemoryHandler& operator=(LinearMemoryHandler& memoryHandler) = delete;
+
     /* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
     void* allocate(size_t size) override;
 

@@ -46,7 +46,7 @@ class ObjectPoolMemoryHandler : public MemoryHandler {
     static uint mChunkSizes[NUM_POOL_GROUPS];
 
     /* Associate allocation sizes with pool groups */
-    static uint mChunkSizeToPool[MAX_CHUNK_SIZE + 1];
+    static uint mChunkSizePoolMap[MAX_CHUNK_SIZE + 1];
 
     /* Pools initialized */
     static bool init;
@@ -77,6 +77,9 @@ class ObjectPoolMemoryHandler : public MemoryHandler {
 
     /* Destructor */
     ~ObjectPoolMemoryHandler() override;
+
+    /* Overloadeded assignment operator */
+    ObjectPoolMemoryHandler& operator=(ObjectPoolMemoryHandler& memoryHandler) = delete;
 
     /* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
     void* allocate(size_t size) override;

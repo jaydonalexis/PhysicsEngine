@@ -31,10 +31,10 @@ FreeListMemoryHandler::~FreeListMemoryHandler() {
 /* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
 void* FreeListMemoryHandler::allocate(size_t size) {
   std::lock_guard<std::mutex> lock(mMutex);
-  assert(size > 0);
+  assert(size);
 
   /* Not possible to allocate zero memory */
-  if(size == 0) {
+  if(!size) {
     return nullptr;
   }
 

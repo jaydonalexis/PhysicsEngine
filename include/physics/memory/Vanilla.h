@@ -14,6 +14,9 @@ class VanillaMemoryHandler : public MemoryHandler {
     /* Destructor */
     ~VanillaMemoryHandler() override = default;
 
+    /* Overloaded assignment operator */
+    VanillaMemoryHandler& operator=(VanillaMemoryHandler& memoryHandler) = default;
+
     /* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
     void* allocate(size_t size) override {
       return std::malloc(size);

@@ -81,6 +81,9 @@ class FreeListMemoryHandler : public MemoryHandler {
     /* Destructor */
     ~FreeListMemoryHandler() override;
 
+    /* Overloaded assignment operator */
+    FreeListMemoryHandler& operator=(FreeListMemoryHandler& memoryHandler) = delete;
+
     /* Dynamically allocate memory of size in bytes and return a pointer to the heap allocated block */
     void* allocate(size_t size) override;
 

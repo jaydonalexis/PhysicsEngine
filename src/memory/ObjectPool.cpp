@@ -8,7 +8,7 @@ using namespace physics;
 /* Static variables */
 bool ObjectPoolMemoryHandler::init = false;
 uint ObjectPoolMemoryHandler::mChunkSizes[NUM_POOL_GROUPS];
-uint ObjectPoolMemoryHandler::mChunkSizeToPool[MAX_CHUNK_SIZE + 1];
+uint ObjectPoolMemoryHandler::mChunkSizePoolMap[MAX_CHUNK_SIZE + 1];
 
 /* Constructor */
 ObjectPoolMemoryHandler::ObjectPoolMemoryHandler(MemoryHandler& primaryMemoryHandler) : mPrimaryMemoryHandler(primaryMemoryHandler) {
@@ -28,16 +28,16 @@ ObjectPoolMemoryHandler::ObjectPoolMemoryHandler(MemoryHandler& primaryMemoryHan
     /* Associate allocation sizes with pool groups */
     for(uint i = 0, j = 0; i <= MAX_CHUNK_SIZE; i++) {
       if(i == 0) {
-        mChunkSizeToPool[i] = -1;
+        mChunkSizePoolMap[i] = -1;
         continue;
       }
 
       if(i <= mChunkSizes[j]) {
-        mChunkSizeToPool[i] = j;
+        mChunkSizePoolMap[i] = j;
       }
       else {
         j++;
-        mChunkSizeToPool[i] = j;
+        mChunkSizePoolMap[i] = j;
       }
     }
 
@@ -72,7 +72,7 @@ void* ObjectPoolMemoryHandler::allocate(size_t size) {
   }
 
   /* Find the pool group associated with the requested chunk size */
-  int poolGroupIndex = mChunkSizeToPool[size];
+  int poolGroupIndex = mChunkSizePoolMap[size];
   assert(poolGroupIndex >= 0 && poolGroupIndex < NUM_POOL_GROUPS);
 
   /* A free chunk exists in the object pool */
@@ -112,7 +112,7 @@ void* ObjectPoolMemoryHandler::allocate(size_t size) {
 
       /* Special case for the last chunk in the pool where we assign a null pointer as the next chunk */
       if(i == numChunks - 1) {
-        rawChunk = static_cast<void*>(charChunkHead + chunkSize * (numChunks - 1));
+        rawChunk = static_cast<void*>(charChunkHead + chunkSize * i);
         chunk = static_cast<Chunk*>(rawChunk);
         chunk->nextChunk = nullptr;
         continue;
@@ -152,7 +152,7 @@ void ObjectPoolMemoryHandler::free(void* ptr, size_t size) {
   }
 
   /* Find the pool group associated with the requested chunk size */
-  int poolGroupIndex = mChunkSizeToPool[size];
+  int poolGroupIndex = mChunkSizePoolMap[size];
   assert(poolGroupIndex >= 0 && poolGroupIndex < NUM_POOL_GROUPS);
 
   /* Clear and move the freed chunk to the first free chunk position in the pool group */
