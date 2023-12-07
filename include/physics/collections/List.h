@@ -38,108 +38,6 @@ class List {
         ListNode(const T& data, ListNode* next, ListNode* prev) : data(data), next(next), prev(prev) {}
     };
 
-    /* Iterator for the list */
-    class Iterator {
-
-      private:
-        /* -- Attributes -- */
-
-        /* Pointer to the list */
-        const List<T>* mList;
-
-        /* Pointer to a list node */
-        ListNode* mNode;
-
-      public:
-        /* -- Methods -- */
-
-        /* Constructor */
-        Iterator() = default;
-
-        /* Constructor */
-        Iterator(const List<T>* list, ListNode* node) : mList(list), mNode(node) {}
-
-        /* Dereference */
-        T& operator*() {
-          assert(mNode);
-          return mNode->data;
-        }
-        
-        /* Constant dereference */
-        const T& operator*() const {
-          assert(mNode);
-          return mNode->data;
-        }
-
-        /* Constant dereference */
-        const T* operator->() const {
-          assert(mNode);
-          return &(mNode->data);
-        }
-
-        /* Pre increment */
-        Iterator& operator++() {
-          if(mNode) {
-            mNode = mNode->next;
-          }
-
-          return *this;
-        }
-
-        /* Post increment */
-        Iterator operator++(int) {
-          Iterator iter = *this;
-
-          if(mNode) {
-            mNode = mNode->next;
-          }
-          
-          return iter;
-        }
-
-        /* Pre decrement */
-        Iterator& operator--() {
-          if(mNode) {
-            mNode = mNode->prev;
-          }
-          else {
-            mNode = mList->mTail;
-          }
-
-          return *this;
-        }
-
-        /* Post decrement */
-        Iterator operator--(int) {
-          Iterator iter = *this;
-
-          if(mNode) {
-            mNode = mNode->prev;
-          }
-          else {
-            mNode = mList->mTail;
-          }
-
-          return iter;
-        }
-
-        /* Equality operator */
-        bool operator==(const Iterator& iter) const {
-          assert(mList && iter.mList);
-          return mNode == iter.mNode && mList == iter.mList;
-        }
-
-        /* Inequality operator */
-        bool operator!=(const Iterator& iter) const {
-          return !((*this) == iter);
-        }
-
-        /* -- Friends -- */
-
-        /* Superclass */
-        friend class List<T>;
-    };
-
   private:
     /* -- Attributes -- */
 
@@ -201,12 +99,6 @@ class List {
     /* Get the last element in the list */
     ListNode* getTail() const;
 
-    /* Return iterator to the beginning of the list */
-    Iterator begin() const;
-
-    /* Return iterator to the end of the list */
-    Iterator end() const ;
-
     /* Get number of elements in the list */
     uint64 size() const;
 
@@ -219,17 +111,11 @@ class List {
     /* Insert an element at the end of the list */
     void addBack(const T& data);
 
-    /* Insert an element into the list associated with the provided iterator */
-    void insert(const Iterator& iter, const T& data);
-
     /* Remove an element from the beginning of the list */
     void removeFront();
 
     /* Remove an element from the end of the list */
     void removeBack();
-
-    /* Remove an element from the list associated with the provided iterator */
-    void erase(const Iterator& iter);
 
     /* Remove all elements in the list */
     void clear();
@@ -264,18 +150,6 @@ inline typename List<T>::ListNode* List<T>::getHead() const {
 template<typename T>
 inline typename List<T>::ListNode* List<T>::getTail() const {
   return mTail;
-}
-
-/* Return iterator to the beginning of the list */
-template<typename T>
-inline typename List<T>::Iterator List<T>::begin() const {
-  return Iterator(this, mHead);
-}
-
-/* Return iterator to the end of the list */
-template<typename T>
-inline typename List<T>::Iterator List<T>::end() const {
-  return Iterator(this, nullptr);
 }
 
 /* Get number of elements in the list */
@@ -324,25 +198,6 @@ inline void List<T>::addBack(const T& data) {
   mSize++;
 }
 
-/* Insert an element into the list associated with the provided iterator */
-template<typename T>
-inline void List<T>::insert(const Iterator& iter, const T& data) {
-  if(iter == begin()) {
-    addFront(data);
-  }
-  else if(iter == end()) {
-    addBack(data);
-  }
-  else {
-    ListNode* node = new (mMemoryHandler.allocate(sizeof(ListNode))) ListNode(data);
-    node->next = iter.mNode;
-    node->prev = iter.mNode->prev;
-    node->prev->next = node;
-    node->next->prev = node;
-    mSize++;
-  }
-}
-
 /* Remove an element from the beginning of the list */
 template<typename T>
 inline void List<T>::removeFront() {
@@ -381,28 +236,6 @@ inline void List<T>::removeBack() {
 
   mMemoryHandler.free(node, sizeof(ListNode));
   mSize--;
-}
-
-
-/* Remove an element from the list associated with the provided iterator */
-template<typename T>
-inline void List<T>::erase(const Iterator& iter) {
-  if(!iter.mNode) {
-    return;
-  }
-  else if(iter.mNode == mHead) {
-    removeFront();
-  }
-  else if(iter.mNode == mTail) {
-    removeBack();
-  }
-  else {
-    ListNode* node = iter.mNode;
-    node->prev->next = node->next;
-    node->next->prev = node->prev;
-    mMemoryHandler.free(node, sizeof(ListNode));
-    mSize--;
-  }
 }
 
 /* Remove all elements in the list */
