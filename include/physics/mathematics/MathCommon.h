@@ -12,6 +12,11 @@ namespace physics {
     return std::max(low, std::min(value, high));
   }
 
+  template <typename T>
+  inline T square(T value) {
+    return value * value;
+  }
+
   inline uint64 nextPowerOfTwo(uint64 value) {
     value |= (value >> 1);
     value |= (value >> 2);

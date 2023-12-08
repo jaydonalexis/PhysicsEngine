@@ -178,6 +178,8 @@ void Hull::init(const Vector2* points, uint32 numPoints) {
       }
     }
   }
+
+  assert(mNumPoints >= MIN_POLYGON_VERTICES);
 }
 
 /* Recursive divide and conquer quick hull algorithm implementation */

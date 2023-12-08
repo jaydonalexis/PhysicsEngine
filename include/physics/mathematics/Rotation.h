@@ -38,7 +38,7 @@ struct Rotation {
     void setZero();
 
     /* Get the angle of rotation in radians */
-    float get() const;
+    float getAngle() const;
 
     /* Get the x axis */
     Vector2 getX() const;
@@ -88,7 +88,7 @@ inline void Rotation::setZero() {
 }
 
 /* Get the angle of rotation in radians */
-inline float Rotation::get() const {
+inline float Rotation::getAngle() const {
   return atan2f(s, c);
 }
 

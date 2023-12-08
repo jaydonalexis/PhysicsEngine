@@ -44,6 +44,9 @@ struct Vector2 {
     /* Get an orthogonal unit vector of the current vector */
     Vector2 getOrthogonalUnitVector(bool clockwise) const;
 
+    /* Get the zero vector */
+    static Vector2 getZeroVector();
+
     /* Query whether the current vector is a unit vector */
     bool isUnitVector() const;
 
@@ -161,6 +164,11 @@ inline Vector2 Vector2::getOrthogonalUnitVector(bool clockwise) const {
   float len = length();
   assert(len > FLOAT_EPSILON);
   return clockwise ? Vector2(y / len, x / len) : Vector2(-y / len, x / len);
+}
+
+/* Get the zero vector */
+inline Vector2 Vector2::getZeroVector() {
+  return Vector2(0.0f, 0.0f);
 }
 
 /* Query whether the current vector is a unit vector */

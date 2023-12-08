@@ -129,7 +129,10 @@ inline Vector2 operator*(const Transform& transform, const Vector2& vector) {
 
 /* Transpose multiplication between two given transforms */
 inline Transform operator^(const Transform& transform1, const Transform& transform2) {
-  return Transform(transform1.mOrientation * (transform2.mPosition - transform1.mPosition), transform1.mOrientation * transform2.mOrientation);
+  Transform transform;
+  transform.mOrientation = transform1.mOrientation ^ transform2.mOrientation;
+  transform.mPosition = transform1.mOrientation ^ (transform2.mPosition - transform1.mPosition);
+  return transform;
 }
 
 /* Transpose multiplication between a given transform and a given vector */

@@ -33,6 +33,9 @@ class Matrix22 {
     /* Set components of the matrix with multiple parameters */
     void set(float a, float b,
              float c, float d);
+             
+    /* Set components of the matrix with column vectors */
+    void set(const Vector2& a, const Vector2& b);
 
     /* Set components of the matrix to zero */
     void setZero();
@@ -124,6 +127,12 @@ inline void Matrix22::set(float a, float b,
                           float c, float d) {
   mRows[0][0] = a; mRows[0][1] = b;
   mRows[1][0] = c; mRows[1][1] = d;
+}
+
+/* Set components of the matrix with column vectors */
+inline void Matrix22::set(const Vector2& a, const Vector2& b) {
+  mRows[0][0] = a.x; mRows[0][1] = b.x;
+  mRows[1][0] = a.y; mRows[1][1] = b.y;
 }
 
  /* Set components of the matrix to zero */
