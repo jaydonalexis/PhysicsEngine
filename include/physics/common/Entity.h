@@ -20,7 +20,7 @@ struct Entity {
   public:
     /* -- Attributes -- */
 
-    /* ID */
+    /* Identifier */
     uint32 identifier;
 
     /* -- Methods -- */
@@ -46,7 +46,10 @@ struct Entity {
 };
 
 /* Constructor */
-inline Entity::Entity(uint32 index, uint32 generation) : identifier((index & INDEX_MASK) | (generation & GENERATION_MASK) << NUM_INDEX_BITS) {}
+inline Entity::Entity(uint32 index, uint32 generation) : identifier((index & INDEX_MASK) | ((generation & GENERATION_MASK) << NUM_INDEX_BITS)) {
+  assert(getIndex() == index);
+  assert(getGeneration() == generation);
+}
 
 /* Index portion of identifier*/
 inline uint32 Entity::getIndex() const {
@@ -55,7 +58,7 @@ inline uint32 Entity::getIndex() const {
 
 /* Generation portion of identifier */
 inline uint32 Entity::getGeneration() const {
-  return identifier & GENERATION_MASK;
+  return (identifier >> NUM_INDEX_BITS) & GENERATION_MASK;
 }
 
 /* Overloaded equality operator */

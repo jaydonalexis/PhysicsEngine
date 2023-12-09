@@ -53,7 +53,7 @@ inline Entity EntityHandler::createEntity() {
     /* New index being used */
     mGenerations.add(0);
     index = static_cast<uint32>(mGenerations.size()) - 1;
-    assert(index < uint32(1) << Entity::NUM_INDEX_BITS);
+    assert(index < (uint32(1) << Entity::NUM_INDEX_BITS));
   }
 
   return Entity(index, mGenerations[index]);
