@@ -1,6 +1,6 @@
 #include "UnitTests.h"
 
-#include <physics/collections/HashMap.h>
+#include <physics/collections/Map.h>
 #include <physics/collections/Pair.h>
 #include <physics/memory/Vanilla.h>
 
@@ -31,30 +31,30 @@ namespace std {
   };
 }
 
-TEST(HashMap, Constructors) {
+TEST(Map, Constructors) {
   VanillaMemoryHandler memoryHandler;
-  HashMap<int, std::string> map1(memoryHandler);
+  Map<int, std::string> map1(memoryHandler);
   EXPECT_TRUE(map1.size() == 0);
 
-  HashMap<int, std::string> map3(map1);
+  Map<int, std::string> map3(map1);
   EXPECT_TRUE(map3.size() == map1.size());
 
-  HashMap<int, int> map4(memoryHandler);
+  Map<int, int> map4(memoryHandler);
   map4.insert(Pair<int, int>(10, 10));
   map4.insert(Pair<int, int>(20, 20));
   map4.insert(Pair<int, int>(30, 30));
   EXPECT_TRUE(map4.size() == 3);
 
-  HashMap<int, int> map5(map4);
+  Map<int, int> map5(map4);
   EXPECT_TRUE(map5.size() == map4.size());
   EXPECT_TRUE(map5[10] == 10);
   EXPECT_TRUE(map5[20] == 20);
   EXPECT_TRUE(map5[30] == 30);
 }
 
-TEST(HashMap, Modifiers) {
+TEST(Map, Modifiers) {
   VanillaMemoryHandler memoryHandler;
-  HashMap<int, int> map1(memoryHandler);
+  Map<int, int> map1(memoryHandler);
   map1.insert(Pair<int, int>(1, 10));
   map1.insert(Pair<int, int>(8, 80));
   map1.insert(Pair<int, int>(13, 130));
@@ -63,7 +63,7 @@ TEST(HashMap, Modifiers) {
   EXPECT_TRUE(map1[13] == 130);
   EXPECT_TRUE(map1.size() == 3);
 
-  HashMap<int, int> map2(memoryHandler);
+  Map<int, int> map2(memoryHandler);
 
   for(int i = 0; i < 1000000; i++) {
     map2.insert(Pair<int, int>(i, i * 100));
@@ -135,7 +135,7 @@ TEST(HashMap, Modifiers) {
   EXPECT_TRUE(valid == true);
   EXPECT_TRUE(map2.size() == 0);
 
-  HashMap<int, int> map3(memoryHandler);
+  Map<int, int> map3(memoryHandler);
 
   for (int i = 0; i < 1000000; i++) {
     map3.insert(Pair<int, int>(i, i * 10));
@@ -166,7 +166,7 @@ TEST(HashMap, Modifiers) {
 
   EXPECT_TRUE(map3.size() == 0);
 
-  HashMap<int, int> map4(memoryHandler);
+  Map<int, int> map4(memoryHandler);
   map4.insert(Pair<int, int>(2, 20));
   map4.insert(Pair<int, int>(4, 40));
   map4.insert(Pair<int, int>(6, 60));
@@ -180,11 +180,11 @@ TEST(HashMap, Modifiers) {
   map4.clear();
   EXPECT_TRUE(map4.size() == 0);
 
-  HashMap<int, int> map5(memoryHandler);
+  Map<int, int> map5(memoryHandler);
   map5.clear();
   EXPECT_TRUE(map5.size() == 0);
 
-  HashMap<TestKey, int> map6(memoryHandler);
+  Map<TestKey, int> map6(memoryHandler);
 
   for (int i = 0; i < 1000; i++) {
     map6.insert(Pair<TestKey, int>(TestKey(i), i));
@@ -212,9 +212,9 @@ TEST(HashMap, Modifiers) {
   EXPECT_TRUE(map6.size() == 0);
 }
 
-TEST(HashMap, ContainsKey) {
+TEST(Map, ContainsKey) {
   VanillaMemoryHandler memoryHandler;
-  HashMap<int, int> map1(memoryHandler);
+  Map<int, int> map1(memoryHandler);
   EXPECT_TRUE(!map1.contains(2) == true);
   EXPECT_TRUE(!map1.contains(4) == true);
   EXPECT_TRUE(!map1.contains(6) == true);
@@ -236,9 +236,9 @@ TEST(HashMap, ContainsKey) {
   EXPECT_TRUE(map1.contains(6) == false);
 }
 
-TEST(HashMap, Indexing) {
+TEST(Map, Indexing) {
   VanillaMemoryHandler memoryHandler;
-  HashMap<int, int> map1(memoryHandler);
+  Map<int, int> map1(memoryHandler);
   map1.insert(Pair<int, int>(2, 20));
   map1.insert(Pair<int, int>(4, 40));
   map1.insert(Pair<int, int>(6, 60));
@@ -254,9 +254,9 @@ TEST(HashMap, Indexing) {
   EXPECT_TRUE(map1[6] == 30);
 }
 
-TEST(HashMap, Find) {
+TEST(Map, Find) {
   VanillaMemoryHandler memoryHandler;
-  HashMap<int, int> map1(memoryHandler);
+  Map<int, int> map1(memoryHandler);
   map1.insert(Pair<int, int>(2, 20));
   map1.insert(Pair<int, int>(4, 40));
   map1.insert(Pair<int, int>(6, 60));
@@ -273,10 +273,10 @@ TEST(HashMap, Find) {
   EXPECT_TRUE(map1.find(6)->second == 30);
 }
 
-TEST(HashMap, Equality) {
+TEST(Map, Equality) {
   VanillaMemoryHandler memoryHandler;
-  HashMap<std::string, int> map1(memoryHandler);
-  HashMap<std::string, int> map2(memoryHandler);
+  Map<std::string, int> map1(memoryHandler);
+  Map<std::string, int> map2(memoryHandler);
   EXPECT_TRUE(map1 == map2);
 
   map1.insert(Pair<std::string, int>("a", 1));
@@ -292,19 +292,19 @@ TEST(HashMap, Equality) {
   map2["c"] = 3;
   EXPECT_TRUE(map1 == map2);
 
-  HashMap<std::string, int> map3(memoryHandler);
+  Map<std::string, int> map3(memoryHandler);
   map3.insert(Pair<std::string, int>("a", 1));
   EXPECT_TRUE(map1 != map3);
   EXPECT_TRUE(map2 != map3);
 }
 
-TEST(HashMap, Assignment) {
+TEST(Map, Assignment) {
   VanillaMemoryHandler memoryHandler;
-  HashMap<int, int> map1(memoryHandler);
+  Map<int, int> map1(memoryHandler);
   map1.insert(Pair<int, int>(1, 3));
   map1.insert(Pair<int, int>(2, 6));
   map1.insert(Pair<int, int>(10, 30));
-  HashMap<int, int> map2(memoryHandler);
+  Map<int, int> map2(memoryHandler);
   map2 = map1;
   EXPECT_TRUE(map2.size() == map1.size());
   EXPECT_TRUE(map1 == map2);
@@ -312,7 +312,7 @@ TEST(HashMap, Assignment) {
   EXPECT_TRUE(map2[2] == 6);
   EXPECT_TRUE(map2[10] == 30);
 
-  HashMap<int, int> map3(memoryHandler);
+  Map<int, int> map3(memoryHandler);
   map3 = map1;
   EXPECT_TRUE(map3.size() == map1.size());
   EXPECT_TRUE(map3 == map1);
@@ -320,12 +320,12 @@ TEST(HashMap, Assignment) {
   EXPECT_TRUE(map3[2] == 6);
   EXPECT_TRUE(map3[10] == 30);
 
-  HashMap<int, int> map4(memoryHandler);
+  Map<int, int> map4(memoryHandler);
   map3 = map4;
   EXPECT_TRUE(map3.size() == 0);
   EXPECT_TRUE(map3 == map4);
 
-  HashMap<int, int> map5(memoryHandler);
+  Map<int, int> map5(memoryHandler);
   map5.insert(Pair<int, int>(7, 8));
   map5.insert(Pair<int, int>(19, 70));
   map1 = map5;
@@ -335,17 +335,17 @@ TEST(HashMap, Assignment) {
   EXPECT_TRUE(map1[19] == 70);
 }
 
-TEST(HashMap, Iterator) {
+TEST(Map, Iterator) {
   VanillaMemoryHandler memoryHandler;
-  HashMap<int, int> map1(memoryHandler);
+  Map<int, int> map1(memoryHandler);
   EXPECT_TRUE(map1.begin() == map1.end());
 
   map1.insert(Pair<int, int>(1, 5));
   map1.insert(Pair<int, int>(2, 6));
   map1.insert(Pair<int, int>(3, 8));
   map1.insert(Pair<int, int>(4, -1));
-  HashMap<int, int>::Iterator itBegin = map1.begin();
-  HashMap<int, int>::Iterator it = map1.begin();
+  Map<int, int>::Iterator itBegin = map1.begin();
+  Map<int, int>::Iterator it = map1.begin();
   EXPECT_TRUE(itBegin == it);
 
   size_t size = 0;

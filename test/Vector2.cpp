@@ -137,6 +137,12 @@ TEST(Vector2, DotProduct) {
   EXPECT_TRUE(approximateEqual(Vector2(1, 2).dot(Vector2(-2, -1)), -4.0f));
   EXPECT_TRUE(approximateEqual(Vector2(1, 2).dot(Vector2(-2, 1)), 0.0f));
   EXPECT_TRUE(approximateEqual(Vector2(1, 2).dot(Vector2(3, 4)), 11.0f));
+  EXPECT_TRUE(approximateEqual(dot(Vector2(1, 0), Vector2(0, 1)), 0.0f));
+  EXPECT_TRUE(approximateEqual(dot(Vector2(1, 1), Vector2(0, 0)), 0.0f));
+  EXPECT_TRUE(approximateEqual(dot(Vector2(1, 2), Vector2(2, 1)), 4.0f));
+  EXPECT_TRUE(approximateEqual(dot(Vector2(1, 2), Vector2(-2, -1)), -4.0f));
+  EXPECT_TRUE(approximateEqual(dot(Vector2(1, 2), Vector2(-2, 1)), 0.0f));
+  EXPECT_TRUE(approximateEqual(dot(Vector2(1, 2), Vector2(3, 4)), 11.0f));
 }
 
 TEST(Vector2, CrossProduct) {
@@ -146,9 +152,18 @@ TEST(Vector2, CrossProduct) {
   EXPECT_TRUE(approximateEqual(Vector2(1, 2).cross(Vector2(-2, -1)), 3.0f));
   EXPECT_TRUE(approximateEqual(Vector2(1, 2).cross(Vector2(-2, 1)), 5.0f));
   EXPECT_TRUE(approximateEqual(Vector2(1, 2).cross(Vector2(3, 4)), -2.0f));
-  EXPECT_TRUE(Vector2(1, 2).cross(0.0f) == Vector2(0, 0));
-  EXPECT_TRUE(Vector2(1, 2).cross(2.0f) == Vector2(4, -2));
-  EXPECT_TRUE(Vector2(1, 2).cross(-2.0f) == Vector2(-4, 2));
+  EXPECT_TRUE(approximateEqual(cross(Vector2(1, 0), Vector2(0, 1)), 1.0f));
+  EXPECT_TRUE(approximateEqual(cross(Vector2(1, 1), Vector2(0, 0)), 0.0f));
+  EXPECT_TRUE(approximateEqual(cross(Vector2(1, 2), Vector2(2, 1)), -3.0f));
+  EXPECT_TRUE(approximateEqual(cross(Vector2(1, 2), Vector2(-2, -1)), 3.0f));
+  EXPECT_TRUE(approximateEqual(cross(Vector2(1, 2), Vector2(-2, 1)), 5.0f));
+  EXPECT_TRUE(approximateEqual(cross(Vector2(1, 2), Vector2(3, 4)), -2.0f));
+  EXPECT_TRUE(cross(Vector2(1, 2), 0.0f) == Vector2(0, 0));
+  EXPECT_TRUE(cross(Vector2(1, 2), 2.0f) == Vector2(4, -2));
+  EXPECT_TRUE(cross(Vector2(1, 2), -2.0f) == Vector2(-4, 2));
+  EXPECT_TRUE(cross(Vector2(1, 2), 0.0f) == Vector2(0, 0));
+  EXPECT_TRUE(cross(Vector2(1, 2), 2.0f) == Vector2(4, -2));
+  EXPECT_TRUE(cross(Vector2(1, 2), -2.0f) == Vector2(-4, 2));
 }
 
 TEST(Vector2, Distance) {

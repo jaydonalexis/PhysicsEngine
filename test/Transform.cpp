@@ -85,16 +85,16 @@ TEST(Transform, GetIdentity) {
   EXPECT_TRUE(transform2.getOrientation() == Rotation::getZero());
 }
 
-TEST(Transform, TransposeMultiply) {
+TEST(Transform, InverseMultiply) {
   Transform transform1(Vector2(1, 2), Rotation(PI / 8.0f));
   Transform transform2(Vector2(3, 4), Rotation{PI / 4.0f});
-  Transform transform3 = transposeMultiply(transform1,  transform2);
-  EXPECT_TRUE(transform3.getPosition() == transform1.getOrientation() * (transform2.getPosition() - transform1.getPosition()));
-  EXPECT_TRUE(transform3.getOrientation() == transform1.getOrientation() * transform2.getOrientation());
+  Transform transform3 = transform1 ^ transform2;
+  EXPECT_TRUE(transform3.getPosition() == (transform1.getOrientation() ^ transform2.getPosition() - transform1.getPosition()));
+  EXPECT_TRUE(transform3.getOrientation() == (transform1.getOrientation() ^ transform2.getOrientation()));
 
   Transform transform4(Vector2(1, 2), Rotation(PI / 8.0f));
   Vector2 vector1{4, 3};
   Vector2 vector2;
-  vector2 = transposeMultiply(transform4, vector1);
+  vector2 = transform4 ^ vector1;
   EXPECT_TRUE(vector2 == Vector2(3.1543220f, -0.2241707f));
 }

@@ -1,6 +1,7 @@
 #include "UnitTests.h"
 
-#include <physics/collections/HashSet.h>
+#include <physics/collections/Set.h>
+#include <physics/collections/DynamicArray.h>
 #include <physics/memory/Vanilla.h>
 
 #include <sstream>
@@ -30,18 +31,18 @@ namespace std {
   };
 }
 
-TEST(HashSet, Constructors) {
+TEST(Set, Constructors) {
   VanillaMemoryHandler memoryHandler;
-  HashSet<std::string> set1(memoryHandler);
+  Set<std::string> set1(memoryHandler);
   EXPECT_TRUE(set1.size() == 0);
 
-  HashSet<std::string> set2(memoryHandler);
+  Set<std::string> set2(memoryHandler);
   EXPECT_TRUE(set2.size() == 0);
 
-  HashSet<std::string> set3(set1);
+  Set<std::string> set3(set1);
   EXPECT_TRUE(set3.size() == set1.size());
 
-  HashSet<int> set4(memoryHandler);
+  Set<int> set4(memoryHandler);
   set4.insert(10);
   set4.insert(20);
   set4.insert(30);
@@ -50,16 +51,16 @@ TEST(HashSet, Constructors) {
   set4.insert(30);
   EXPECT_TRUE(set4.size() == 3);
 
-  HashSet<int> set5(set4);
+  Set<int> set5(set4);
   EXPECT_TRUE(set5.size() == set4.size());
   EXPECT_TRUE(set5.contains(10) == true);
   EXPECT_TRUE(set5.contains(20) == true);
   EXPECT_TRUE(set5.contains(30) == true);
 }
 
-TEST(HashSet, Modifiers) {
+TEST(Set, Modifiers) {
   VanillaMemoryHandler memoryHandler;
-  HashSet<int> set1(memoryHandler);
+  Set<int> set1(memoryHandler);
   set1.insert(10);
   set1.insert(80);
   set1.insert(130);
@@ -72,7 +73,7 @@ TEST(HashSet, Modifiers) {
   EXPECT_TRUE(set1.contains(80) == true);
   EXPECT_TRUE(set1.size() == 3);
 
-  HashSet<int> set2(memoryHandler);
+  Set<int> set2(memoryHandler);
 
   for(int i = 0; i < 1000000; i++) {
     set2.insert(i);
@@ -132,7 +133,7 @@ TEST(HashSet, Modifiers) {
   EXPECT_TRUE(valid == true);
   EXPECT_TRUE(set2.size() == 0);
 
-  HashSet<int> set3(memoryHandler);
+  Set<int> set3(memoryHandler);
 
   for(int i=0; i < 1000000; i++) {
     set3.insert(i);
@@ -164,7 +165,7 @@ TEST(HashSet, Modifiers) {
 
   EXPECT_TRUE(set3.size() == 0);
 
-  HashSet<int> set4(memoryHandler);
+  Set<int> set4(memoryHandler);
   set4.insert(2);
   set4.insert(4);
   set4.insert(6);
@@ -178,11 +179,11 @@ TEST(HashSet, Modifiers) {
   set4.clear();
   EXPECT_TRUE(set4.size() == 0);
 
-  HashSet<int> set5(memoryHandler);
+  Set<int> set5(memoryHandler);
   set5.clear();
   EXPECT_TRUE(set5.size() == 0);
 
-  HashSet<TestValue> set6(memoryHandler);
+  Set<TestValue> set6(memoryHandler);
 
   for(int i=0; i < 1000; i++) {
     set6.insert(TestValue(i));
@@ -203,4 +204,25 @@ TEST(HashSet, Modifiers) {
   }
 
   EXPECT_TRUE(set6.size() == 0);
+}
+
+TEST(Set, ToArray) {
+  VanillaMemoryHandler memoryHandler;
+  Set<int> set1(memoryHandler);
+  set1.insert(1);
+  set1.insert(2);
+  set1.insert(3);
+  set1.insert(4);
+  DynamicArray<int> array1 = set1.toArray(memoryHandler);
+  EXPECT_TRUE(array1.size() == 4);
+  EXPECT_TRUE(array1.find(1) != array1.end());
+  EXPECT_TRUE(array1.find(2) != array1.end());
+  EXPECT_TRUE(array1.find(3) != array1.end());
+  EXPECT_TRUE(array1.find(4) != array1.end());
+  EXPECT_TRUE(array1.find(5) == array1.end());
+  EXPECT_TRUE(array1.find(6) == array1.end());
+
+  Set<int> set2(memoryHandler);
+  DynamicArray<int> array2 = set2.toArray(memoryHandler);
+  EXPECT_TRUE(array2.size() == 0);
 }
