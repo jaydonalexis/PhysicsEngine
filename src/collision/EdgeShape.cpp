@@ -15,8 +15,8 @@ size_t EdgeShape::byteSize() const {
 }
 
 /* Query whether a test point is inside the shape */
-bool EdgeShape::testPoint(const Vector2& localPoint) const {
-  NOT_USED(localPoint);
+bool EdgeShape::testPoint(const Vector2& pointLocal) const {
+  NOT_USED(pointLocal);
   return false;
 }
 
@@ -46,6 +46,14 @@ float EdgeShape::getArea() const {
 /* Get the centroid of the shape */
 Vector2 EdgeShape::getCentroid() const {
   return 0.5f * (mVertices.first + mVertices.second);
+}
+
+/* Get the local bounds of the shape */
+void EdgeShape::getLocalBounds(Vector2& lowerBound, Vector2& upperBound) const {
+  lowerBound = min(mVertices.first, mVertices.second);
+  upperBound = max(mVertices.first, mVertices.second);
+  lowerBound -= Vector2(mRadius, mRadius);
+  upperBound += Vector2(mRadius, mRadius);
 }
 
 void EdgeShape::computeAABB(AABB& aabb, const Transform& transform) const {

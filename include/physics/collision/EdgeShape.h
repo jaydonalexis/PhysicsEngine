@@ -53,6 +53,9 @@ class EdgeShape : public Shape {
     /* Get the centroid of the shape */
     virtual Vector2 getCentroid() const override;
 
+    /* Get the local bounds of the shape */
+    virtual void getLocalBounds(Vector2& lowerBound, Vector2& upperBound) const override;
+
     /* Compute the world space AABB of the shape */
     virtual void computeAABB(AABB& aabb, const Transform& transform) const override;
 

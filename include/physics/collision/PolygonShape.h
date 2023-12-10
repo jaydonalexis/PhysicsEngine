@@ -3,12 +3,9 @@
 
 #include <physics/Configuration.h>
 #include <physics/collision/Shape.h>
-#include <physics/collision/ConvexHull.h>
+#include <physics/mathematics/ConvexHull.h>
 
 namespace physics {
-
-/* Forward declarations */
-struct Hull;
 
 class PolygonShape : public Shape {
 
@@ -23,8 +20,8 @@ class PolygonShape : public Shape {
     /* Area */
     float mArea;
 
-    /* Inertia */
-    float mInertia;
+    /* Mass independent inertia */
+    float mNormalizedInertia;
 
   protected:
     /* -- Attributes -- */
@@ -78,10 +75,10 @@ class PolygonShape : public Shape {
     virtual uint32 getNumVertices() const;
 
     /* Get the position of a given vertex */
-    virtual Vector2 getVertexPosition(uint32 vertexIndex) const;
+    virtual const Vector2& getVertexPosition(uint32 vertexIndex) const;
 
     /* Get the normal vector of a given edge */
-    virtual Vector2 getEdgeNormal(uint32 edgeIndex);
+    virtual const Vector2& getEdgeNormal(uint32 edgeIndex);
 
     /* Get the rotational inertia of the shape about the local origin */
     virtual float getLocalInertia(float mass) const override;
@@ -92,12 +89,17 @@ class PolygonShape : public Shape {
     /* Get the centroid of the shape */
     virtual Vector2 getCentroid() const override;
 
+    /* Get the local bounds of the shape */
+    virtual void getLocalBounds(Vector2& lowerBound, Vector2& upperBound) const override;
+
     /* Compute the world space AABB of the shape */
     virtual void computeAABB(AABB& aabb, const Transform& transform) const override;
 
     /* -- Friends -- */
 
     friend class Factory;    
+    friend class PolygonVPolygonAlgorithm;
+    friend class CircleVPolygonAlgorithm;
 };
 
 }

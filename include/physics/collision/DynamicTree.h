@@ -3,7 +3,7 @@
 
 #include <physics/Configuration.h>
 #include <physics/collision/AABB.h>
-#include <physics/collections/HashSet.h>
+#include <physics/collections/set.h>
 #include <physics/collections/DynamicArray.h>
 #include <physics/collections/Pair.h>
 
@@ -142,7 +142,7 @@ class DynamicTree {
     void remove(int32 node);
 
     /* Update object when it has moved */
-    bool update(int32 node, const AABB& aabb, bool force = false);
+    bool update(int32 node, const AABB& aabb, bool forceInsert = false);
 
     /* Get all of the shapes that are overlapping with the provided test shapes */
     void getShapeShapeOverlaps(const DynamicArray<int32>& testNodes, uint32 begin, uint32 end, DynamicArray<Pair<int32, int32>>& overlappingNodes) const;

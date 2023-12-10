@@ -24,9 +24,9 @@ size_t BoxShape::byteSize() const {
 }
 
 /* Query whether a point is inside the shape */
-bool BoxShape::testPoint(const Vector2& localPoint) const {
+bool BoxShape::testPoint(const Vector2& pointLocal) const {
   for(uint32 i = 0; i < mNumVertices; i++) {
-    if(mNormals[i].dot(localPoint - mVertices[i]) > 0.0f) {
+    if(mNormals[i].dot(pointLocal - mVertices[i]) > 0.0f) {
       return false;
     }
   }
@@ -45,6 +45,8 @@ void BoxShape::set(float hx, float hy) {
 	mNormals[1].set(1.0f, 0.0f);
 	mNormals[2].set(0.0f, 1.0f);
 	mNormals[3].set(-1.0f, 0.0f);
+
+  /* Alert broad phase that the geometry of the collision shape has changed */
   alertSizeChange();
 }
 
@@ -63,11 +65,13 @@ void BoxShape::set(float hx, float hy, const Vector2& center, float angle) {
   transform.setPosition(center);
   transform.setOrientation(angle);
 
+  /* Update the vertices and normals based on the provided position and orientation */
   for(uint32 i = 0; i < mNumVertices; i++) {
     mVertices[i] = transform * mVertices[i];
     mNormals[i] = transform.getOrientation() * mNormals[i];
   }
 
+  /* Alert broad phase that the geometry of the collision shape has changed */
   alertSizeChange();
 }
 
@@ -87,5 +91,5 @@ float BoxShape::getArea() const {
 
 /* Get the centroid of the shape */
 Vector2 BoxShape::getCentroid() const {
-  return Vector2(0.0f, 0.0f);
+  return Vector2::getZeroVector();
 }

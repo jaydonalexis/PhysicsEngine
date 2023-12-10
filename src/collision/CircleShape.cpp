@@ -19,8 +19,8 @@ size_t CircleShape::byteSize() const {
 }
 
 /* Query whether a point is inside the shape */
-bool CircleShape::testPoint(const Vector2& localPoint) const {
-  return localPoint.lengthSquare() <= mRadius * mRadius;
+bool CircleShape::testPoint(const Vector2& pointLocal) const {
+  return pointLocal.lengthSquare() <= mRadius * mRadius;
 }
 
 /* Get radius of the sphere */
@@ -32,6 +32,7 @@ float CircleShape::getRadius() const {
 void CircleShape::setRadius(float radius) {
   assert(radius > 0.0f);
   mRadius = radius;
+  /* Alert broad phase that the geometry of the collision shape has changed */
   alertSizeChange();
 }
 
@@ -47,12 +48,19 @@ float CircleShape::getArea() const {
 
 /* Get the centroid of the shape */
 Vector2 CircleShape::getCentroid() const {
-  return Vector2(0.0f, 0.0f);
+  return Vector2::getZeroVector();
+}
+
+/* Get the local bounds of the shape */
+void CircleShape::getLocalBounds(Vector2& lowerBound, Vector2& upperBound) const {
+  Vector2 extents(mRadius, mRadius);
+  upperBound = extents;
+  lowerBound = -extents;
 }
 
 /* Compute the world space AABB of the shape */
-void CircleShape::computeAABB(AABB& aabb, const Transform& worldTransform) const {
+void CircleShape::computeAABB(AABB& aabb, const Transform& transformWorld) const {
   Vector2 extents(mRadius, mRadius);
-  aabb.setLowerBound(worldTransform.getPosition() - extents);
-  aabb.setUpperBound(worldTransform.getPosition() + extents);
+  aabb.setLowerBound(transformWorld.getPosition() - extents);
+  aabb.setUpperBound(transformWorld.getPosition() + extents);
 }
