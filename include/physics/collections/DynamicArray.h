@@ -3,6 +3,8 @@
 
 #include <physics/Configuration.h>
 #include <physics/memory/MemoryHandler.h>
+#include <iterator>
+#include <memory>
 #include <cassert>
 
 namespace physics {
@@ -29,6 +31,16 @@ class DynamicArray {
         uint64 mSize;
 
       public:
+        /* -- Traits -- */
+        
+        using value_type = T;
+        using difference_type = std::ptrdiff_t;
+        using pointer = T*;
+        using const_pointer = T const*;
+        using reference = T&;
+        using const_reference = const T&;
+        using iterator_category = std::random_access_iterator_tag;
+
         /* -- Methods -- */
 
         /* Constructor */
@@ -38,7 +50,7 @@ class DynamicArray {
         Iterator(void* values, uint64 index, uint64 size) : mValues(static_cast<T*>(values)), mIndex(index), mSize(size) {}
 
         /* Dereference */
-        T& operator*() {
+        reference operator*() {
           assert(mIndex >= 0 && mIndex < mSize);
           return mValues[mIndex];
         }
@@ -50,7 +62,7 @@ class DynamicArray {
         }
 
         /* Constant dereference */
-        const T* operator->() const {
+        const_pointer operator->() const {
           assert(mIndex >= 0 && mIndex < mSize);
           return &(mValues[mIndex]);
         }
@@ -86,29 +98,29 @@ class DynamicArray {
         }
 
         /* Overloaded addition operator */
-        Iterator operator+(const std::ptrdiff_t& diff) {
+        Iterator operator+(const difference_type& diff) {
           return Iterator(mValues, mIndex + diff, mSize);
         }
 
         /* Overloaded addition operator with assignment */
-        Iterator& operator+=(const std::ptrdiff_t& diff) {
+        Iterator& operator+=(const difference_type& diff) {
           mIndex += diff;
           return *this;
         }
 
         /* Overloaded subtraction operator */
-        Iterator operator-(const std::ptrdiff_t& diff) {
+        Iterator operator-(const difference_type& diff) {
           return Iterator(mValues, mIndex - diff, mSize);
         }
 
         /* Overlaoded subtraction operator with assignment */
-        Iterator& operator-=(const std::ptrdiff_t& diff) {
+        Iterator& operator-=(const difference_type& diff) {
           mIndex -= diff;
           return *this;
         }
 
         /* Difference operator */
-        std::ptrdiff_t operator-(const Iterator& iter) const {
+        difference_type operator-(const Iterator& iter) const {
           return mIndex - iter.mIndex;
         }
 

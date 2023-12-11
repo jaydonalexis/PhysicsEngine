@@ -15,8 +15,8 @@ class Material {
     /* Density */
     float mDensity;
 
-    /* Spring constant */
-    float mSpring;
+    /* Restitution constant */
+    float mRestitution;
 
     /* Debug */
     /* Friction constant */
@@ -25,7 +25,7 @@ class Material {
     /* -- Methods -- */
 
     /* Constructor */
-    Material(float frictionConstant, float springConstant, float density = 1.0f);
+    Material(float frictionConstant, float restitutionConstant, float density = 1.0f);
 
   public:
     /* -- Methods -- */
@@ -36,46 +36,56 @@ class Material {
     /* Set the density of the material */
     void setDensity(float density);
 
-    /* Get the spring constant of the material */
-    float getSpringConstant() const;
+    /* Get the restitution constant of the material */
+    float getRestitution() const;
 
-    /* Set the spring constant of the material */
-    void setSpringConstant(float spring);
+    /* Set the restitution constant of the material */
+    void setRestitution(float restitution);
 
     /* Get the friction constant of the material */
-    float getFrictionConstant() const;
+    float getFriction() const;
 
     /* Set the friction constant of the material */
-    void setFrictionConstant(float friction);
+    void setFriction(float friction);
 
     /* -- Friends -- */
     friend class Collider;
     friend class Body;
 };
 
+/* Constructor */
+inline Material::Material(float frictionConstant, float restitutionConstant, float density) : mFriction(frictionConstant), mRestitution(restitutionConstant), mDensity(density) {} 
+
+/* Get the density of the material */
 inline float Material::getDensity() const {
   return mDensity;
 }
 
+
+/* Set the density of the material */
 inline void Material::setDensity(float density) {
   assert(density > 0.0f);
   mDensity = density;
 }
 
-inline float Material::getSpringConstant() const {
-  return mSpring;
+/* Get the restitution constant of the material */
+inline float Material::getRestitution() const {
+  return mRestitution;
 }
 
-inline void Material::setSpringConstant(float spring) {
-  assert(spring >= 0.0f && spring <= 1.0f);
-  mSpring = spring;
+/* Set the restitution constant of the material */
+inline void Material::setRestitution(float restitution) {
+  assert(restitution >= 0.0f && restitution <= 1.0f);
+  mRestitution = restitution;
 }
 
-inline float Material::getFrictionConstant() const {
+/* Get the friction constant of the material */
+inline float Material::getFriction() const {
   return mFriction;
 }
 
-inline void Material::setFrictionConstant(float friction) {
+/* Set the friction constant of the material */
+inline void Material::setFriction(float friction) {
   assert(friction >= 0.0f);
   mFriction = friction;
 }

@@ -5,194 +5,30 @@
 #include <physics/mathematics/Math.h>
 #include <physics/collision/AABB.h>
 #include <cassert>
+#include <iostream>
 
 namespace physics {
 
-class Hull {
+struct Hull {
 
-  private:
+  public:
     /* -- Attributes -- */
 
     /* Hull points */
-    Vector2 mPoints[MAX_POLYGON_VERTICES];
+    Vector2 points[MAX_POLYGON_VERTICES];
 
     /* Number of hull points */
-    uint32 mNumPoints;
+    uint32 numPoints;
 
-  public:
     /* -- Methods -- */
-
+    
     /* Constructor */
-    Hull() = default;
-
-    /* Constructor */
-    Hull(const Vector2* points, uint32 numPoints);
-
-    /* Initialize the convex hull */
-    void init(const Vector2* points, uint32 numpoints);
-
-    /* Recursive divide and conquer quick hull algorithm implementation */
-    Hull recurse(const Vector2& minPoint, const Vector2& maxPoint, const Vector2* points, uint32 numPoints);
-
-    /* -- Friends -- */
-    friend class PolygonShape;
+    Hull() : numPoints(0) {}
 };
 
-/* Constructor */
-inline Hull::Hull(const Vector2* points, uint32 numPoints) {
-  init(points, numPoints);
-}
-
-/* Initialize the convex hull */
-inline void Hull::init(const Vector2* points, uint32 numPoints) {
-  if(numPoints < MIN_POLYGON_VERTICES || numPoints > MAX_POLYGON_VERTICES) {
-    return;
-  }
-
-  numPoints = std::min(numPoints, (uint32)MAX_POLYGON_VERTICES);
-  AABB aabb{{FLT_MAX, FLT_MAX}, {-FLT_MAX, -FLT_MAX}};
-  Vector2 candidates[MAX_POLYGON_VERTICES];
-  uint32 numValid = 0;
-
-  /* Merge points that are in close proximity to each other */
-  for(uint32 i = 0; i < numPoints; i++) {
-    aabb.setLowerBound(min(aabb.getlowerBound(), points[i]));
-    aabb.setUpperBound(max(aabb.getUpperBound(), points[i]));
-    bool valid = true;
-    Vector2 point1 = points[i];
-
-    for(uint32 j = 0; j < i; j++) {
-      Vector2 point2 = points[j];
-      
-      if(point1.distanceSquare(point2) < QUICK_HULL_WELD_TOLERANCE) {
-        valid = false;
-        break;
-      }
-    }
-
-    if(valid) {
-      candidates[numValid++] = point1;
-    }
-  }
-
-  if(numValid < MIN_POLYGON_VERTICES) {
-    return;
-  }
-
-  /* First extreme point for quick hull algorithm */
-  Vector2 center = aabb.getCenter();
-  uint32 i1 = 0;
-  float ds1 = center.distanceSquare(candidates[i1]);
-
-  for(uint32 i = 1; i < numValid; i++) {
-    float ds2 = center.distanceSquare(candidates[i]);
-
-    if(ds2 > ds1) {
-      i1 = i;
-      ds1 = ds2;
-    }
-  }
-
-  /* Remove this frist point from the current set of points */
-  Vector2 point1 = candidates[i1];
-  candidates[i1] = candidates[numValid--];
-
-  /* Second extreme point for quick hull algorithm */
-  uint32 i2 = 0;
-  ds1 = point1.distanceSquare(candidates[i2]);
-
-  for(uint32 i = 1; i < numValid; i++) {
-    float ds2 = point1.distanceSquare(candidates[i]);
-
-    if(ds2 > ds1) {
-      i2 = i;
-      ds1 = ds2;
-    }
-  }
-
-  /* Remove this second point from the current set of points */
-  Vector2 point2 = candidates[i2];
-  candidates[i2] = candidates[numValid--];
-
-  Vector2 right[MAX_POLYGON_VERTICES - 2];
-  uint32 numRight = 0;
-  Vector2 left[MAX_POLYGON_VERTICES - 2];
-  uint32 numLeft = 0;
-  Vector2 divider = point2 - point1;
-  divider.normalize();
-
-  for(uint32 i = 0; i < numValid; i++) {
-    float distance = cross(candidates[i] - point1, divider);
-
-    /* Disregard points that are in close proximity to the line connecting the first and second extreme points from above */
-    if(distance >= 2.0f * LINEAR_SLOP) {
-      right[numRight++] = candidates[i];
-    }
-    else if(distance <= -2.0f * LINEAR_SLOP) {
-      left[numLeft++] = candidates[i];
-    }
-  }
-
-  /* Divide and conquer using a set of points to the right and left of the line connecting the first and second extreme points from above */
-  Hull rightHull = recurse(point1, point2, right, numRight);
-  Hull leftHull = recurse(point2, point1, left, numLeft);
-  assert(leftHull.mNumPoints > 0 || rightHull.mNumPoints > 0);
-
-  /* All of the points are approximately collinear */
-  if(leftHull.mNumPoints == 0 && rightHull.mNumPoints == 0) {
-    return;
-  }
-
-  /* Stitch hulls together */
-  mPoints[mNumPoints++] = point1;
-
-  for(uint32 i = 0; i < rightHull.mNumPoints; i++) {
-    mPoints[mNumPoints++] = rightHull.mPoints[i];
-  }
-
-  mPoints[mNumPoints++] = point2;
-
-  for(uint32 i = 0; i < leftHull.mNumPoints; i++) {
-    mPoints[mNumPoints++] = leftHull.mPoints[i];
-  }
-
-  assert(mNumPoints <= MAX_POLYGON_VERTICES);
-
-  /* Merge collinear points */
-  bool valid = true;
-
-  while(valid && mNumPoints >= MIN_POLYGON_VERTICES) {
-    valid = false;
-
-    for(uint32 i = 0; i < mNumPoints; i++) {
-      Vector2 pointA = mPoints[i];
-      Vector2 pointB = mPoints[(i + 1) % mNumPoints];
-      Vector2 pointC = mPoints[(i + 2) % mNumPoints];
-      Vector2 refLine = pointC - pointA;
-      refLine.normalize();
-      float distance = cross(pointB - pointA, refLine);
-
-      if(distance <= 2.0f * LINEAR_SLOP) {
-        /* Remove midpoint of reference line */
-        for(uint32 j = (i + 1) % mNumPoints; j < mNumPoints - 1; j++) {
-          mPoints[j] = mPoints[j + 1];
-        }
-
-        mNumPoints--;
-        /* Collinear points may still exist */
-        valid = true;
-        break;
-      }
-    }
-  }
-
-  assert(mNumPoints >= MIN_POLYGON_VERTICES);
-}
-
-/* Recursive divide and conquer quick hull algorithm implementation */
-inline Hull Hull::recurse(const Vector2& minPoint, const Vector2& maxPoint, const Vector2* points, uint32 numPoints) {
+/* Recursively compute convex hull */
+static inline Hull computeHull(const Vector2& minPoint, const Vector2& maxPoint, const Vector2* points, uint32 numPoints) {
   Hull hull;
-  assert(hull.mNumPoints == 0);
 
   if(numPoints == 0) {
     return hull;
@@ -232,23 +68,174 @@ inline Hull Hull::recurse(const Vector2& minPoint, const Vector2& maxPoint, cons
   Vector2 furthestPoint = points[furthestIndex];
 
   /* Hull computed using the points to the right of the line connecting the minimum point to the furthest point from the edge vector in the current reference frame */
-  Hull rightHull = recurse(minPoint, furthestPoint, right, numRight);
+  Hull rightHull = computeHull(minPoint, furthestPoint, right, numRight);
 
   /* Hull computed using the points to the right of the line connecting the furthest point from edge vector to the maximum point in the current reference frame */
-  Hull leftHull = recurse(furthestPoint, maxPoint, right, numRight);
+  Hull leftHull = computeHull(furthestPoint, maxPoint, right, numRight);
 
   /* Stitch hulls together */
-  for(uint32 i = 0; i < rightHull.mNumPoints; i++) {
-    hull.mPoints[hull.mNumPoints++] = rightHull.mPoints[i];
+  for(uint32 i = 0; i < rightHull.numPoints; i++) {
+    hull.points[hull.numPoints++] = rightHull.points[i];
   }
 
-  hull.mPoints[hull.mNumPoints++] = furthestPoint;
+  hull.points[hull.numPoints++] = furthestPoint;
 
-  for(uint32 i = 0; i < leftHull.mNumPoints; i++) {
-    hull.mPoints[hull.mNumPoints++] = leftHull.mPoints[i];
+  for(uint32 i = 0; i < leftHull.numPoints; i++) {
+    hull.points[hull.numPoints++] = leftHull.points[i];
   }
 
-  assert(hull.mNumPoints < MAX_POLYGON_VERTICES);
+  assert(hull.numPoints < MAX_POLYGON_VERTICES);
+  return hull;
+}
+
+/* Create a convex hull from the provided set of points */
+inline Hull getHull(const Vector2* points, uint32 numPoints) {
+  Hull hull;
+  hull.numPoints = 0;
+
+  if(numPoints < MIN_POLYGON_VERTICES || numPoints > MAX_POLYGON_VERTICES) {
+    return hull;
+  }
+
+  numPoints = std::min(numPoints, (uint32)MAX_POLYGON_VERTICES);
+  AABB aabb{{FLT_MAX, FLT_MAX}, {-FLT_MAX, -FLT_MAX}};
+  Vector2 candidates[MAX_POLYGON_VERTICES];
+  uint32 numValid = 0;
+
+  /* Merge points that are in close proximity to each other */
+  for(uint32 i = 0; i < numPoints; i++) {
+    aabb.setLowerBound(min(aabb.getlowerBound(), points[i]));
+    aabb.setUpperBound(max(aabb.getUpperBound(), points[i]));
+    bool valid = true;
+    Vector2 point1 = points[i];
+
+    for(uint32 j = 0; j < i; j++) {
+      Vector2 point2 = points[j];
+      
+      if(point1.distanceSquare(point2) < QUICK_HULL_WELD_TOLERANCE) {
+        valid = false;
+        break;
+      }
+    }
+
+    if(valid) {
+      candidates[numValid++] = point1;
+    }
+  }
+
+  if(numValid < MIN_POLYGON_VERTICES) {
+    return hull;
+  }
+
+  /* First extreme point for quick hull algorithm */
+  Vector2 center = aabb.getCenter();
+  uint32 i1 = 0;
+  float ds1 = center.distanceSquare(candidates[i1]);
+
+  for(uint32 i = 1; i < numValid; i++) {
+    float ds2 = center.distanceSquare(candidates[i]);
+
+    if(ds2 > ds1) {
+      i1 = i;
+      ds1 = ds2;
+    }
+  }
+
+  /* Remove this first point from the current set of points */
+  Vector2 point1 = candidates[i1];
+  candidates[i1] = candidates[numValid - 1];
+  numValid--;
+
+  /* Second extreme point for quick hull algorithm */
+  uint32 i2 = 0;
+  ds1 = point1.distanceSquare(candidates[i2]);
+
+  for(uint32 i = 1; i < numValid; i++) {
+    float ds2 = point1.distanceSquare(candidates[i]);
+
+    if(ds2 > ds1) {
+      i2 = i;
+      ds1 = ds2;
+    }
+  }
+
+  /* Remove this second point from the current set of points */
+  Vector2 point2 = candidates[i2];
+  candidates[i2] = candidates[numValid - 1];
+  numValid--;
+
+  Vector2 right[MAX_POLYGON_VERTICES - 2];
+  uint32 numRight = 0;
+  Vector2 left[MAX_POLYGON_VERTICES - 2];
+  uint32 numLeft = 0;
+  Vector2 divider = point2 - point1;
+  divider.normalize();
+
+  for(uint32 i = 0; i < numValid; i++) {
+    float distance = cross(candidates[i] - point1, divider);
+
+    /* Disregard points that are in close proximity to the line connecting the first and second extreme points from above */
+    if(distance >= 2.0f * LINEAR_SLOP) {
+      right[numRight++] = candidates[i];
+    }
+    else if(distance <= -2.0f * LINEAR_SLOP) {
+      left[numLeft++] = candidates[i];
+    }
+  }
+
+  /* Divide and conquer using a set of points to the right and left of the line connecting the first and second extreme points from above */
+  Hull rightHull = computeHull(point1, point2, right, numRight);
+  Hull leftHull = computeHull(point2, point1, left, numLeft);
+
+  /* All of the points are approximately collinear */
+  if(rightHull.numPoints == 0 && leftHull.numPoints == 0) {
+    return hull;
+  }
+
+  /* Stitch hulls together */
+  hull.points[hull.numPoints++] = point1;
+
+  for(uint32 i = 0; i < rightHull.numPoints; i++) {
+    hull.points[hull.numPoints++] = rightHull.points[i];
+  }
+
+  hull.points[hull.numPoints++] = point2;
+
+  for(uint32 i = 0; i < leftHull.numPoints; i++) {
+    hull.points[hull.numPoints++] = leftHull.points[i];
+  }
+
+  assert(hull.numPoints <= MAX_POLYGON_VERTICES);
+
+  /* Merge collinear points */
+  bool valid = true;
+
+  while(valid && hull.numPoints >= MIN_POLYGON_VERTICES) {
+    valid = false;
+
+    for(uint32 i = 0; i < hull.numPoints; i++) {
+      Vector2 pointA = hull.points[i];
+      Vector2 pointB = hull.points[(i + 1) % hull.numPoints];
+      Vector2 pointC = hull.points[(i + 2) % hull.numPoints];
+      Vector2 refLine = pointC - pointA;
+      refLine.normalize();
+      float distance = cross(pointB - pointA, refLine);
+
+      if(distance <= 2.0f * LINEAR_SLOP) {
+        /* Remove midpoint of reference line */
+        for(uint32 j = (i + 1) % hull.numPoints; j < hull.numPoints - 1; j++) {
+          hull.points[j] = hull.points[j + 1];
+        }
+
+        hull.numPoints--;
+        /* Collinear points may still exist */
+        valid = true;
+        break;
+      }
+    }
+  }
+
+  assert(hull.numPoints >= MIN_POLYGON_VERTICES);
   return hull;
 }
 

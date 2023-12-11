@@ -16,21 +16,20 @@ class MemoryStrategy {
   private:
     /* -- Attributes -- */
 
-    /* Debug */
-    /* Primary memory handler */
-    MemoryHandler* mPrimaryMemoryHandler;
-
     /* Vanilla/Default handler */
     VanillaMemoryHandler mVanillaMemoryHandler;
 
-    /* Linear memory handler */
-    LinearMemoryHandler mLinearyMemoryHandler;
+    /* Primary memory handler */
+    MemoryHandler* mPrimaryMemoryHandler;
+
+    /* Free list memory handler */
+    FreeListMemoryHandler mFreeListMemoryHandler;
 
     /* Object pool memory handler */
     ObjectPoolMemoryHandler mObjectPoolMemoryHandler;
 
-    /* Free list memory handler */
-    FreeListMemoryHandler mFreeListMemoryHandler;
+    /* Linear memory handler */
+    LinearMemoryHandler mLinearMemoryHandler;
 
   public:
     /* -- Nested Classes -- */
@@ -68,10 +67,18 @@ class MemoryStrategy {
     void reset(HandlerType handlerType);
 };
 
+/* Constructor */
+inline MemoryStrategy::MemoryStrategy(MemoryHandler* primaryMemoryHandler,
+                                      size_t initSize) :
+                                      mPrimaryMemoryHandler(!primaryMemoryHandler ? &mVanillaMemoryHandler : primaryMemoryHandler),
+                                      mFreeListMemoryHandler(*mPrimaryMemoryHandler, initSize),
+                                      mLinearMemoryHandler(mFreeListMemoryHandler), /* Change back to free list */
+                                      mObjectPoolMemoryHandler(mFreeListMemoryHandler) {} /* Change back to free list */
+
 /* Dynamically allocate memory using a specific memory handler */
 inline void* MemoryStrategy::allocate(HandlerType handlerType, size_t size) {
   switch(handlerType) {
-    case HandlerType::Linear: return mLinearyMemoryHandler.allocate(size);
+    case HandlerType::Linear: return mLinearMemoryHandler.allocate(size);
     case HandlerType::ObjectPool: return mObjectPoolMemoryHandler.allocate(size);
     case HandlerType::FreeList: return mFreeListMemoryHandler.allocate(size);
     case HandlerType::Vanilla: return mVanillaMemoryHandler.allocate(size);
@@ -83,7 +90,7 @@ inline void* MemoryStrategy::allocate(HandlerType handlerType, size_t size) {
 /* Free dynamically allocated memory */
 inline void MemoryStrategy::free(HandlerType handlerType, void* ptr, size_t size) {
   switch(handlerType) {
-    case HandlerType::Linear: mLinearyMemoryHandler.free(ptr, size); break;
+    case HandlerType::Linear: mLinearMemoryHandler.free(ptr, size); break;
     case HandlerType::ObjectPool: mObjectPoolMemoryHandler.free(ptr, size); break;
     case HandlerType::FreeList: mFreeListMemoryHandler.free(ptr, size); break;
     case HandlerType::Vanilla: mVanillaMemoryHandler.free(ptr, size); break;
@@ -94,7 +101,7 @@ inline void MemoryStrategy::free(HandlerType handlerType, void* ptr, size_t size
 
 /* Get Linear handler */
 inline LinearMemoryHandler& MemoryStrategy::getLinearMemoryHandler() {
-  return mLinearyMemoryHandler;
+  return mLinearMemoryHandler;
 }
 
 /* Get Object Pool handler */
@@ -115,7 +122,7 @@ inline VanillaMemoryHandler& MemoryStrategy::getVanillaMemoryHandler() {
 /* Reset memory handler if applicable */
 inline void MemoryStrategy::reset(HandlerType handlerType) {
   switch(handlerType) {
-    case HandlerType::Linear: mLinearyMemoryHandler.reset(); break;
+    case HandlerType::Linear: mLinearMemoryHandler.reset(); break;
     case HandlerType::ObjectPool: break;
     case HandlerType::FreeList: break;
     case HandlerType::Vanilla: break;

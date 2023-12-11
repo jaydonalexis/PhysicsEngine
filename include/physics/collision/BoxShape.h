@@ -21,12 +21,6 @@ class BoxShape : public PolygonShape {
     /* Destructor */
     virtual ~BoxShape() override = default;
 
-    /* Get the size of the shape in bytes */
-    virtual size_t byteSize() const override;
-
-    /* Query whether a point is inside the shape */
-    virtual bool testPoint(const Vector2& pointLocal) const override;
-
   public:
     /* -- Methods -- */
 
@@ -35,6 +29,12 @@ class BoxShape : public PolygonShape {
 
     /* Delete assignment operator */
     BoxShape& operator=(const BoxShape& shape) = delete;
+    
+    /* Get the size of the shape in bytes */
+    virtual size_t byteSize() const override;
+
+    /* Query whether a point is inside the shape */
+    virtual bool testPoint(const Vector2& pointLocal) const override;
 
     /* Set the geometric properties of the box */
     void set(float hx, float hy);

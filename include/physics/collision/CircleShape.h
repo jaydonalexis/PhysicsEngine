@@ -16,12 +16,6 @@ class CircleShape : public Shape {
     /* Destructor */
     virtual ~CircleShape() override = default; 
 
-    /* Get the size of the shape in bytes */
-    virtual size_t byteSize() const override;
-
-    /* Query whether a point is inside the shape */
-    virtual bool testPoint(const Vector2& pointLocal) const override;
-
   public:
     /* -- Methods -- */
 
@@ -31,10 +25,16 @@ class CircleShape : public Shape {
     /* Deleted assignment operator */
     CircleShape& operator=(const CircleShape& shape) = delete;
 
-    /* Get radius of the sphere */
+    /* Get the size of the shape in bytes */
+    virtual size_t byteSize() const override;
+
+    /* Query whether a point is inside the shape */
+    virtual bool testPoint(const Vector2& pointLocal) const override;
+
+    /* Get radius of the circle */
     float getRadius() const;
 
-    /* Set radius of the sphere */
+    /* Set radius of the circle */
     void setRadius(float radius);
 
     /* Get the rotational inertia of the shape about the local origin */

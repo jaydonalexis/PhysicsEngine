@@ -98,6 +98,9 @@ struct Vector2 {
     /* Overloaded less than operator */
     bool operator<(const Vector2& vector) const;
 
+    /* Debug string */
+    std::string toString() const;
+
     /* -- Friends -- */
 
     friend Vector2 operator+(const Vector2& vector1, const Vector2& vector2);
@@ -355,6 +358,11 @@ inline Vector2 max(const Vector2& vector1, const Vector2& vector2) {
 /* clamp function for Vector2 */
 inline Vector2 clamp(const Vector2& vector, const Vector2& low, const Vector2& high) {
   return max(low, min(vector, high));
+}
+
+/* Debug string */
+inline std::string Vector2::toString() const {
+  return "[" + std::to_string(x) + "," + std::to_string(y) + "]";
 }
 
 }

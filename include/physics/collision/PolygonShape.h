@@ -47,12 +47,6 @@ class PolygonShape : public Shape {
     /* Destructor */
     virtual ~PolygonShape() override = default;
 
-    /* Get the size of the shape in bytes */
-    virtual size_t byteSize() const override;
-
-    /* Query whether a point is inside the shape */
-    virtual bool testPoint(const Vector2& pointLocal) const override;
-
     /* Compute geometric properties of the shape */
     void computeGeometricProperties();
 
@@ -64,6 +58,12 @@ class PolygonShape : public Shape {
 
     /* Deleted assignment operator */
     PolygonShape& operator=(const PolygonShape& shape) = delete;
+
+    /* Get the size of the shape in bytes */
+    virtual size_t byteSize() const override;
+
+    /* Query whether a point is inside the shape */
+    virtual bool testPoint(const Vector2& pointLocal) const override;
 
     /* Set the geometric properties of the polygon */
     void set(const Hull& hull);
