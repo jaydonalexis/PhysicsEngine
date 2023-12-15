@@ -1,9 +1,11 @@
 #include <physics/collision/algorithms/CircleVCircleAlgorithm.h>
+#include <physics/common/Factory.h>
 
 using namespace physics;
 
 /* Execute the collision algorithm */
 void CircleVCircleAlgorithm::execute(NarrowPhase& narrowPhase, uint32 entryIndex, LocalManifoldInfo& manifold) {
+  LOG("Executing Circle-Circle algorithm");
   /* Extract prerequisite information from the narrow phase input */
   assert(!narrowPhase.entries[entryIndex].isColliding);
   const Transform& firstTransform = narrowPhase.entries[entryIndex].firstShapeTransform;

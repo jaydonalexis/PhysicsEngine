@@ -1,4 +1,5 @@
 #include <physics/collision/algorithms/PolygonVPolygonAlgorithm.h>
+#include <physics/common/Factory.h>
 
 using namespace physics;
 
@@ -118,6 +119,7 @@ uint32 PolygonVPolygonAlgorithm::clipToLine(const ClipVertex verticesInput[MAX_M
 
 /* Execute the collision algorithm */
 void PolygonVPolygonAlgorithm::execute(NarrowPhase& narrowPhase, uint32 entryIndex, LocalManifoldInfo& manifold) {
+  LOG("Executing Polygon-Polygon algorithm");
   /* Extract prerequisite information from the narrow phase input */
   assert(!narrowPhase.entries[entryIndex].isColliding);
   const Transform& firstTransform = narrowPhase.entries[entryIndex].firstShapeTransform;

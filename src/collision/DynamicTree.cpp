@@ -1,5 +1,6 @@
 #include <physics/collision/DynamicTree.h>
 #include <physics/collections/Stack.h>
+#include <physics/common/Factory.h>
 
 using namespace physics;
 
@@ -94,6 +95,7 @@ int32 DynamicTree::createNode() {
   mNodes[free].parent = NULL_NODE;
   mNodes[free].height = LEAF_HEIGHT;
   mNumNodes++;
+  LOG("The dynamic tree currently contains " + std::to_string(mNumNodes) + " node(s)");
   return free;
 }
 
@@ -106,6 +108,7 @@ void DynamicTree::extractNode(int32 node) {
   mNodes[node].height = FREE_NODE_HEIGHT;
   mFree = node;
   mNumNodes--;
+  LOG("The dynamic tree currently contains " + std::to_string(mNumNodes) + " node(s)");
 }
 
 /* Insert a node as a leaf in the tree */

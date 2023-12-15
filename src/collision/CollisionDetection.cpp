@@ -1,6 +1,7 @@
 #include <physics/collision/CollisionDetection.h>
 #include <physics/common/World.h>
 #include <physics/memory/MemoryStrategy.h>
+#include <physics/common/Factory.h>
 
 using namespace physics;
 
@@ -46,6 +47,7 @@ void CollisionDetection::runBroadPhase() {
   assert(!mBroadPhaseOverlapNodes.size());
   /* Use dynamic tree to find all shapes overlapping with those that have moved in the previous frame */
   mBroadPhase.computeOverlapPairs(mMemoryStrategy, mBroadPhaseOverlapNodes);
+  LOG(std::to_string(mBroadPhaseOverlapNodes.size()) + " overlapping node(s) found");
   /* Create new overlap pairs */
   updateOverlapPairs(mBroadPhaseOverlapNodes);
   /* Remove overlap pairs which are not overlapping anymore */
@@ -57,6 +59,7 @@ void CollisionDetection::prepareNarrowPhase(NarrowPhase& narrowPhase) {
   /* Use cache to reserve sufficient memory for the narrow phase entries */
   narrowPhase.reserve();
   const uint32 numPairs = static_cast<uint32>(mOverlapPairs.mPairs.size());
+  LOG("Retrieved " + std::to_string(numPairs) + " overlap pair(s) from broad phase");
 
   for(uint32 i = 0; i < numPairs; i++) {
     OverlapPairs::OverlapPair& overlapPair = mOverlapPairs.mPairs[i];
@@ -70,6 +73,10 @@ void CollisionDetection::prepareNarrowPhase(NarrowPhase& narrowPhase) {
     Shape* firstShape = mColliderComponents.mShapes[firstColliderIndex];
     Shape* secondShape = mColliderComponents.mShapes[secondColliderIndex];
     CollisionAlgorithmType algorithmType = overlapPair.collisionAlgorithmType;
+
+    std::stringstream ss;
+    ss << " First Index: " << firstColliderEntity.getIndex() << ", Second Index: " << secondColliderEntity.getIndex() << ", Algorithm Type: " << (int)algorithmType;
+    LOG("Overlap pair " + std::to_string(i) + ss.str());
 
     /* Add an entry for the current broadphase overlap pair into the narrow phase */
     narrowPhase.addEntry(overlapPair.pairIdentifier,
@@ -166,12 +173,13 @@ void CollisionDetection::updateOverlapPairs(const DynamicArray<Pair<int32, int32
               /* Disregard if the two shapes cannot collide due to filtering */
               if((firstCollisionFilter & secondCollisionCategory) != 0 && (firstCollisionCategory & secondCollisionFilter) != 0) {
                 mOverlapPairs.addOverlapPair(firstColliderIndex, secondColliderIndex);
+                LOG("Overlap pair created - First Index: " + std::to_string(firstColliderEntity.getIndex()) + ", Second Index: " + std::to_string(secondColliderEntity.getIndex()) + ", Identifier: " + std::to_string(pairIdentifier));
               }
             }
-
             else {
               /* The colliders of the overlap pair still overlap so no need to test */
               overlapPair->testOverlap = false;
+              LOG("Overlap pair already created - First Index: " + std::to_string(firstColliderEntity.getIndex()) + ", Second Index: " + std::to_string(secondColliderEntity.getIndex()));
             }
           }
         }
@@ -196,6 +204,7 @@ void CollisionDetection::removeOverlapPairs() {
         /* Otherwise, remove overlap pair from broad phase */
         mOverlapPairs.removeOverlapPair(i);
         i--;
+        LOG("Removed overlap pair " + std::to_string(i));
       }
     }
   }
@@ -232,6 +241,7 @@ void CollisionDetection::filterOverlapPairs(Entity firstBodyEntity, Entity secon
 void CollisionDetection::processNarrowPhase(NarrowPhase& narrowPhase, DynamicArray<ContactPair>* contactPairs, DynamicArray<LocalManifold>& manifolds) {
   assert(!contactPairs->size());
   const uint32 numNarrowPhaseEntries = static_cast<uint32>(narrowPhase.entries.size());
+  LOG("Retrieved " + std::to_string(numNarrowPhaseEntries) + " narrow phase entry(s)");
 
   for(uint32 i = 0; i < numNarrowPhaseEntries; i++) {
     LocalManifoldInfo manifoldInfo;
@@ -241,6 +251,7 @@ void CollisionDetection::processNarrowPhase(NarrowPhase& narrowPhase, DynamicArr
 
     /* Only process the result into a contact pair if the two shape have been found to be colliding (there is more than one contact point)*/
     if(narrowPhase.entries[i].isColliding) {
+      LOG("Collision detected for narrow phase entry " + std::to_string(i) + " associated with overlap pair identifier " + std::to_string(narrowPhase.entries[i].overlapPairIdentifier));
       const uint64 pairIdentifier = narrowPhase.entries[i].overlapPairIdentifier;
       OverlapPairs::OverlapPair* overlapPair = mOverlapPairs.getOverlapPair(pairIdentifier);
       assert(overlapPair);
@@ -254,6 +265,7 @@ void CollisionDetection::processNarrowPhase(NarrowPhase& narrowPhase, DynamicArr
       assert(!mWorld->mBodyComponents.getIsEntityDisabled(firstBodyEntity) || !mWorld->mBodyComponents.getIsEntityDisabled(secondBodyEntity));
       const uint32 newContactPairIndex = static_cast<uint32>(contactPairs->size());
       /* Add the contact pair to the array */
+      LOG("Creating contact pair for - First Index: " + std::to_string(firstColliderEntity.getIndex()) + ", Second Index: " + std::to_string(secondColliderEntity.getIndex()));
       contactPairs->emplace(pairIdentifier, newContactPairIndex, firstBodyEntity, secondBodyEntity, firstColliderEntity, secondColliderEntity);
       const uint32 newManifoldIndex = static_cast<uint32>(manifolds.size());
       /* Add the manifold for the contact pair into the array */
@@ -266,6 +278,7 @@ void CollisionDetection::processNarrowPhase(NarrowPhase& narrowPhase, DynamicArr
 
 /* Add the contact pairs to the appropriate bodies */
 void CollisionDetection::associateContactPairs() {
+  std::stringstream ss;
   const uint32 numCurrentContactPairs = static_cast<uint32>(mCurrentContactPairs->size());
 
   /* Add the contact pairs to both bodies of the pair so that we can create islands for contact solving */
@@ -273,11 +286,13 @@ void CollisionDetection::associateContactPairs() {
     ContactPair& contactPair = (*mCurrentContactPairs)[i];
     mBodyComponents.addContactPair(contactPair.firstBodyEntity, i);
     mBodyComponents.addContactPair(contactPair.secondBodyEntity, i);
+    ss << "Added contact pair " << i << " to bodies - First Index: " << contactPair.firstBodyEntity.getIndex() << ", Second Index: " << contactPair.secondBodyEntity.getIndex();
   }
 }
 
 /* Prepare collision detection results for the contact solver */
 void CollisionDetection::prepareForContactSolver() {
+  std::stringstream ss;
   mCurrentManifolds->reserve(mCurrentContactPairs->size());
   const uint32 numContactPairs = static_cast<uint32>(mWorld->mIslandOrderedContactPairs.size());
 
@@ -288,6 +303,8 @@ void CollisionDetection::prepareForContactSolver() {
     contactPair.manifoldsIndex = static_cast<uint32>(mCurrentManifolds->size());
     mCurrentManifolds->add(mRawManifolds[contactPair.rawManifoldsIndex]);
   }
+
+  ss << "Current manifold count is " << mCurrentManifolds->size() << std::endl;
 
   /* Copy the impulses from the contact points of the manifolds in the previous frame */
   prepareForWarmStart();
@@ -372,7 +389,7 @@ void CollisionDetection::removeCollider(Collider* collider) {
 
   /* If we remove the collider, we need to remove all of the overlap pairs in broad phase in which this collider is involved */
   while(!overlapPairs.empty()) {
-    mOverlapPairs.removeOverlapPair(overlapPairs[0]);
+    mOverlapPairs.eraseOverlapPair(overlapPairs[0]);
   }
 
   mIdentifierEntityMap.remove(broadPhaseIdentifier);
@@ -420,7 +437,7 @@ void CollisionDetection::addIncompatibleCollisionPair(Entity firstBodyEntity, En
   }
 
   for(uint32 i = 0; i < numRemovalPairs; i++) {
-      mOverlapPairs.removeOverlapPair(removalPairs[i]);
+      mOverlapPairs.eraseOverlapPair(removalPairs[i]);
   }
 }
 

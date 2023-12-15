@@ -20,7 +20,7 @@ size_t CircleShape::byteSize() const {
 
 /* Query whether a point is inside the shape */
 bool CircleShape::testPoint(const Vector2& pointLocal) const {
-  return pointLocal.lengthSquare() <= mRadius * mRadius;
+  return pointLocal.lengthSquare() <= square(mRadius);
 }
 
 /* Get radius of the sphere */
@@ -43,7 +43,7 @@ float CircleShape::getLocalInertia(float mass) const {
 
 /* Get the area of the shape */
 float CircleShape::getArea() const {
-  return (PI * mRadius * mRadius);
+  return (PI * square(mRadius));
 }
 
 /* Get the centroid of the shape */

@@ -15,7 +15,7 @@ PolygonShape::PolygonShape(const Vector2* points, uint32 numPoints, MemoryHandle
 
 /* Constructor */
 PolygonShape::PolygonShape(const Hull& hull, MemoryHandler& memoryHandler) : Shape(ShapeType::Polygon, POLYGON_RADIUS, memoryHandler) {
-  assert(hull.mNumPoints >= MIN_POLYGON_VERTICES);
+  assert(hull.numPoints >= MIN_POLYGON_VERTICES);
   set(hull);
 }
 
@@ -37,18 +37,18 @@ bool PolygonShape::testPoint(const Vector2& pointLocal) const {
 
 /* Set the geometric properties of the polygon */
 void PolygonShape::set(const Vector2* points, uint32 numPoints) {
-  Hull hull(points, numPoints);
-  assert(hull.mNumPoints >= MIN_POLYGON_VERTICES);
+  Hull hull = getHull(points, numPoints);
+  assert(hull.numPoints >= MIN_POLYGON_VERTICES);
   set(hull);
 }
 
 /* Set the geometric properties of the polygon */
 void PolygonShape::set(const Hull& hull) {
-  assert(hull.mNumPoints >= MIN_POLYGON_VERTICES);
-  mNumVertices = hull.mNumPoints;
+  assert(hull.numPoints >= MIN_POLYGON_VERTICES);
+  mNumVertices = hull.numPoints;
 
   for(uint32 i = 0; i < mNumVertices; i++) {
-    mVertices[i] = hull.mPoints[i];
+    mVertices[i] = hull.points[i];
   }
 
   for(uint32 i = 0; i < mNumVertices; i++) {
@@ -100,7 +100,7 @@ void PolygonShape::computeGeometricProperties() {
 
   /* Cache properties */
   assert(area > FLOAT_EPSILON);
-  /* Center of mass */
+  /* Center of mass because of uniform density */
   centroid *= 1.0f / area;
   mArea = area;
   mCentroid = centroid + refPoint;

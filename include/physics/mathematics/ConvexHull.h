@@ -5,7 +5,6 @@
 #include <physics/mathematics/Math.h>
 #include <physics/collision/AABB.h>
 #include <cassert>
-#include <iostream>
 
 namespace physics {
 
