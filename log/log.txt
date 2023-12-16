@@ -1,0 +1,1080 @@
+[2023-12-15 17:37:51] Created body with entity index 0
+[2023-12-15 17:37:51] The dynamic tree currently contains 1 node(s)
+[2023-12-15 17:37:51] Added collider index 1 to body index 0
+[2023-12-15 17:37:51] Created body with entity index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] Added collider index 3 to body index 2
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair created - First Index: 3, Second Index: 1, Identifier: 2
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Collision detected for narrow phase entry 0 associated with overlap pair identifier 2
+[2023-12-15 17:37:51] Creating contact pair for - First Index: 1, Second Index: 3
+[2023-12-15 17:37:51] Island generation found 1 contact pair(s) for body index 2
+[2023-12-15 17:37:51] Opposite body index 0 found for parent body index 2
+[2023-12-15 17:37:51] Contact solver found 1 manifold(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Collision detected for narrow phase entry 0 associated with overlap pair identifier 2
+[2023-12-15 17:37:51] Creating contact pair for - First Index: 1, Second Index: 3
+[2023-12-15 17:37:51] Island generation found 1 contact pair(s) for body index 2
+[2023-12-15 17:37:51] Opposite body index 0 found for parent body index 2
+[2023-12-15 17:37:51] Contact solver found 1 manifold(s)
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 2 overlapping node(s) found
+[2023-12-15 17:37:51] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:51] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:51] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Removed overlap pair 18446744073709551615
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:51] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:51] 1 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:51] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:51] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:51] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:51] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 1 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 1 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 1 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 1 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 0 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Retrieved 0 narrow phase entry(s)
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair created - First Index: 3, Second Index: 1, Identifier: 2
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Collision detected for narrow phase entry 0 associated with overlap pair identifier 2
+[2023-12-15 17:37:52] Creating contact pair for - First Index: 1, Second Index: 3
+[2023-12-15 17:37:52] Island generation found 1 contact pair(s) for body index 2
+[2023-12-15 17:37:52] Opposite body index 0 found for parent body index 2
+[2023-12-15 17:37:52] Contact solver found 1 manifold(s)
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] 2 overlapping node(s) found
+[2023-12-15 17:37:52] Overlap pair already created - First Index: 3, Second Index: 1
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] 0 overlapping node(s) found
+[2023-12-15 17:37:52] Retrieved 1 overlap pair(s) from broad phase
+[2023-12-15 17:37:52] Overlap pair 0 First Index: 3, Second Index: 1, Algorithm Type: 1
+[2023-12-15 17:37:52] Retrieved 1 narrow phase entry(s)
+[2023-12-15 17:37:52] Executing Circle-Polygon algorithm
+[2023-12-15 17:37:52] Island generation found 0 contact pair(s) for body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 3 node(s)
+[2023-12-15 17:37:52] Removing body with entity index 2
+[2023-12-15 17:37:52] Removing collider index 3 from body index 2
+[2023-12-15 17:37:52] The dynamic tree currently contains 2 node(s)
+[2023-12-15 17:37:52] The dynamic tree currently contains 1 node(s)
+[2023-12-15 17:37:52] Removing body with entity index 0
+[2023-12-15 17:37:52] Removing collider index 1 from body index 0
+[2023-12-15 17:37:52] The dynamic tree currently contains 0 node(s)
