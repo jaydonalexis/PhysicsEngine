@@ -1,6 +1,7 @@
 #include <physics/common/World.h>
 #include <physics/dynamics/Body.h>
 #include <physics/collision/Shape.h>
+#include <physics/common/Factory.h>
 
 using namespace physics;
 
@@ -19,7 +20,7 @@ void Body::resetOverlapPairs() {
     const uint64 numOverlapPairs = overlapPairs.size();
 
     for(uint64 j = 0; j < numOverlapPairs; j++) {
-      mWorld.mCollisionDetection.mOverlapPairs.removeOverlapPair(overlapPairs[j]);
+      mWorld.mCollisionDetection.mOverlapPairs.eraseOverlapPair(overlapPairs[j]);
     }
   }
 
@@ -89,11 +90,13 @@ Collider* Body::addCollider(Shape* shape, const Transform& transform) {
   shape->computeAABB(aabb, mWorld.mTransformComponents.getTransform(mEntity) * transform);
   /* Add the collider into broad phase */
   mWorld.mCollisionDetection.addCollider(collider, aabb);
+  LOG("Added collider index " + std::to_string(colliderEntity.getIndex()) + " to body index " + std::to_string(mEntity.getIndex()));
   return collider;
 }
 
 /* Remove a collider from the body */
 void Body::removeCollider(Collider* collider) {
+  LOG("Removing collider index " + std::to_string(collider->getEntity().getIndex()) + " from body index " + std::to_string(mEntity.getIndex()));
   /* Remove the collider from broad phase */
   if(collider->getBroadPhaseIdentifier() != -1) {
     mWorld.mCollisionDetection.removeCollider(collider);
